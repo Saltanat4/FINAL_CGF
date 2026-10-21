@@ -1,4 +1,6 @@
 #include "shaderClass.h"
+#include <glm/gtc/type_ptr.hpp>
+#include <stdexcept>
 
 std::string get_file_contents(
     const char* filename
@@ -37,7 +39,9 @@ std::string get_file_contents(
         return contents;
     }
 
-    throw(errno);
+    throw std::runtime_error(
+        std::string("Cannot open shader file: ") + filename
+    );
 }
 
 Shader::Shader(
@@ -199,4 +203,18 @@ void Shader::compileErrors(
                 << std::endl;
         }
     }
+}
+
+void Shader::SetMat4(
+    const char* name,
+    const glm::mat4& matrix)
+{
+    GLint location = glGetUniformLocation(ID, name);
+
+    glUniformMatrix4fv(
+        location,
+        1,
+        GL_FALSE,
+        glm::value_ptr(matrix)
+    );
 }

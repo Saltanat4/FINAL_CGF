@@ -6,7 +6,7 @@
 *.o
 *.so
 *.a
-*.lib
+# *.lib
 *.exp
 *.obj
 *.pdb

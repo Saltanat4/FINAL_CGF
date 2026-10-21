@@ -6,6 +6,7 @@
 #include <fstream>
 #include <iostream>
 #include <cerrno>
+#include <glm/glm.hpp>
 
 std::string get_file_contents(
     const char* filename
@@ -23,6 +24,7 @@ public:
 
     void Activate();
     void Delete();
+    void SetMat4(const char* name, const glm::mat4& matrix);
 
 private:
     void compileErrors(
