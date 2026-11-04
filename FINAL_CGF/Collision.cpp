@@ -200,7 +200,6 @@ bool IntersectCapsuleOBB(
         capsule.center +
         glm::vec3(0.0f, halfSegment, 0.0f);
 
-    // Для ортонормированной матрицы обратная = транспонированная.
     glm::mat3 inverseOrientation =
         glm::transpose(box.orientation);
 
@@ -255,7 +254,7 @@ bool IntersectCapsuleOBB(
         );
     }
 
-    contact.normal = glm::normalize(
+    contact.normal = glm::normalize(    
         box.orientation * localContact.normal
     );
 

@@ -15,6 +15,79 @@
 
 namespace
 {
+    constexpr float kSpawnYaw = -90.0f;
+    constexpr float kSpawnPitch = -10.0f;
+
+    struct LevelState
+    {
+        GameObject* platform = nullptr;
+
+        std::uint32_t spikesId = 0;
+    };
+
+    const glm::vec3 kPlayerSpawn(0.0f, 1.5f, 5.0f);
+
+    constexpr float kKillHeight = -10.0f;
+
+    LevelState BuildLevel(
+        Scene& scene,
+        const ObjectFactory& factory)
+    {
+        LevelState state;
+
+        factory.CreateBlock(
+            scene,
+            "Floor",
+            glm::vec3(0.0f, -0.75f, 0.0f),
+            glm::vec3(16.0f, 0.5f, 16.0f)
+        );
+
+        factory.CreateBlock(
+            scene,
+            "Кубик",
+            glm::vec3(0.0f, 0.0f, 0.0f),
+            glm::vec3(1.0f, 1.0f, 1.0f)
+        );
+
+        factory.CreateBlock(
+            scene,
+            "Столб",
+            glm::vec3(-3.0f, 1.0f, -3.0f),
+            glm::vec3(1.0f, 3.0f, 1.0f)
+        );
+
+        factory.CreateBlock(
+            scene,
+            "Столб",
+            glm::vec3(-2.0f, 0.5f, -1.0f),
+            glm::vec3(1.0f, 2.0f, 1.0f)
+        );
+
+        GameObject& platform = factory.CreateBlock(
+            scene,
+            "Платформа",
+            glm::vec3(3.0f, 1.5f, -3.0f),
+            glm::vec3(4.0f, 0.4f, 2.0f),
+            glm::vec3(0.0f, 35.0f, 15.0f)
+        );
+
+        platform.collider->isStatic = false;
+
+        GameObject& spikes = factory.CreateBlock(
+            scene,
+            "Шипы",
+            glm::vec3(4.0f, -0.35f, 2.0f),
+            glm::vec3(2.0f, 0.3f, 2.0f)
+        );
+
+        spikes.collider->type = ColliderType::Trigger;
+
+        state.platform = &platform;
+        state.spikesId = spikes.id;
+
+        return state;
+    }
+
     struct MouseState
     {
         Camera* camera = nullptr;
@@ -111,6 +184,8 @@ int main()
 
         Camera camera;
 
+        camera.SetRotation(kSpawnYaw, kSpawnPitch);
+
         Scene scene;
 
         ObjectFactory objectFactory;
@@ -137,52 +212,13 @@ int main()
 
         glEnable(GL_DEPTH_TEST);
 
-        double previousTime = glfwGetTime();
-
-
-        objectFactory.CreateBlock(
-            scene,
-            "Floor",
-            glm::vec3(0.0f, -0.75f, 0.0f),
-            glm::vec3(16.0f, 0.5f, 16.0f)
-        );
-
-        objectFactory.CreateBlock(
-            scene,
-            "Кубик",
-            glm::vec3(0.0f, 0.0f, 0.0f),
-            glm::vec3(1.0f, 1.0f, 1.0f)
-        );
-
-        objectFactory.CreateBlock(
-            scene,
-            "Столб",
-            glm::vec3(-3.0f, 1.0f, -3.0f),
-            glm::vec3(1.0f, 3.0f, 1.0f)
-        );
-
-        objectFactory.CreateBlock(
-            scene,
-            "Столб",
-            glm::vec3(-2.0f, 0.5f, -1.0f),
-            glm::vec3(1.0f, 2.0f, 1.0f)
-        );
-
-        GameObject& platform = objectFactory.CreateBlock(
-            scene,
-            "Платформа",
-            glm::vec3(3.0f, 1.5f, -3.0f),
-            glm::vec3(4.0f, 0.4f, 2.0f),
-            glm::vec3(0.0f, 35.0f, 15.0f)
-        );
+        LevelState level = BuildLevel(scene, objectFactory);
 
         PhysicsWorld physicsWorld;
 
-        physicsWorld.RebuildStaticColliders(scene);
+        physicsWorld.RebuildColliders(scene);
 
-        CharacterController player(
-            glm::vec3(0.0f, 1.5f, 5.0f)
-        );
+        CharacterController player(kPlayerSpawn);
 
         camera.SetPosition(player.GetEyePosition());
 
@@ -192,6 +228,26 @@ int main()
 
         bool jumpWasDown = false;
         bool jumpPending = false;
+
+        auto restartLevel = [&]()
+            {
+                scene.Clear();
+
+                level = BuildLevel(scene, objectFactory);
+
+                physicsWorld.RebuildColliders(scene);
+                physicsWorld.ResetTriggerState();
+
+                player.Teleport(kPlayerSpawn);
+
+                camera.SetPosition(player.GetEyePosition());
+                camera.SetRotation(kSpawnYaw, kSpawnPitch);
+
+                jumpPending = false;
+                physicsAccumulator = 0.0;
+            };
+
+        double previousTime = glfwGetTime();
 
         while (!window.ShouldClose())
         {
@@ -242,8 +298,12 @@ int main()
 
             physicsAccumulator += deltaTime;
 
+            bool restartRequested = false;
+
             while (physicsAccumulator >= fixedDeltaTime)
             {
+                physicsWorld.UpdateDynamicColliders();
+
                 player.FixedUpdate(
                     physicsWorld,
                     moveDirection,
@@ -251,9 +311,34 @@ int main()
                     static_cast<float>(fixedDeltaTime)
                 );
 
+                for (const TriggerEvent& event :
+                    physicsWorld.UpdateTriggers(player.GetCapsule()))
+                {
+                    if (event.kind == TriggerEvent::Kind::Enter &&
+                        event.objectId == level.spikesId)
+                    {
+                        restartRequested = true;
+                    }
+                }
+
+                if (player.GetCapsule().center.y < kKillHeight)
+                {
+                    restartRequested = true;
+                }
+
                 jumpPending = false;
 
                 physicsAccumulator -= fixedDeltaTime;
+
+                if (restartRequested)
+                {
+                    break;
+                }
+            }
+
+            if (restartRequested)
+            {
+                restartLevel();
             }
 
             camera.SetPosition(player.GetEyePosition());
@@ -284,7 +369,12 @@ int main()
 
             renderer.Draw(scene, camera, aspectRatio);
 
-            platform.transform.rotationDegrees.y += 30 * deltaTime;
+            if (level.platform)
+            {
+                level.platform->transform.rotationDegrees.y +=
+                    30.0f * deltaTime;
+            }
+
             window.SwapBuffers();
         }
 

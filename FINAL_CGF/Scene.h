@@ -1,5 +1,6 @@
 #pragma once
 
+#include <cstdint>
 #include <memory>
 #include <vector>
 
@@ -19,4 +20,6 @@ public:
 
 private:
     std::vector<std::unique_ptr<GameObject>> objects;
+
+    std::uint32_t nextId = 1;
 };

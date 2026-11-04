@@ -72,3 +72,11 @@ void Camera::UpdateVectors()
     right = glm::normalize(glm::cross(front, worldUp));
     up = glm::normalize(glm::cross(right, front));
 }
+
+void Camera::SetRotation(float newYaw, float newPitch)
+{
+    yaw = newYaw;
+    pitch = std::clamp(newPitch, -89.0f, 89.0f);
+
+    UpdateVectors();
+}

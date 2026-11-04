@@ -17,6 +17,10 @@ public:
         float deltaTime
     );
 
+    void Teleport(const glm::vec3& newCenter);
+
+    const CapsuleCollider& GetCapsule() const;
+
     glm::vec3 GetEyePosition() const;
 
     bool IsGrounded() const;

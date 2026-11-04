@@ -1,5 +1,6 @@
 #pragma once
 
+#include <cstdint>
 #include <memory>
 #include <optional>
 #include <string>
@@ -10,6 +11,8 @@
 
 struct GameObject
 {
+    std::uint32_t id = 0;
+
     std::string name;
 
     Transform transform;
