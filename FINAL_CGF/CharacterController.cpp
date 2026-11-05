@@ -55,3 +55,15 @@ bool CharacterController::IsGrounded() const
 {
     return grounded;
 }
+
+void CharacterController::Teleport(const glm::vec3& newCenter)
+{
+    capsule.center = newCenter;
+    velocity = glm::vec3(0.0f);
+    grounded = false;
+}
+
+const CapsuleCollider& CharacterController::GetCapsule() const
+{
+    return capsule;
+}

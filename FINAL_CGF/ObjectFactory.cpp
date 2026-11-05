@@ -4,6 +4,8 @@
 
 #include <stdexcept>
 #include <utility>
+#include "Spike.h"
+#include "Key.h"
 
 ObjectFactory::ObjectFactory()
     : cubeMesh(MeshFactory::CreateCube())
@@ -64,4 +66,47 @@ GameObject& ObjectFactory::CreateObject(
     object->mesh = std::move(mesh);
 
     return scene.AddObject(std::move(object));
+}
+
+GameObject& ObjectFactory::CreateSpikes(
+    Scene& scene,
+    const std::string& name,
+    const glm::vec3& position,
+    const glm::vec3& size,
+    const glm::vec3& rotationDegrees) const
+{
+    GameObject& object = CreateBlock(
+        scene,
+        name,
+        position,
+        size,
+        rotationDegrees
+    );
+
+    object.collider->type = ColliderType::Trigger;
+    object.interactable = std::make_unique<Spike>();
+
+    return object;
+}
+
+GameObject& ObjectFactory::CreateKey(
+    Scene& scene,
+    GameContext& context,
+    const std::string& name,
+    const glm::vec3& position,
+    const glm::vec3& size) const
+{
+    GameObject& object = CreateBlock(
+        scene,
+        name,
+        position,
+        size
+    );
+
+    object.collider->type = ColliderType::Trigger;
+    object.interactable = std::make_unique<Key>();
+
+    context.AddKeyToLevel();
+
+    return object;
 }

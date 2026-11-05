@@ -10,6 +10,7 @@ public:
 
     void Move(const glm::vec3& localDirection, float deltaTime);
     void Rotate(float mouseDeltaX, float mouseDeltaY);
+    void SetRotation(float newYaw, float newPitch);
 
     glm::mat4 GetViewMatrix() const;
     glm::mat4 GetProjectionMatrix(float aspectRatio) const;

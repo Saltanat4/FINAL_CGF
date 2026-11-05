@@ -139,7 +139,11 @@
     <ClInclude Include="CharacterController.h" />
     <ClInclude Include="Collision.h" />
     <ClInclude Include="EBO.h" />
+    <ClInclude Include="GameContext.h" />
     <ClInclude Include="GameObject.h" />
+    <ClInclude Include="Interactable.h" />
+    <ClInclude Include="InteractionSystem.h" />
+    <ClInclude Include="Key.h" />
     <ClInclude Include="Mesh.h" />
     <ClInclude Include="MeshFactory.h" />
     <ClInclude Include="ObjectFactory.h" />
@@ -147,6 +151,7 @@
     <ClInclude Include="Renderer.h" />
     <ClInclude Include="Scene.h" />
     <ClInclude Include="shaderClass.h" />
+    <ClInclude Include="Spike.h" />
     <ClInclude Include="Transform.h" />
     <ClInclude Include="VAO.h" />
     <ClInclude Include="VBO.h" />
@@ -158,6 +163,7 @@
     <ClCompile Include="Collision.cpp" />
     <ClCompile Include="EBO.cpp" />
     <ClCompile Include="glad.c" />
+    <ClCompile Include="InteractionSystem.cpp" />
     <ClCompile Include="Main.cpp" />
     <ClCompile Include="Mesh.cpp" />
     <ClCompile Include="MeshFactory.cpp" />

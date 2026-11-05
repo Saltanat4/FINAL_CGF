@@ -96,6 +96,21 @@
     <ClInclude Include="CharacterController.h">
       <Filter>Файлы заголовков\Physics</Filter>
     </ClInclude>
+    <ClInclude Include="Interactable.h">
+      <Filter>Файлы заголовков\World</Filter>
+    </ClInclude>
+    <ClInclude Include="GameContext.h">
+      <Filter>Файлы заголовков\Game</Filter>
+    </ClInclude>
+    <ClInclude Include="Spike.h">
+      <Filter>Файлы заголовков\Game</Filter>
+    </ClInclude>
+    <ClInclude Include="InteractionSystem.h">
+      <Filter>Файлы заголовков\Game</Filter>
+    </ClInclude>
+    <ClInclude Include="Key.h">
+      <Filter>Файлы заголовков\Game</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Window.cpp">
@@ -145,6 +160,9 @@
     </ClCompile>
     <ClCompile Include="CharacterController.cpp">
       <Filter>Исходные файлы\Physics</Filter>
+    </ClCompile>
+    <ClCompile Include="InteractionSystem.cpp">
+      <Filter>Исходные файлы\Game</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

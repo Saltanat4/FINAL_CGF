@@ -7,10 +7,53 @@
 #include <stdexcept>
 #include <utility>
 
-void PhysicsWorld::RebuildStaticColliders(
-    const Scene& scene)
+OBB PhysicsWorld::BuildOBB(const GameObject& object)
 {
-    std::vector<OBB> rebuilt;
+    const BoxCollider& collider = *object.collider;
+
+    glm::mat4 model = object.transform.GetModelMatrix();
+
+    glm::vec3 axisX = glm::vec3(model[0]);
+    glm::vec3 axisY = glm::vec3(model[1]);
+    glm::vec3 axisZ = glm::vec3(model[2]);
+
+    glm::vec3 scale(
+        glm::length(axisX),
+        glm::length(axisY),
+        glm::length(axisZ)
+    );
+
+    if (scale.x <= 0.000001f ||
+        scale.y <= 0.000001f ||
+        scale.z <= 0.000001f)
+    {
+        throw std::runtime_error(
+            "Collider has zero or near-zero scale: " +
+            object.name
+        );
+    }
+
+    OBB box;
+
+    box.center = glm::vec3(
+        model * glm::vec4(collider.localCenter, 1.0f)
+    );
+
+    box.halfExtents =
+        glm::abs(collider.halfExtents) * scale;
+
+    box.orientation = glm::mat3(
+        axisX / scale.x,
+        axisY / scale.y,
+        axisZ / scale.z
+    );
+
+    return box;
+}
+
+void PhysicsWorld::RebuildColliders(const Scene& scene)
+{
+    std::vector<Entry> rebuilt;
 
     for (const auto& object : scene.GetObjects())
     {
@@ -19,50 +62,36 @@ void PhysicsWorld::RebuildStaticColliders(
             continue;
         }
 
-        const BoxCollider& collider = *object->collider;
+        Entry entry;
 
-        glm::mat4 model =
-            object->transform.GetModelMatrix();
+        entry.objectId = object->id;
+        entry.object = object.get();
+        entry.type = object->collider->type;
+        entry.isStatic = object->collider->isStatic;
+        entry.box = BuildOBB(*object);
 
-        glm::vec3 axisX = glm::vec3(model[0]);
-        glm::vec3 axisY = glm::vec3(model[1]);
-        glm::vec3 axisZ = glm::vec3(model[2]);
-
-        glm::vec3 scale(
-            glm::length(axisX),
-            glm::length(axisY),
-            glm::length(axisZ)
-        );
-
-        if (scale.x <= 0.000001f ||
-            scale.y <= 0.000001f ||
-            scale.z <= 0.000001f)
-        {
-            throw std::runtime_error(
-                "Collider has zero or near-zero scale: " +
-                object->name
-            );
-        }
-
-        OBB box;
-
-        box.center = glm::vec3(
-            model * glm::vec4(collider.localCenter, 1.0f)
-        );
-
-        box.halfExtents =
-            glm::abs(collider.halfExtents) * scale;
-
-        box.orientation = glm::mat3(
-            axisX / scale.x,
-            axisY / scale.y,
-            axisZ / scale.z
-        );
-
-        rebuilt.push_back(box);
+        rebuilt.push_back(entry);
     }
 
-    staticColliders = std::move(rebuilt);
+    colliders = std::move(rebuilt);
+}
+
+void PhysicsWorld::UpdateDynamicColliders()
+{
+    for (Entry& entry : colliders)
+    {
+        if (entry.isStatic)
+        {
+            continue;
+        }
+
+        if (!entry.object->collider)
+        {
+            continue;
+        }
+
+        entry.box = BuildOBB(*entry.object);
+    }
 }
 
 bool PhysicsWorld::Move(
@@ -97,13 +126,18 @@ bool PhysicsWorld::Move(
         {
             bool hadCollision = false;
 
-            for (const OBB& box : staticColliders)
+            for (const Entry& entry : colliders)
             {
+                if (entry.type != ColliderType::Solid)
+                {
+                    continue;
+                }
+
                 Contact contact;
 
                 if (!IntersectCapsuleOBB(
                     capsule,
-                    box,
+                    entry.box,
                     contact))
                 {
                     continue;
@@ -145,11 +179,16 @@ bool PhysicsWorld::CheckGround(
 
     probe.center.y -= 0.02f;
 
-    for (const OBB& box : staticColliders)
+    for (const Entry& entry : colliders)
     {
+        if (entry.type != ColliderType::Solid)
+        {
+            continue;
+        }
+
         Contact contact;
 
-        if (!IntersectCapsuleOBB(probe, box, contact))
+        if (!IntersectCapsuleOBB(probe, entry.box, contact))
         {
             continue;
         }
@@ -168,4 +207,65 @@ bool PhysicsWorld::CheckGround(
     }
 
     return false;
+}
+
+std::vector<TriggerEvent> PhysicsWorld::UpdateTriggers(
+    const CapsuleCollider& capsule)
+{
+    std::vector<std::uint32_t> now;
+
+    for (const Entry& entry : colliders)
+    {
+        if (entry.type != ColliderType::Trigger)
+        {
+            continue;
+        }
+
+        Contact contact;
+
+        if (IntersectCapsuleOBB(capsule, entry.box, contact))
+        {
+            now.push_back(entry.objectId);
+        }
+    }
+
+    std::sort(now.begin(), now.end());
+
+    std::vector<TriggerEvent> events;
+
+    for (std::uint32_t id : now)
+    {
+        bool wasInside = std::binary_search(
+            overlapping.begin(),
+            overlapping.end(),
+            id
+        );
+
+        events.push_back({
+            wasInside
+                ? TriggerEvent::Kind::Stay
+                : TriggerEvent::Kind::Enter,
+            id
+            });
+    }
+
+    for (std::uint32_t id : overlapping)
+    {
+        if (!std::binary_search(now.begin(), now.end(), id))
+        {
+            events.push_back({
+                TriggerEvent::Kind::Exit,
+                id
+                });
+        }
+    }
+
+    overlapping = std::move(now);
+
+    return events;
+}
+
+void PhysicsWorld::ResetTriggerState()
+{
+    overlapping.clear();
 }

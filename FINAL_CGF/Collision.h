@@ -2,11 +2,21 @@
 
 #include <glm/glm.hpp>
 
+enum class ColliderType
+{
+    Solid,
+    Trigger
+};
+
 struct BoxCollider
 {
     glm::vec3 localCenter = glm::vec3(0.0f);
 
     glm::vec3 halfExtents = glm::vec3(0.5f);
+
+    ColliderType type = ColliderType::Solid;
+
+    bool isStatic = true;
 };
 
 struct OBB
@@ -15,7 +25,6 @@ struct OBB
 
     glm::vec3 halfExtents = glm::vec3(0.5f);
 
-    // Столбцы матрицы — ортонормированные оси коробки.
     glm::mat3 orientation = glm::mat3(1.0f);
 };
 
@@ -25,7 +34,6 @@ struct CapsuleCollider
 
     float radius = 0.3f;
 
-    // Полная высота с учётом полусфер.
     float height = 1.8f;
 };
 
