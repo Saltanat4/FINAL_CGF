@@ -1,3 +1,4 @@
+#include <cstdint>
 
 #include "Window.h"
 #include "Camera.h"
@@ -20,6 +21,8 @@ namespace
     constexpr float kSpawnYaw = -90.0f;
     constexpr float kSpawnPitch = -10.0f;
 
+    GameContext gameContext;
+
     struct LevelState
     {
         GameObject* platform = nullptr;
@@ -31,7 +34,8 @@ namespace
 
     LevelState BuildLevel(
         Scene& scene,
-        const ObjectFactory& factory)
+        const ObjectFactory& factory,
+        GameContext& context)
     {
         LevelState state;
 
@@ -78,6 +82,21 @@ namespace
             "Шипы",
             glm::vec3(4.0f, -0.35f, 2.0f),
             glm::vec3(2.0f, 0.3f, 2.0f)
+        );
+
+
+        factory.CreateKey(
+            scene,
+            context,
+            "Ключ 1",
+            glm::vec3(-5.0f, -0.3f, 2.0f)
+        );
+
+        factory.CreateKey(
+            scene,
+            context,
+            "Ключ 2",
+            glm::vec3(-5.0f, -0.3f, 4.5f)
         );
 
         state.platform = &platform;
@@ -209,7 +228,7 @@ int main()
 
         glEnable(GL_DEPTH_TEST);
 
-        LevelState level = BuildLevel(scene, objectFactory);
+        LevelState level = BuildLevel(scene, objectFactory, gameContext);
 
         PhysicsWorld physicsWorld;
 
@@ -228,9 +247,11 @@ int main()
 
         auto restartLevel = [&]()
             {
+                gameContext.ResetLevelProgress();
+
                 scene.Clear();
 
-                level = BuildLevel(scene, objectFactory);
+                level = BuildLevel(scene, objectFactory, gameContext);
 
                 physicsWorld.RebuildColliders(scene);
                 physicsWorld.ResetTriggerState();
@@ -246,7 +267,6 @@ int main()
 
         double previousTime = glfwGetTime();
 
-        GameContext gameContext;
         while (!window.ShouldClose())
         {
             window.PollEvents();
@@ -332,6 +352,23 @@ int main()
             if (gameContext.ConsumeRestart())
             {
                 restartLevel();
+            }
+            else if (!gameContext.GetDestroyRequests().empty())
+            {
+                for (std::uint32_t id : gameContext.GetDestroyRequests())
+                {
+                    scene.RemoveById(id);
+                }
+
+                gameContext.ClearDestroyRequests();
+
+                physicsWorld.RebuildColliders(scene);
+
+                std::cout << "Keys: "
+                    << gameContext.GetKeysCollected()
+                    << " / "
+                    << gameContext.GetKeysInLevel()
+                    << '\n';
             }
 
             camera.SetPosition(player.GetEyePosition());

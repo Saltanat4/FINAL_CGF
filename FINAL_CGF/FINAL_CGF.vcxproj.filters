@@ -108,6 +108,9 @@
     <ClInclude Include="InteractionSystem.h">
       <Filter>Файлы заголовков\Game</Filter>
     </ClInclude>
+    <ClInclude Include="Key.h">
+      <Filter>Файлы заголовков\Game</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Window.cpp">

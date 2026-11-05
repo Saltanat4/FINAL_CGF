@@ -42,3 +42,24 @@ GameObject* Scene::FindById(std::uint32_t id) const
 
     return nullptr;
 }
+
+bool Scene::RemoveById(std::uint32_t id)
+{
+    auto it = std::find_if(
+        objects.begin(),
+        objects.end(),
+        [id](const std::unique_ptr<GameObject>& object)
+        {
+            return object->id == id;
+        }
+    );
+
+    if (it == objects.end())
+    {
+        return false;
+    }
+
+    objects.erase(it);
+
+    return true;
+}

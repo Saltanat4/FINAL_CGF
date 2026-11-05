@@ -18,6 +18,7 @@ public:
 
     void Clear();
     GameObject* FindById(std::uint32_t id) const;
+    bool RemoveById(std::uint32_t id);
 
 private:
     std::vector<std::unique_ptr<GameObject>> objects;

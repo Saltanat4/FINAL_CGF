@@ -143,6 +143,7 @@
     <ClInclude Include="GameObject.h" />
     <ClInclude Include="Interactable.h" />
     <ClInclude Include="InteractionSystem.h" />
+    <ClInclude Include="Key.h" />
     <ClInclude Include="Mesh.h" />
     <ClInclude Include="MeshFactory.h" />
     <ClInclude Include="ObjectFactory.h" />
