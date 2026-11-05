@@ -71,12 +71,12 @@
   </ImportGroup>
   <PropertyGroup Label="UserMacros" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
-    <IncludePath>C:\Users\topda\Desktop\Computer Graphics\FINAL_CGF\libraries\include;$(IncludePath)</IncludePath>
-    <LibraryPath>C:\Users\topda\Desktop\Computer Graphics\FINAL_CGF\libraries\lib;$(LibraryPath)</LibraryPath>
+    <IncludePath>$(ProjectDir)..\libraries\include;$(IncludePath)</IncludePath>
+    <LibraryPath>$(ProjectDir)..\libraries\lib;$(LibraryPath)</LibraryPath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
-    <IncludePath>C:\Users\topda\Desktop\Computer Graphics\FINAL_CGF\libraries\include;$(IncludePath)</IncludePath>
-    <LibraryPath>C:\Users\topda\Desktop\Computer Graphics\FINAL_CGF\libraries\lib;$(LibraryPath)</LibraryPath>
+    <IncludePath>$(ProjectDir)..\libraries\include;$(IncludePath)</IncludePath>
+    <LibraryPath>$(ProjectDir)..\libraries\lib;$(LibraryPath)</LibraryPath>
   </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <ClCompile>
@@ -181,7 +181,7 @@
   </ImportGroup>
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
     <PropertyGroup>
-      <ErrorText>This project references NuGet package(s) that are missing on this computer. Use NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
+      <ErrorText>Данный проект ссылается на пакеты NuGet, отсутствующие на этом компьютере. Используйте восстановление пакетов NuGet, чтобы скачать их.  Дополнительную информацию см. по адресу: http://go.microsoft.com/fwlink/?LinkID=322105. Отсутствует следующий файл: {0}.</ErrorText>
     </PropertyGroup>
     <Error Condition="!Exists('..\packages\glm.1.0.3\build\native\glm.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\glm.1.0.3\build\native\glm.targets'))" />
   </Target>
