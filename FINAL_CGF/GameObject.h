@@ -8,6 +8,7 @@
 #include "Transform.h"
 #include "Mesh.h"
 #include "Collision.h"
+#include "Interactable.h"
 
 struct GameObject
 {
@@ -20,4 +21,6 @@ struct GameObject
     std::shared_ptr<Mesh> mesh;
 
     std::optional<BoxCollider> collider;
+
+    std::unique_ptr<Interactable> interactable;
 };

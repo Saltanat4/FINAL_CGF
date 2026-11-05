@@ -13,6 +13,8 @@
 #include "PhysicsWorld.h"
 #include "CharacterController.h"
 
+#include "GameContext.h"
+#include "InteractionSystem.h"
 namespace
 {
     constexpr float kSpawnYaw = -90.0f;
@@ -21,8 +23,6 @@ namespace
     struct LevelState
     {
         GameObject* platform = nullptr;
-
-        std::uint32_t spikesId = 0;
     };
 
     const glm::vec3 kPlayerSpawn(0.0f, 1.5f, 5.0f);
@@ -73,17 +73,14 @@ namespace
 
         platform.collider->isStatic = false;
 
-        GameObject& spikes = factory.CreateBlock(
+        factory.CreateSpikes(
             scene,
             "Шипы",
             glm::vec3(4.0f, -0.35f, 2.0f),
             glm::vec3(2.0f, 0.3f, 2.0f)
         );
 
-        spikes.collider->type = ColliderType::Trigger;
-
         state.platform = &platform;
-        state.spikesId = spikes.id;
 
         return state;
     }
@@ -249,6 +246,7 @@ int main()
 
         double previousTime = glfwGetTime();
 
+        GameContext gameContext;
         while (!window.ShouldClose())
         {
             window.PollEvents();
@@ -298,7 +296,6 @@ int main()
 
             physicsAccumulator += deltaTime;
 
-            bool restartRequested = false;
 
             while (physicsAccumulator >= fixedDeltaTime)
             {
@@ -311,32 +308,28 @@ int main()
                     static_cast<float>(fixedDeltaTime)
                 );
 
-                for (const TriggerEvent& event :
-                    physicsWorld.UpdateTriggers(player.GetCapsule()))
-                {
-                    if (event.kind == TriggerEvent::Kind::Enter &&
-                        event.objectId == level.spikesId)
-                    {
-                        restartRequested = true;
-                    }
-                }
+                DispatchTriggerEvents(
+                    scene,
+                    physicsWorld.UpdateTriggers(player.GetCapsule()),
+                    gameContext
+                );
 
                 if (player.GetCapsule().center.y < kKillHeight)
                 {
-                    restartRequested = true;
+                    gameContext.RequestRestart();
                 }
 
                 jumpPending = false;
 
                 physicsAccumulator -= fixedDeltaTime;
 
-                if (restartRequested)
+                if (gameContext.RestartRequested())
                 {
                     break;
                 }
             }
 
-            if (restartRequested)
+            if (gameContext.ConsumeRestart())
             {
                 restartLevel();
             }

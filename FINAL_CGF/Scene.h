@@ -17,6 +17,7 @@ public:
         GetObjects() const;
 
     void Clear();
+    GameObject* FindById(std::uint32_t id) const;
 
 private:
     std::vector<std::unique_ptr<GameObject>> objects;

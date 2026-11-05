@@ -12,6 +12,7 @@ GameObject& Scene::AddObject(
             "Cannot add a null object to the scene"
         );
     }
+    object->id = nextId++;
 
     objects.push_back(std::move(object));
 
@@ -27,4 +28,17 @@ Scene::GetObjects() const
 void Scene::Clear()
 {
     objects.clear();
+}
+
+GameObject* Scene::FindById(std::uint32_t id) const
+{
+    for (const auto& object : objects)
+    {
+        if (object->id == id)
+        {
+            return object.get();
+        }
+    }
+
+    return nullptr;
 }
