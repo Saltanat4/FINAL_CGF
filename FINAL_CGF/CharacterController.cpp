@@ -8,12 +8,14 @@ CharacterController::CharacterController(
     capsule.height = 1.8f;
 }
 
-void CharacterController::FixedUpdate(
+CharacterStepResult CharacterController::FixedUpdate(
     const PhysicsWorld& world,
     const glm::vec3& moveDirection,
     bool jumpRequested,
     float deltaTime)
 {
+    CharacterStepResult result;
+
     glm::vec3 direction(
         moveDirection.x,
         0.0f,
@@ -32,15 +34,49 @@ void CharacterController::FixedUpdate(
     {
         velocity.y = jumpSpeed;
         grounded = false;
+        result.jumped = true;
     }
 
+    const bool wasGrounded = grounded;
+
     velocity.y += gravity * deltaTime;
+
+    const float verticalSpeedBeforeMove = velocity.y;
+    const glm::vec3 positionBefore = capsule.center;
 
     grounded = world.Move(
         capsule,
         velocity,
         deltaTime
     );
+
+    if (!wasGrounded &&
+        grounded &&
+        verticalSpeedBeforeMove < -landingMinSpeed)
+    {
+        result.landed = true;
+        result.landingSpeed = -verticalSpeedBeforeMove;
+    }
+
+    if (grounded)
+    {
+        glm::vec3 moved = capsule.center - positionBefore;
+        moved.y = 0.0f;
+
+        stepDistance += glm::length(moved);
+
+        if (stepDistance >= strideLength)
+        {
+            stepDistance -= strideLength;
+            result.footstep = true;
+        }
+    }
+    else
+    {
+        stepDistance = 0.0f;
+    }
+
+    return result;
 }
 
 glm::vec3 CharacterController::GetEyePosition() const

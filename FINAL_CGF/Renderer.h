@@ -3,6 +3,7 @@
 #include "Camera.h"
 #include "Scene.h"
 #include "shaderClass.h"
+#include "EchoSystem.h"
 
 class Renderer
 {
@@ -16,8 +17,9 @@ public:
     void Draw(
         const Scene& scene,
         const Camera& camera,
-        float aspectRatio
-    );
+        float aspectRatio,
+        const EchoSystem& echo,
+        float time);
 
 private:
     Shader shader;

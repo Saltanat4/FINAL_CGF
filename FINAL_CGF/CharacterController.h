@@ -3,6 +3,14 @@
 #include "Collision.h"
 #include "PhysicsWorld.h"
 
+struct CharacterStepResult
+{
+    bool jumped = false;
+    bool landed = false;
+    bool footstep = false;
+    float landingSpeed = 0.0f;
+};
+
 class CharacterController
 {
 public:
@@ -10,7 +18,7 @@ public:
         const glm::vec3& startCenter
     );
 
-    void FixedUpdate(
+    CharacterStepResult FixedUpdate(
         const PhysicsWorld& world,
         const glm::vec3& moveDirection,
         bool jumpRequested,
@@ -33,6 +41,10 @@ private:
     float movementSpeed = 4.0f;
     float gravity = -20.0f;
     float jumpSpeed = 7.0f;
+
+    float stepDistance = 0.0f;
+    float strideLength = 2.0f;
+    float landingMinSpeed = 3.0f;
 
     bool grounded = false;
 };

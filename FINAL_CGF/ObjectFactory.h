@@ -41,6 +41,14 @@ public:
         const glm::vec3& size = glm::vec3(0.4f)
     ) const;
 
+    GameObject& CreateDoor(
+        Scene& scene,
+        const std::string& name,
+        const glm::vec3& position,
+        const glm::vec3& size,
+        const glm::vec3& rotationDegrees = glm::vec3(0.0f)
+    ) const;
+
 private:
     std::shared_ptr<Mesh> cubeMesh;
 };

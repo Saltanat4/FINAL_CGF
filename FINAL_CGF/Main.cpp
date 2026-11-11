@@ -16,12 +16,13 @@
 
 #include "GameContext.h"
 #include "InteractionSystem.h"
+#include "EchoSystem.h"
+
 namespace
 {
     constexpr float kSpawnYaw = -90.0f;
     constexpr float kSpawnPitch = -10.0f;
 
-    GameContext gameContext;
 
     struct LevelState
     {
@@ -31,6 +32,38 @@ namespace
     const glm::vec3 kPlayerSpawn(0.0f, 1.5f, 5.0f);
 
     constexpr float kKillHeight = -10.0f;
+
+    void SpawnEchoes(
+        EchoSystem& echo,
+        const CharacterController& player,
+        const CharacterStepResult& step,
+        float time)
+    {
+        const CapsuleCollider& capsule = player.GetCapsule();
+
+        const glm::vec3 feet(
+            capsule.center.x,
+            capsule.center.y - capsule.height * 0.5f + 0.05f,
+            capsule.center.z
+        );
+
+        if (step.jumped)
+        {
+            echo.Spawn(feet, time, 12.0f, 1.0f);
+        }
+
+        if (step.landed)
+        {
+            float k = glm::clamp(step.landingSpeed / 12.0f, 0.3f, 1.0f);
+
+            echo.Spawn(feet, time, 6.0f + 8.0f * k, 0.5f + 0.5f * k);
+        }
+
+        if (step.footstep)
+        {
+            echo.Spawn(feet, time, 3.5f, 0.7f);
+        }
+    }
 
     LevelState BuildLevel(
         Scene& scene,
@@ -97,6 +130,13 @@ namespace
             context,
             "Ключ 2",
             glm::vec3(-5.0f, -0.3f, 4.5f)
+        );
+
+        factory.CreateDoor(
+            scene,
+            "Дверь",
+            glm::vec3(0.0f, 0.75f, -7.0f),
+            glm::vec3(1.5f, 2.5f, 0.3f)
         );
 
         state.platform = &platform;
@@ -228,9 +268,12 @@ int main()
 
         glEnable(GL_DEPTH_TEST);
 
-        LevelState level = BuildLevel(scene, objectFactory, gameContext);
 
         PhysicsWorld physicsWorld;
+        GameContext gameContext;
+        EchoSystem echo;
+
+        LevelState level = BuildLevel(scene, objectFactory, gameContext);
 
         physicsWorld.RebuildColliders(scene);
 
@@ -321,11 +364,18 @@ int main()
             {
                 physicsWorld.UpdateDynamicColliders();
 
-                player.FixedUpdate(
+                CharacterStepResult step = player.FixedUpdate(
                     physicsWorld,
                     moveDirection,
                     jumpPending,
                     static_cast<float>(fixedDeltaTime)
+                );
+
+                SpawnEchoes(
+                    echo,
+                    player,
+                    step,
+                    static_cast<float>(currentTime)
                 );
 
                 DispatchTriggerEvents(
@@ -349,7 +399,14 @@ int main()
                 }
             }
 
-            if (gameContext.ConsumeRestart())
+            if (gameContext.RestartRequested() ||
+                gameContext.NextLevelRequested())
+            {
+                break;
+            }
+
+            if (gameContext.ConsumeRestart() ||
+                gameContext.ConsumeNextLevel())
             {
                 restartLevel();
             }
@@ -387,7 +444,7 @@ int main()
                 continue;
             }
 
-            glClearColor(0.08f, 0.10f, 0.14f, 1.0f);
+            glClearColor(0.0f, 0.0f, 0.0f, 1.0f);
 
             glClear(
                 GL_COLOR_BUFFER_BIT |
@@ -397,7 +454,15 @@ int main()
                 static_cast<float>(width) /
                 static_cast<float>(height);
 
-            renderer.Draw(scene, camera, aspectRatio);
+            echo.Update(static_cast<float>(currentTime));
+
+            renderer.Draw(
+                scene,
+                camera,
+                aspectRatio,
+                echo,
+                static_cast<float>(currentTime)
+            );
 
             if (level.platform)
             {

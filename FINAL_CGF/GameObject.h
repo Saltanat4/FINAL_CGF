@@ -9,6 +9,7 @@
 #include "Mesh.h"
 #include "Collision.h"
 #include "Interactable.h"
+#include "Material.h"
 
 struct GameObject
 {
@@ -23,4 +24,6 @@ struct GameObject
     std::optional<BoxCollider> collider;
 
     std::unique_ptr<Interactable> interactable;
+
+    Material material;
 };

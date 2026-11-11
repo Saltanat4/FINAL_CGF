@@ -26,6 +26,11 @@ public:
     void Delete();
     void SetMat4(const char* name, const glm::mat4& matrix);
 
+    void SetInt(const char* name, int value);
+    void SetFloat(const char* name, float value);
+    void SetVec4Array(const char* name, const glm::vec4* values, int count);
+    void SetVec3(const char* name, const glm::vec3& value);
+
 private:
     void compileErrors(
         unsigned int shader,

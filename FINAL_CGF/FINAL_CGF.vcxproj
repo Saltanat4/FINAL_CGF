@@ -138,12 +138,15 @@
     <ClInclude Include="Camera.h" />
     <ClInclude Include="CharacterController.h" />
     <ClInclude Include="Collision.h" />
+    <ClInclude Include="Door.h" />
     <ClInclude Include="EBO.h" />
+    <ClInclude Include="EchoSystem.h" />
     <ClInclude Include="GameContext.h" />
     <ClInclude Include="GameObject.h" />
     <ClInclude Include="Interactable.h" />
     <ClInclude Include="InteractionSystem.h" />
     <ClInclude Include="Key.h" />
+    <ClInclude Include="Material.h" />
     <ClInclude Include="Mesh.h" />
     <ClInclude Include="MeshFactory.h" />
     <ClInclude Include="ObjectFactory.h" />
@@ -162,6 +165,7 @@
     <ClCompile Include="CharacterController.cpp" />
     <ClCompile Include="Collision.cpp" />
     <ClCompile Include="EBO.cpp" />
+    <ClCompile Include="EchoSystem.cpp" />
     <ClCompile Include="glad.c" />
     <ClCompile Include="InteractionSystem.cpp" />
     <ClCompile Include="Main.cpp" />

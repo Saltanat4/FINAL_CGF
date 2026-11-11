@@ -66,11 +66,36 @@ public:
         destroyRequests.clear();
     }
 
+    // Дверь и переход между уровнями
+    bool HasAllKeys() const
+    {
+        return keysCollected >= keysInLevel;
+    }
+
+    void RequestNextLevel()
+    {
+        nextLevelRequested = true;
+    }
+
+    bool NextLevelRequested() const
+    {
+        return nextLevelRequested;
+    }
+
+    bool ConsumeNextLevel()
+    {
+        bool result = nextLevelRequested;
+        nextLevelRequested = false;
+        return result;
+    }
+
 private:
     bool restartRequested = false;
 
     int keysCollected = 0;
     int keysInLevel = 0;
+
+    bool nextLevelRequested = false;
 
     std::vector<std::uint32_t> destroyRequests;
 };
