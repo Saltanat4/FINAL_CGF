@@ -20,7 +20,7 @@ uniform vec3 uScale;
 uniform float uFadeTime;
 
 const float EDGE_WIDTH = 0.02;
-const float RING_WIDTH = 0.1;
+const float RING_WIDTH = 0.2;
 
 void main()
 {

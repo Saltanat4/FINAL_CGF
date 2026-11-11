@@ -6,7 +6,6 @@
 class GameContext
 {
 public:
-    // Перезапуск уровня
     void RequestRestart()
     {
         restartRequested = true;
