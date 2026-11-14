@@ -22,6 +22,8 @@ public:
 
     void Draw();
 
+    bool boxEdges = false;
+
 private:
     VAO vao;
 

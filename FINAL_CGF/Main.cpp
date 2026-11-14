@@ -397,13 +397,15 @@ int main()
                 {
                     break;
                 }
+
+                if (gameContext.RestartRequested() ||
+                    gameContext.NextLevelRequested())
+                {
+                    break;
+                }
             }
 
-            if (gameContext.RestartRequested() ||
-                gameContext.NextLevelRequested())
-            {
-                break;
-            }
+
 
             if (gameContext.ConsumeRestart() ||
                 gameContext.ConsumeNextLevel())

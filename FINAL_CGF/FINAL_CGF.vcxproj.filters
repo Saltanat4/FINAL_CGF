@@ -111,6 +111,15 @@
     <ClInclude Include="Key.h">
       <Filter>Файлы заголовков\Game</Filter>
     </ClInclude>
+    <ClInclude Include="Door.h">
+      <Filter>Файлы заголовков</Filter>
+    </ClInclude>
+    <ClInclude Include="EchoSystem.h">
+      <Filter>Файлы заголовков</Filter>
+    </ClInclude>
+    <ClInclude Include="Material.h">
+      <Filter>Файлы заголовков</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Window.cpp">
@@ -164,9 +173,18 @@
     <ClCompile Include="InteractionSystem.cpp">
       <Filter>Исходные файлы\Game</Filter>
     </ClCompile>
+    <ClCompile Include="EchoSystem.cpp">
+      <Filter>Исходные файлы</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
+    <None Include="sonar.frag">
+      <Filter>Файлы ресурсов\Shaders</Filter>
+    </None>
+    <None Include="sonar.vert">
+      <Filter>Файлы ресурсов\Shaders</Filter>
+    </None>
     <None Include="default.frag">
       <Filter>Файлы ресурсов\Shaders</Filter>
     </None>

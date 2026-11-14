@@ -7,7 +7,7 @@ Mesh::Mesh(
     std::vector<GLfloat> vertices,
     std::vector<GLuint> indices)
 {
-    constexpr std::size_t floatsPerVertex = 6;
+    constexpr std::size_t floatsPerVertex = 3;
 
     if (vertices.empty() ||
         vertices.size() % floatsPerVertex != 0)
@@ -15,7 +15,7 @@ Mesh::Mesh(
         vao.Delete();
 
         throw std::invalid_argument(
-            "Mesh vertices must use the XYZ RGB format"
+            "Mesh vertices must use the XYZ format"
         );
     }
 
@@ -75,17 +75,8 @@ Mesh::Mesh(
             0,
             3,
             GL_FLOAT,
-            6 * sizeof(GLfloat),
+            3 * sizeof(GLfloat),
             nullptr
-        );
-
-        vao.LinkAttrib(
-            *vbo,
-            1,
-            3,
-            GL_FLOAT,
-            6 * sizeof(GLfloat),
-            reinterpret_cast<void*>(3 * sizeof(GLfloat))
         );
 
         vao.Unbind();

@@ -6,17 +6,17 @@
 std::shared_ptr<Mesh> MeshFactory::CreateCube()
 {
     std::vector<GLfloat> vertices = {
-        // Позиция              // Цвет
+        // Позиция 
 
-        -0.5f, -0.5f, -0.5f,    0.3f, 0.3f, 0.3f,
-         0.5f, -0.5f, -0.5f,    1.0f, 0.3f, 0.3f,
-         0.5f,  0.5f, -0.5f,    1.0f, 1.0f, 0.3f,
-        -0.5f,  0.5f, -0.5f,    0.3f, 1.0f, 0.3f,
+        -0.5f, -0.5f, -0.5f,    
+         0.5f, -0.5f, -0.5f,    
+         0.5f,  0.5f, -0.5f,   
+        -0.5f,  0.5f, -0.5f,    
 
-        -0.5f, -0.5f,  0.5f,    0.3f, 0.3f, 1.0f,
-         0.5f, -0.5f,  0.5f,    1.0f, 0.3f, 1.0f,
-         0.5f,  0.5f,  0.5f,    1.0f, 1.0f, 1.0f,
-        -0.5f,  0.5f,  0.5f,    0.3f, 1.0f, 1.0f
+        -0.5f, -0.5f,  0.5f,   
+         0.5f, -0.5f,  0.5f,   
+         0.5f,  0.5f,  0.5f,    
+        -0.5f,  0.5f,  0.5f,    
     };
 
     std::vector<GLuint> indices = {
@@ -30,8 +30,12 @@ std::shared_ptr<Mesh> MeshFactory::CreateCube()
         3, 2, 6,  6, 7, 3
     };
 
-    return std::make_shared<Mesh>(
+    auto mesh = std::make_shared<Mesh>(
         std::move(vertices),
         std::move(indices)
     );
+
+    mesh->boxEdges = true;
+
+    return mesh;
 }   
