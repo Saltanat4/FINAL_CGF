@@ -3,11 +3,12 @@
 #include <limits>
 #include <stdexcept>
 
-Mesh::Mesh(
+Mesh::Mesh::Mesh(
     std::vector<GLfloat> vertices,
-    std::vector<GLuint> indices)
-{
-    constexpr std::size_t floatsPerVertex = 3;
+    std::vector<GLuint> indices,
+    bool withEdgeInfo){
+
+    const std::size_t floatsPerVertex = withEdgeInfo ? 6 : 3;
 
     if (vertices.empty() ||
         vertices.size() % floatsPerVertex != 0)
@@ -70,14 +71,29 @@ Mesh::Mesh(
                 indices.size() * sizeof(GLuint))
         );
 
+        const GLsizei stride =
+            static_cast<GLsizei>(floatsPerVertex * sizeof(GLfloat));
+
         vao.LinkAttrib(
             *vbo,
             0,
             3,
             GL_FLOAT,
-            3 * sizeof(GLfloat),
+            stride,
             nullptr
         );
+
+        if (withEdgeInfo)
+        {
+            vao.LinkAttrib(
+                *vbo,
+                1,
+                3,
+                GL_FLOAT,
+                stride,
+                reinterpret_cast<void*>(3 * sizeof(GLfloat))
+            );
+        }
 
         vao.Unbind();
 

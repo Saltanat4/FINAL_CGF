@@ -12,7 +12,8 @@ class Mesh
 public:
     Mesh(
         std::vector<GLfloat> vertices,
-        std::vector<GLuint> indices
+        std::vector<GLuint> indices,
+        bool withEdgeInfo = false
     );
 
     ~Mesh();

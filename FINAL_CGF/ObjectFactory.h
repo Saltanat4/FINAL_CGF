@@ -2,6 +2,7 @@
 
 #include <memory>
 #include <string>
+#include <unordered_map>
 
 #include "Scene.h"
 
@@ -30,7 +31,8 @@ public:
         const std::string& name,
         const glm::vec3& position,
         const glm::vec3& size,
-        const glm::vec3& rotationDegrees = glm::vec3(0.0f)
+        const glm::vec3& rotationDegrees = glm::vec3(0.0f),
+        const std::string& modelPath = ""
     ) const;
 
     GameObject& CreateKey(
@@ -38,7 +40,8 @@ public:
         GameContext& context,
         const std::string& name,
         const glm::vec3& position,
-        const glm::vec3& size = glm::vec3(0.4f)
+        const glm::vec3& size = glm::vec3(0.4f),
+        const std::string& modelPath = ""
     ) const;
 
     GameObject& CreateDoor(
@@ -46,9 +49,14 @@ public:
         const std::string& name,
         const glm::vec3& position,
         const glm::vec3& size,
-        const glm::vec3& rotationDegrees = glm::vec3(0.0f)
+        const glm::vec3& rotationDegrees = glm::vec3(0.0f),
+        const std::string& modelPath = ""
     ) const;
+
+    std::shared_ptr<Mesh> LoadModel(const std::string& path) const;
 
 private:
     std::shared_ptr<Mesh> cubeMesh;
+
+    mutable std::unordered_map<std::string, std::shared_ptr<Mesh>> modelCache;
 };

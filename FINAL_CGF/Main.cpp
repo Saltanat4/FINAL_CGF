@@ -113,30 +113,37 @@ namespace
         factory.CreateSpikes(
             scene,
             "Шипы",
-            glm::vec3(4.0f, -0.35f, 2.0f),
-            glm::vec3(2.0f, 0.3f, 2.0f)
+            glm::vec3(4.0f, -0.1f, 2.0f),
+            glm::vec3(1.0f, 1.0f, 1.0f),
+            glm::vec3(0.0f),
+            "models/spike.smf"
         );
-
 
         factory.CreateKey(
             scene,
             context,
             "Ключ 1",
-            glm::vec3(-5.0f, -0.3f, 2.0f)
+            glm::vec3(-5.0f, -0.2f, 2.0f),
+            glm::vec3(0.3f, 0.6f, 0.1f),
+            "models/key.smf"
         );
 
         factory.CreateKey(
             scene,
             context,
             "Ключ 2",
-            glm::vec3(-5.0f, -0.3f, 4.5f)
+            glm::vec3(-5.0f, -0.2f, 4.5f),
+            glm::vec3(0.3f, 0.6f, 0.1f),
+            "models/key.smf"
         );
 
         factory.CreateDoor(
             scene,
             "Дверь",
             glm::vec3(0.0f, 0.75f, -7.0f),
-            glm::vec3(1.5f, 2.5f, 0.3f)
+            glm::vec3(1.5f, 2.5f, 0.3f),
+            glm::vec3(0.0f),
+            "models/door.smf"
         );
 
         state.platform = &platform;
@@ -402,7 +409,7 @@ int main()
                     gameContext.NextLevelRequested())
                 {
                     break;
-                }
+                }   
             }
 
 

@@ -1,7 +1,9 @@
 #include "ObjectFactory.h"
 
 #include "MeshFactory.h"
+#include "ModelLoader.h"
 
+#include <iostream>
 #include <stdexcept>
 #include <utility>
 #include "Spike.h"
@@ -11,6 +13,35 @@
 ObjectFactory::ObjectFactory()
     : cubeMesh(MeshFactory::CreateCube())
 {
+}
+
+std::shared_ptr<Mesh> ObjectFactory::LoadModel(
+    const std::string& path) const
+{
+    auto it = modelCache.find(path);
+
+    if (it != modelCache.end())
+    {
+        return it->second;
+    }
+
+    std::shared_ptr<Mesh> mesh;
+
+    try
+    {
+        mesh = ModelLoader::Load(path);
+    }
+    catch (const std::exception& error)
+    {
+        std::cerr << "Model load failed: " << error.what()
+            << " (using cube)\n";
+
+        mesh = cubeMesh;
+    }
+
+    modelCache[path] = mesh;
+
+    return mesh;
 }
 
 GameObject& ObjectFactory::CreateObject(
@@ -75,7 +106,8 @@ GameObject& ObjectFactory::CreateSpikes(
     const std::string& name,
     const glm::vec3& position,
     const glm::vec3& size,
-    const glm::vec3& rotationDegrees) const
+    const glm::vec3& rotationDegrees,
+    const std::string& modelPath) const
 {
     GameObject& object = CreateBlock(
         scene,
@@ -89,6 +121,11 @@ GameObject& ObjectFactory::CreateSpikes(
     object.interactable = std::make_unique<Spike>();
     object.material = Material::Spikes();
 
+    if (!modelPath.empty())
+    {
+        object.mesh = LoadModel(modelPath);
+    }
+
     return object;
 }
 
@@ -97,7 +134,8 @@ GameObject& ObjectFactory::CreateKey(
     GameContext& context,
     const std::string& name,
     const glm::vec3& position,
-    const glm::vec3& size) const
+    const glm::vec3& size,
+    const std::string& modelPath) const
 {
     GameObject& object = CreateBlock(
         scene,
@@ -110,6 +148,11 @@ GameObject& ObjectFactory::CreateKey(
     object.interactable = std::make_unique<Key>();
     object.material = Material::Key();
 
+    if (!modelPath.empty())
+    {
+        object.mesh = LoadModel(modelPath);
+    }
+
     context.AddKeyToLevel();
 
     return object;
@@ -120,7 +163,8 @@ GameObject& ObjectFactory::CreateDoor(
     const std::string& name,
     const glm::vec3& position,
     const glm::vec3& size,
-    const glm::vec3& rotationDegrees) const
+    const glm::vec3& rotationDegrees,
+    const std::string& modelPath) const
 {
     GameObject& object = CreateBlock(
         scene,
@@ -133,6 +177,11 @@ GameObject& ObjectFactory::CreateDoor(
     object.collider->type = ColliderType::Trigger;
     object.interactable = std::make_unique<Door>();
     object.material = Material::Door();
+
+    if (!modelPath.empty())
+    {
+        object.mesh = LoadModel(modelPath);
+    }
 
     return object;
 }

@@ -63,7 +63,8 @@ void Renderer::Draw(
         shader.SetMat4("uMVP", viewProjection * model);
         shader.SetVec3("uScale", object->transform.scale);
         shader.SetFloat("uFadeTime", object->material.fadeTime);
-
+        shader.SetVec3("uColor", object->material.color);
+        shader.SetInt("uEdgeMode", object->mesh->boxEdges ? 0 : 1);
         object->mesh->Draw();
     }
 }

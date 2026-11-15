@@ -111,14 +111,17 @@
     <ClInclude Include="Key.h">
       <Filter>Файлы заголовков\Game</Filter>
     </ClInclude>
-    <ClInclude Include="Door.h">
-      <Filter>Файлы заголовков</Filter>
+    <ClInclude Include="ModelLoader.h">
+      <Filter>Файлы заголовков\Rendering</Filter>
     </ClInclude>
-    <ClInclude Include="EchoSystem.h">
-      <Filter>Файлы заголовков</Filter>
+    <ClInclude Include="Door.h">
+      <Filter>Файлы заголовков\Game</Filter>
     </ClInclude>
     <ClInclude Include="Material.h">
-      <Filter>Файлы заголовков</Filter>
+      <Filter>Файлы заголовков\Rendering</Filter>
+    </ClInclude>
+    <ClInclude Include="EchoSystem.h">
+      <Filter>Файлы заголовков\Core</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -173,8 +176,11 @@
     <ClCompile Include="InteractionSystem.cpp">
       <Filter>Исходные файлы\Game</Filter>
     </ClCompile>
+    <ClCompile Include="ModelLoader.cpp">
+      <Filter>Исходные файлы\Rendering</Filter>
+    </ClCompile>
     <ClCompile Include="EchoSystem.cpp">
-      <Filter>Исходные файлы</Filter>
+      <Filter>Исходные файлы\Core</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

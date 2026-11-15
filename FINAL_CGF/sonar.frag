@@ -4,6 +4,7 @@
 
 in vec3 vLocalPos;
 in vec3 vWorldPos;
+in vec3 vBary;
 
 out vec4 FragColor;
 
@@ -18,23 +19,37 @@ uniform vec4 uWaveB[MAX_WAVES];
 
 uniform vec3 uScale;
 uniform float uFadeTime;
+uniform int uEdgeMode; // 0 = куб, 1 = модель
+
+uniform vec3 uColor;
 
 const float EDGE_WIDTH = 0.03;
 const float RING_WIDTH = 0.2;
 
 void main()
 {
-    // Расстояние в метрах до граней по каждой оси
-    vec3 d = (vec3(0.5) - abs(vLocalPos)) * uScale;
+    float shape;
 
-    vec3 nearEdge = 1.0 - smoothstep(
-        vec3(EDGE_WIDTH * 0.5), vec3(EDGE_WIDTH), d);
+    if (uEdgeMode == 0)
+    {
+        // Куб: рёбра шириной в метрах
+        vec3 d = (vec3(0.5) - abs(vLocalPos)) * uScale;
 
-    float edgeMask = max(
-        nearEdge.x * nearEdge.y,
-        max(nearEdge.y * nearEdge.z, nearEdge.x * nearEdge.z));
+        vec3 nearEdge = 1.0 - smoothstep(
+            vec3(EDGE_WIDTH * 0.5), vec3(EDGE_WIDTH), d);
 
-    float shape = edgeMask;
+        shape = max(
+            nearEdge.x * nearEdge.y,
+            max(nearEdge.y * nearEdge.z, nearEdge.x * nearEdge.z));
+    }
+    else
+    {
+        // Модель: ребро там, где близка граница треугольника
+        float m = min(vBary.x, min(vBary.y, vBary.z));
+        float w = max(fwidth(m) * 1.5, 0.00001);
+
+        shape = 1.0 - smoothstep(0.0, w, m);
+    }
 
     float ringLight = 0.0;
     float edgeLight = 0.0;
@@ -65,7 +80,7 @@ void main()
         float ring = 1.0 - smoothstep(0.0, RING_WIDTH, abs(dist - radius));
         ringLight = max(ringLight, ring * strength);
 
-        // Рёбра и вершины, которых волна уже коснулась
+        // Рёбра, которых волна уже коснулась
         if (dist <= radius)
         {
             float since = age - dist / uWaveSpeed;
@@ -77,5 +92,5 @@ void main()
 
     float brightness = max(edgeLight * shape, ringLight);
 
-    FragColor = vec4(vec3(brightness), 1.0);
+    FragColor = vec4(uColor * brightness, 1.0);
 }
