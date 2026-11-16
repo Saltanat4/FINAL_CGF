@@ -63,3 +63,14 @@ bool Scene::RemoveById(std::uint32_t id)
 
     return true;
 }
+
+void Scene::UpdateBehaviors(GameContext& context, float deltaTime)
+{
+    for (const auto& object : objects)
+    {
+        for (const auto& behavior : object->behaviors)
+        {
+            behavior->Update(*object, context, deltaTime);
+        }
+    }
+}

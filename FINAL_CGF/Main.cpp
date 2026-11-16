@@ -17,6 +17,8 @@
 #include "GameContext.h"
 #include "InteractionSystem.h"
 #include "EchoSystem.h"
+#include "Rotator.h"
+#include "Mover.h"
 
 namespace
 {
@@ -24,10 +26,6 @@ namespace
     constexpr float kSpawnPitch = -10.0f;
 
 
-    struct LevelState
-    {
-        GameObject* platform = nullptr;
-    };
 
     const glm::vec3 kPlayerSpawn(0.0f, 1.5f, 5.0f);
 
@@ -65,13 +63,11 @@ namespace
         }
     }
 
-    LevelState BuildLevel(
+    void BuildLevel(
         Scene& scene,
         const ObjectFactory& factory,
         GameContext& context)
     {
-        LevelState state;
-
         factory.CreateBlock(
             scene,
             "Floor",
@@ -109,46 +105,44 @@ namespace
         );
 
         platform.collider->isStatic = false;
+        platform.AddBehavior<Mover>(glm::vec3(3.0f, 0.0f, -3.0f) , 1.0f , 2.0f);
 
-        factory.CreateSpikes(
+        GameObject& spikes = factory.CreateSpikes(
             scene,
             "Шипы",
             glm::vec3(4.0f, -0.1f, 2.0f),
             glm::vec3(1.0f, 1.0f, 1.0f),
-            glm::vec3(0.0f),
-            "models/spike.smf"
+            glm::vec3(0.0f)
         );
 
-        factory.CreateKey(
+
+        GameObject& key = factory.CreateKey(
             scene,
             context,
             "Ключ 1",
             glm::vec3(-5.0f, -0.2f, 2.0f),
-            glm::vec3(0.3f, 0.6f, 0.1f),
-            "models/key.smf"
+            glm::vec3(0.3f, 0.6f, 0.1f)
         );
 
-        factory.CreateKey(
+
+        GameObject& key2 = factory.CreateKey(
             scene,
             context,
             "Ключ 2",
             glm::vec3(-5.0f, -0.2f, 4.5f),
-            glm::vec3(0.3f, 0.6f, 0.1f),
-            "models/key.smf"
+            glm::vec3(0.3f, 0.6f, 0.1f)
         );
 
+        
         factory.CreateDoor(
             scene,
             "Дверь",
             glm::vec3(0.0f, 0.75f, -7.0f),
             glm::vec3(1.5f, 2.5f, 0.3f),
-            glm::vec3(0.0f),
-            "models/door.smf"
+            glm::vec3(0.0f)
         );
 
-        state.platform = &platform;
 
-        return state;
     }
 
     struct MouseState
@@ -280,7 +274,7 @@ int main()
         GameContext gameContext;
         EchoSystem echo;
 
-        LevelState level = BuildLevel(scene, objectFactory, gameContext);
+        BuildLevel(scene, objectFactory, gameContext);
 
         physicsWorld.RebuildColliders(scene);
 
@@ -301,7 +295,7 @@ int main()
 
                 scene.Clear();
 
-                level = BuildLevel(scene, objectFactory, gameContext);
+                BuildLevel(scene, objectFactory, gameContext);
 
                 physicsWorld.RebuildColliders(scene);
                 physicsWorld.ResetTriggerState();
@@ -369,6 +363,10 @@ int main()
 
             while (physicsAccumulator >= fixedDeltaTime)
             {
+                scene.UpdateBehaviors(
+                gameContext,
+                    static_cast<float>(fixedDeltaTime));
+
                 physicsWorld.UpdateDynamicColliders();
 
                 CharacterStepResult step = player.FixedUpdate(
@@ -400,10 +398,6 @@ int main()
 
                 physicsAccumulator -= fixedDeltaTime;
 
-                if (gameContext.RestartRequested())
-                {
-                    break;
-                }
 
                 if (gameContext.RestartRequested() ||
                     gameContext.NextLevelRequested())
@@ -472,12 +466,6 @@ int main()
                 echo,
                 static_cast<float>(currentTime)
             );
-
-            if (level.platform)
-            {
-                level.platform->transform.rotationDegrees.y +=
-                    30.0f * deltaTime;
-            }
 
             window.SwapBuffers();
         }

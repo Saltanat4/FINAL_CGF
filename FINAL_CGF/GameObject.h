@@ -10,6 +10,7 @@
 #include "Collision.h"
 #include "Interactable.h"
 #include "Material.h"
+#include "Behavior.h"
 
 struct GameObject
 {
@@ -26,4 +27,20 @@ struct GameObject
     std::unique_ptr<Interactable> interactable;
 
     Material material;
+
+    std::vector<std::unique_ptr<Behavior>> behaviors;
+
+    template <typename T, typename... Args>
+    T& AddBehavior(Args&&... args)
+    {
+        auto behavior = std::make_unique<T>(std::forward<Args>(args)...);
+
+        T& reference = *behavior;
+
+        behaviors.push_back(std::move(behavior));
+
+        reference.Start(*this);
+
+        return reference;
+    }
 };

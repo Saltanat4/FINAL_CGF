@@ -46,6 +46,9 @@
     <Filter Include="Исходные файлы\Physics">
       <UniqueIdentifier>{e455d9df-14d7-4677-bf3a-c1c29a567663}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Файлы заголовков\Game\Objects">
+      <UniqueIdentifier>{77dfaf48-10f5-4847-ad83-784b31ab72e7}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Window.h">
@@ -102,26 +105,35 @@
     <ClInclude Include="GameContext.h">
       <Filter>Файлы заголовков\Game</Filter>
     </ClInclude>
-    <ClInclude Include="Spike.h">
-      <Filter>Файлы заголовков\Game</Filter>
-    </ClInclude>
     <ClInclude Include="InteractionSystem.h">
-      <Filter>Файлы заголовков\Game</Filter>
-    </ClInclude>
-    <ClInclude Include="Key.h">
       <Filter>Файлы заголовков\Game</Filter>
     </ClInclude>
     <ClInclude Include="ModelLoader.h">
       <Filter>Файлы заголовков\Rendering</Filter>
-    </ClInclude>
-    <ClInclude Include="Door.h">
-      <Filter>Файлы заголовков\Game</Filter>
     </ClInclude>
     <ClInclude Include="Material.h">
       <Filter>Файлы заголовков\Rendering</Filter>
     </ClInclude>
     <ClInclude Include="EchoSystem.h">
       <Filter>Файлы заголовков\Core</Filter>
+    </ClInclude>
+    <ClInclude Include="Door.h">
+      <Filter>Файлы заголовков\Game\Objects</Filter>
+    </ClInclude>
+    <ClInclude Include="Key.h">
+      <Filter>Файлы заголовков\Game\Objects</Filter>
+    </ClInclude>
+    <ClInclude Include="Spike.h">
+      <Filter>Файлы заголовков\Game\Objects</Filter>
+    </ClInclude>
+    <ClInclude Include="Behavior.h">
+      <Filter>Файлы заголовков\Game\Objects</Filter>
+    </ClInclude>
+    <ClInclude Include="Rotator.h">
+      <Filter>Файлы заголовков\Game\Objects</Filter>
+    </ClInclude>
+    <ClInclude Include="Mover.h">
+      <Filter>Файлы заголовков\Game\Objects</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

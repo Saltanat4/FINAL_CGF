@@ -8,20 +8,21 @@
 
 class Scene
 {
-public:
-    GameObject& AddObject(
-        std::unique_ptr<GameObject> object
-    );
+    public:
+        GameObject& AddObject(
+            std::unique_ptr<GameObject> object
+        );
 
-    const std::vector<std::unique_ptr<GameObject>>&
-        GetObjects() const;
+        const std::vector<std::unique_ptr<GameObject>>&
+            GetObjects() const;
 
-    void Clear();
-    GameObject* FindById(std::uint32_t id) const;
-    bool RemoveById(std::uint32_t id);
+        void Clear();
+        GameObject* FindById(std::uint32_t id) const;
+        bool RemoveById(std::uint32_t id);
+        void UpdateBehaviors(GameContext& context, float deltaTime);
 
-private:
-    std::vector<std::unique_ptr<GameObject>> objects;
+    private:
+        std::vector<std::unique_ptr<GameObject>> objects;
 
-    std::uint32_t nextId = 1;
+        std::uint32_t nextId = 1;
 };
