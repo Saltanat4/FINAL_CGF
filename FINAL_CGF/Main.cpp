@@ -105,7 +105,7 @@ namespace
         );
 
         platform.collider->isStatic = false;
-        platform.AddBehavior<Mover>(glm::vec3(3.0f, 0.0f, -3.0f) , 1.0f , 2.0f);
+        platform.AddBehavior<Mover>(glm::vec3(0.0f, -1.0f, 0.0f) , 1.0f , 2.0f);
 
         GameObject& spikes = factory.CreateSpikes(
             scene,
