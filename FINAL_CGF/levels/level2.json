@@ -1,0 +1,599 @@
+{
+  "playerSpawn": [
+    8,
+    4,
+    -8
+  ],
+  "playerYaw": 135,
+  "name": "Level2",
+  "objects": [
+    {
+      "type": "block",
+      "name": "Cube",
+      "position": [
+        0,
+        0.5,
+        0
+      ],
+      "size": [
+        20,
+        1.0,
+        20
+      ]
+    },
+    {
+      "type": "block",
+      "name": "Cube (1)",
+      "position": [
+        7.5,
+        1.5,
+        -1.5
+      ],
+      "size": [
+        1.0,
+        1.0,
+        1.0
+      ]
+    },
+    {
+      "type": "block",
+      "name": "Cube (2)",
+      "position": [
+        5.5,
+        2.0,
+        0.5
+      ],
+      "size": [
+        1.0,
+        2.0,
+        1.0
+      ]
+    },
+    {
+      "type": "block",
+      "name": "Cube (3)",
+      "position": [
+        5.5,
+        2.5,
+        3.5
+      ],
+      "size": [
+        1.0,
+        3,
+        1.0
+      ]
+    },
+    {
+      "type": "block",
+      "name": "Cube (4)",
+      "position": [
+        -0.5,
+        1.5,
+        -6.5
+      ],
+      "size": [
+        1.0,
+        1.0,
+        1.0
+      ]
+    },
+    {
+      "type": "block",
+      "name": "Cube (5)",
+      "position": [
+        -2.5,
+        2.0,
+        -4.5
+      ],
+      "size": [
+        1.0,
+        2,
+        1.0
+      ]
+    },
+    {
+      "type": "block",
+      "name": "Cube (6)",
+      "position": [
+        -4.5,
+        2.5,
+        -2.5
+      ],
+      "size": [
+        1.0,
+        3.0,
+        1.0
+      ]
+    },
+    {
+      "type": "block",
+      "name": "Cube (7)",
+      "position": [
+        -4.5,
+        3.0,
+        0.5
+      ],
+      "size": [
+        1.0,
+        4,
+        1.0
+      ]
+    },
+    {
+      "type": "block",
+      "name": "Cube (8)",
+      "position": [
+        -2.5,
+        3.0,
+        2.5
+      ],
+      "size": [
+        1.0,
+        4,
+        1.0
+      ]
+    },
+    {
+      "type": "block",
+      "name": "Cube (9)",
+      "position": [
+        1.5,
+        1.5,
+        -1.5
+      ],
+      "size": [
+        1.0,
+        1.0,
+        1.0
+      ]
+    },
+    {
+      "type": "block",
+      "name": "Cube (10)",
+      "position": [
+        -7.5,
+        1.5,
+        1.5
+      ],
+      "size": [
+        1.0,
+        1.0,
+        1.0
+      ]
+    },
+    {
+      "type": "block",
+      "name": "Cube (11)",
+      "position": [
+        2.5,
+        1.5,
+        3.5
+      ],
+      "size": [
+        1.0,
+        1.0,
+        1.0
+      ]
+    },
+    {
+      "type": "block",
+      "name": "Cube (12)",
+      "position": [
+        0.5,
+        1.5,
+        6.5
+      ],
+      "size": [
+        1.0,
+        1.0,
+        1.0
+      ]
+    },
+    {
+      "type": "block",
+      "name": "Cube (13)",
+      "position": [
+        5.5,
+        1.5,
+        -4.5
+      ],
+      "size": [
+        1.0,
+        1.0,
+        1.0
+      ]
+    },
+    {
+      "type": "block",
+      "name": "Cube (14)",
+      "position": [
+        -6.5,
+        1.5,
+        -6.5
+      ],
+      "size": [
+        1.0,
+        1.0,
+        1.0
+      ]
+    },
+    {
+      "type": "door",
+      "name": "Door",
+      "position": [
+        -7.5,
+        2.25,
+        8.5
+      ]
+    },
+    {
+      "type": "key",
+      "name": "Key",
+      "position": [
+        5.5,
+        5.5,
+        3.5
+      ]
+    },
+    {
+      "type": "key",
+      "name": "Key (1)",
+      "position": [
+        -2.5,
+        5.5,
+        2.5
+      ]
+    },
+    {
+      "type": "spikes",
+      "name": "Spike",
+      "position": [
+        6.5,
+        1.5,
+        2.5
+      ]
+    },
+    {
+      "type": "spikes",
+      "name": "Spike (1)",
+      "position": [
+        5.5,
+        1.5,
+        2.5
+      ]
+    },
+    {
+      "type": "spikes",
+      "name": "Spike (2)",
+      "position": [
+        4.5,
+        1.5,
+        2.5
+      ]
+    },
+    {
+      "type": "spikes",
+      "name": "Spike (3)",
+      "position": [
+        6.5,
+        1.5,
+        4.5
+      ]
+    },
+    {
+      "type": "spikes",
+      "name": "Spike (4)",
+      "position": [
+        5.5,
+        1.5,
+        4.5
+      ]
+    },
+    {
+      "type": "spikes",
+      "name": "Spike (5)",
+      "position": [
+        4.5,
+        1.5,
+        4.5
+      ]
+    },
+    {
+      "type": "spikes",
+      "name": "Spike (6)",
+      "position": [
+        6.5,
+        1.5,
+        3.5
+      ]
+    },
+    {
+      "type": "spikes",
+      "name": "Spike (7)",
+      "position": [
+        4.5,
+        1.5,
+        3.5
+      ]
+    },
+    {
+      "type": "spikes",
+      "name": "Spike (8)",
+      "position": [
+        6.5,
+        1.5,
+        -0.5
+      ]
+    },
+    {
+      "type": "spikes",
+      "name": "Spike (9)",
+      "position": [
+        6.5,
+        1.5,
+        0.5
+      ]
+    },
+    {
+      "type": "spikes",
+      "name": "Spike (10)",
+      "position": [
+        6.5,
+        1.5,
+        1.5
+      ]
+    },
+    {
+      "type": "spikes",
+      "name": "Spike (11)",
+      "position": [
+        5.5,
+        1.5,
+        -0.5
+      ]
+    },
+    {
+      "type": "spikes",
+      "name": "Spike (12)",
+      "position": [
+        5.5,
+        1.5,
+        1.5
+      ]
+    },
+    {
+      "type": "spikes",
+      "name": "Spike (13)",
+      "position": [
+        4.5,
+        1.5,
+        -0.5
+      ]
+    },
+    {
+      "type": "spikes",
+      "name": "Spike (14)",
+      "position": [
+        4.5,
+        1.5,
+        0.5
+      ]
+    },
+    {
+      "type": "spikes",
+      "name": "Spike (15)",
+      "position": [
+        4.5,
+        1.5,
+        1.5
+      ]
+    },
+    {
+      "type": "spikes",
+      "name": "Spike (16)",
+      "position": [
+        -1.5,
+        1.5,
+        1.5
+      ]
+    },
+    {
+      "type": "spikes",
+      "name": "Spike (17)",
+      "position": [
+        -1.5,
+        1.5,
+        2.5
+      ]
+    },
+    {
+      "type": "spikes",
+      "name": "Spike (18)",
+      "position": [
+        -1.5,
+        1.5,
+        3.5
+      ]
+    },
+    {
+      "type": "spikes",
+      "name": "Spike (19)",
+      "position": [
+        -2.5,
+        1.5,
+        1.5
+      ]
+    },
+    {
+      "type": "spikes",
+      "name": "Spike (20)",
+      "position": [
+        -2.5,
+        1.5,
+        3.5
+      ]
+    },
+    {
+      "type": "spikes",
+      "name": "Spike (21)",
+      "position": [
+        -3.5,
+        1.5,
+        1.5
+      ]
+    },
+    {
+      "type": "spikes",
+      "name": "Spike (22)",
+      "position": [
+        -3.5,
+        1.5,
+        2.5
+      ]
+    },
+    {
+      "type": "spikes",
+      "name": "Spike (23)",
+      "position": [
+        -3.5,
+        1.5,
+        3.5
+      ]
+    },
+    {
+      "type": "spikes",
+      "name": "Spike (24)",
+      "position": [
+        -3.5,
+        1.5,
+        -0.5
+      ]
+    },
+    {
+      "type": "spikes",
+      "name": "Spike (25)",
+      "position": [
+        -3.5,
+        1.5,
+        0.5
+      ]
+    },
+    {
+      "type": "spikes",
+      "name": "Spike (27)",
+      "position": [
+        -4.5,
+        1.5,
+        -0.5
+      ]
+    },
+    {
+      "type": "spikes",
+      "name": "Spike (28)",
+      "position": [
+        -4.5,
+        1.5,
+        1.5
+      ]
+    },
+    {
+      "type": "spikes",
+      "name": "Spike (29)",
+      "position": [
+        -5.5,
+        1.5,
+        -0.5
+      ]
+    },
+    {
+      "type": "spikes",
+      "name": "Spike (30)",
+      "position": [
+        -5.5,
+        1.5,
+        0.5
+      ]
+    },
+    {
+      "type": "spikes",
+      "name": "Spike (31)",
+      "position": [
+        -5.5,
+        1.5,
+        1.5
+      ]
+    },
+    {
+      "type": "spikes",
+      "name": "Spike (32)",
+      "position": [
+        -3.5,
+        1.5,
+        -3.5
+      ]
+    },
+    {
+      "type": "spikes",
+      "name": "Spike (33)",
+      "position": [
+        -3.5,
+        1.5,
+        -2.5
+      ]
+    },
+    {
+      "type": "spikes",
+      "name": "Spike (34)",
+      "position": [
+        -3.5,
+        1.5,
+        -1.5
+      ]
+    },
+    {
+      "type": "spikes",
+      "name": "Spike (35)",
+      "position": [
+        -4.5,
+        1.5,
+        -3.5
+      ]
+    },
+    {
+      "type": "spikes",
+      "name": "Spike (36)",
+      "position": [
+        -4.5,
+        1.5,
+        -1.5
+      ]
+    },
+    {
+      "type": "spikes",
+      "name": "Spike (37)",
+      "position": [
+        -5.5,
+        1.5,
+        -3.5
+      ]
+    },
+    {
+      "type": "spikes",
+      "name": "Spike (38)",
+      "position": [
+        -5.5,
+        1.5,
+        -2.5
+      ]
+    },
+    {
+      "type": "spikes",
+      "name": "Spike (39)",
+      "position": [
+        -5.5,
+        1.5,
+        -1.5
+      ]
+    }
+  ]
+}
