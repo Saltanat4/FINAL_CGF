@@ -9,7 +9,7 @@
 class Window
 {
 public:
-    Window(int width, int height, const char* title);
+    Window(int width, int height, const char* title, bool fullscreen = false);
     ~Window();
 
     Window(const Window&) = delete;
@@ -23,6 +23,17 @@ public:
     void PollEvents() const;
     void SwapBuffers() const;
 
+    bool IsFullscreen() const;
+    void SetFullscreen(bool enabled);
+    void ToggleFullscreen();
+
 private:
     GLFWwindow* handle = nullptr;
+
+    bool fullscreen = false;
+
+    int windowedX = 100;
+    int windowedY = 100;
+    int windowedWidth = 1280;
+    int windowedHeight = 720;
 };

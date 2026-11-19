@@ -135,6 +135,15 @@
     <ClInclude Include="Mover.h">
       <Filter>Файлы заголовков\Game\Objects</Filter>
     </ClInclude>
+    <ClInclude Include="LevelLoader.h">
+      <Filter>Файлы заголовков\Core</Filter>
+    </ClInclude>
+    <ClInclude Include="resource.h">
+      <Filter>Файлы заголовков</Filter>
+    </ClInclude>
+    <ClInclude Include="Hud.h">
+      <Filter>Файлы заголовков\Rendering</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Window.cpp">
@@ -194,20 +203,49 @@
     <ClCompile Include="EchoSystem.cpp">
       <Filter>Исходные файлы\Core</Filter>
     </ClCompile>
+    <ClCompile Include="LevelLoader.cpp">
+      <Filter>Исходные файлы\Core</Filter>
+    </ClCompile>
+    <ClCompile Include="Hud.cpp">
+      <Filter>Исходные файлы\Rendering</Filter>
+    </ClCompile>
+    <ClCompile Include="..\libraries\include\imgui\imgui.cpp">
+      <Filter>Исходные файлы</Filter>
+    </ClCompile>
+    <ClCompile Include="..\libraries\include\imgui\imgui_draw.cpp">
+      <Filter>Исходные файлы</Filter>
+    </ClCompile>
+    <ClCompile Include="..\libraries\include\imgui\imgui_impl_glfw.cpp">
+      <Filter>Исходные файлы</Filter>
+    </ClCompile>
+    <ClCompile Include="..\libraries\include\imgui\imgui_impl_opengl3.cpp">
+      <Filter>Исходные файлы</Filter>
+    </ClCompile>
+    <ClCompile Include="..\libraries\include\imgui\imgui_tables.cpp">
+      <Filter>Исходные файлы</Filter>
+    </ClCompile>
+    <ClCompile Include="..\libraries\include\imgui\imgui_widgets.cpp">
+      <Filter>Исходные файлы</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
-    <None Include="sonar.frag">
+    <None Include="shaders\default.frag">
       <Filter>Файлы ресурсов\Shaders</Filter>
     </None>
-    <None Include="sonar.vert">
+    <None Include="shaders\default.vert">
       <Filter>Файлы ресурсов\Shaders</Filter>
     </None>
-    <None Include="default.frag">
+    <None Include="shaders\sonar.frag">
       <Filter>Файлы ресурсов\Shaders</Filter>
     </None>
-    <None Include="default.vert">
+    <None Include="shaders\sonar.vert">
       <Filter>Файлы ресурсов\Shaders</Filter>
     </None>
+  </ItemGroup>
+  <ItemGroup>
+    <ResourceCompile Include="FINAL_CGF.rc">
+      <Filter>Файлы ресурсов</Filter>
+    </ResourceCompile>
   </ItemGroup>
 </Project>

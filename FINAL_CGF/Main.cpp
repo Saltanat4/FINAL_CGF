@@ -19,15 +19,14 @@
 #include "EchoSystem.h"
 #include "Rotator.h"
 #include "Mover.h"
+#include "LevelLoader.h"
+#include <filesystem>
+#include "HUD.h"
 
 namespace
 {
-    constexpr float kSpawnYaw = -90.0f;
     constexpr float kSpawnPitch = -10.0f;
 
-
-
-    const glm::vec3 kPlayerSpawn(0.0f, 1.5f, 5.0f);
 
     constexpr float kKillHeight = -10.0f;
 
@@ -63,87 +62,6 @@ namespace
         }
     }
 
-    void BuildLevel(
-        Scene& scene,
-        const ObjectFactory& factory,
-        GameContext& context)
-    {
-        factory.CreateBlock(
-            scene,
-            "Floor",
-            glm::vec3(0.0f, -0.75f, 0.0f),
-            glm::vec3(16.0f, 0.5f, 16.0f)
-        );
-
-        factory.CreateBlock(
-            scene,
-            "Кубик",
-            glm::vec3(0.0f, 0.0f, 0.0f),
-            glm::vec3(1.0f, 1.0f, 1.0f)
-        );
-
-        factory.CreateBlock(
-            scene,
-            "Столб",
-            glm::vec3(-3.0f, 1.0f, -3.0f),
-            glm::vec3(1.0f, 3.0f, 1.0f)
-        );
-
-        factory.CreateBlock(
-            scene,
-            "Столб",
-            glm::vec3(-2.0f, 0.5f, -1.0f),
-            glm::vec3(1.0f, 2.0f, 1.0f)
-        );
-
-        GameObject& platform = factory.CreateBlock(
-            scene,
-            "Платформа",
-            glm::vec3(3.0f, 1.5f, -3.0f),
-            glm::vec3(4.0f, 0.4f, 2.0f),
-            glm::vec3(0.0f, 35.0f, 15.0f)
-        );
-
-        platform.collider->isStatic = false;
-        platform.AddBehavior<Mover>(glm::vec3(0.0f, -1.0f, 0.0f) , 1.0f , 2.0f);
-
-        GameObject& spikes = factory.CreateSpikes(
-            scene,
-            "Шипы",
-            glm::vec3(4.0f, -0.1f, 2.0f),
-            glm::vec3(1.0f, 1.0f, 1.0f),
-            glm::vec3(0.0f)
-        );
-
-
-        GameObject& key = factory.CreateKey(
-            scene,
-            context,
-            "Ключ 1",
-            glm::vec3(-5.0f, -0.2f, 2.0f),
-            glm::vec3(0.3f, 0.6f, 0.1f)
-        );
-
-
-        GameObject& key2 = factory.CreateKey(
-            scene,
-            context,
-            "Ключ 2",
-            glm::vec3(-5.0f, -0.2f, 4.5f),
-            glm::vec3(0.3f, 0.6f, 0.1f)
-        );
-
-        
-        factory.CreateDoor(
-            scene,
-            "Дверь",
-            glm::vec3(0.0f, 0.75f, -7.0f),
-            glm::vec3(1.5f, 2.5f, 0.3f),
-            glm::vec3(0.0f)
-        );
-
-
-    }
 
     struct MouseState
     {
@@ -237,11 +155,9 @@ int main()
 {
     try
     {
-        Window window(1280, 720, "Platformer");
+        Window window(1280, 720, "Platformer", true);
 
         Camera camera;
-
-        camera.SetRotation(kSpawnYaw, kSpawnPitch);
 
         Scene scene;
 
@@ -269,18 +185,22 @@ int main()
 
         glEnable(GL_DEPTH_TEST);
 
+        Hud hud(window.GetHandle());
 
         PhysicsWorld physicsWorld;
         GameContext gameContext;
         EchoSystem echo;
 
-        BuildLevel(scene, objectFactory, gameContext);
+        LevelData level = LevelLoader::Load(
+            GameContext::LevelPath(gameContext.GetCurrentLevel()), 
+            scene, objectFactory, gameContext);
 
         physicsWorld.RebuildColliders(scene);
 
-        CharacterController player(kPlayerSpawn);
+        CharacterController player(level.playerSpawn);
 
         camera.SetPosition(player.GetEyePosition());
+        camera.SetRotation(level.playerYaw, kSpawnPitch);
 
         constexpr double fixedDeltaTime = 1.0 / 60.0;
 
@@ -289,21 +209,25 @@ int main()
         bool jumpWasDown = false;
         bool jumpPending = false;
 
+        bool f11WasDown = false;
+
         auto restartLevel = [&]()
             {
                 gameContext.ResetLevelProgress();
 
                 scene.Clear();
 
-                BuildLevel(scene, objectFactory, gameContext);
+                level = LevelLoader::Load(
+                    GameContext::LevelPath(gameContext.GetCurrentLevel()),
+                    scene, objectFactory, gameContext);
 
                 physicsWorld.RebuildColliders(scene);
                 physicsWorld.ResetTriggerState();
 
-                player.Teleport(kPlayerSpawn);
+                player.Teleport(level.playerSpawn);
 
                 camera.SetPosition(player.GetEyePosition());
-                camera.SetRotation(kSpawnYaw, kSpawnPitch);
+                camera.SetRotation(level.playerYaw, kSpawnPitch);
 
                 jumpPending = false;
                 physicsAccumulator = 0.0;
@@ -333,6 +257,16 @@ int main()
             {
                 window.Close();
             }
+
+            bool f11Down = glfwGetKey(handle, GLFW_KEY_F11) == GLFW_PRESS;
+
+            if (f11Down && !f11WasDown)
+            {
+                window.ToggleFullscreen();
+                mouse.firstEvent = true;
+            }
+
+            f11WasDown = f11Down;
 
             glm::vec3 moveDirection = ReadMoveDirection(
                 handle,
@@ -408,8 +342,25 @@ int main()
 
 
 
-            if (gameContext.ConsumeRestart() ||
-                gameContext.ConsumeNextLevel())
+            bool restart = gameContext.ConsumeRestart();
+            bool nextLevel = gameContext.ConsumeNextLevel();
+
+            if (nextLevel)
+            {
+                int target = gameContext.GetCurrentLevel() + 1;
+
+                if (std::filesystem::exists(GameContext::LevelPath(target)))
+                {
+                    gameContext.SetCurrentLevel(target);
+                }
+                else
+                {
+                    std::cout << "All levels completed!\n";
+                    break;
+                }
+            }
+
+            if (restart || nextLevel)
             {
                 restartLevel();
             }
@@ -466,6 +417,11 @@ int main()
                 echo,
                 static_cast<float>(currentTime)
             );
+
+            hud.Draw(
+                gameContext.GetKeysCollected(),
+                gameContext.GetKeysInLevel(),
+                height);
 
             window.SwapBuffers();
         }

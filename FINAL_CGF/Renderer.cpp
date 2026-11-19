@@ -2,7 +2,7 @@
 #include <algorithm>
 
 Renderer::Renderer()
-    : shader("sonar.vert", "sonar.frag")
+    : shader("shaders/sonar.vert", "shaders/sonar.frag")
 {
 }
 

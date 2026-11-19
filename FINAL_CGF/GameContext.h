@@ -65,15 +65,9 @@ public:
         destroyRequests.clear();
     }
 
-    // Дверь и переход между уровнями
     bool HasAllKeys() const
     {
         return keysCollected >= keysInLevel;
-    }
-
-    void RequestNextLevel()
-    {
-        nextLevelRequested = true;
     }
 
     bool NextLevelRequested() const
@@ -88,6 +82,16 @@ public:
         return result;
     }
 
+    int GetCurrentLevel() const { return currentLevel; }
+    void SetCurrentLevel(int level) { currentLevel = level; }
+
+    static std::string LevelPath(int level)
+    {
+        return "levels/level" + std::to_string(level) + ".json";
+    }
+
+    void RequestNextLevel() { nextLevelRequested = true; }
+
 private:
     bool restartRequested = false;
 
@@ -95,6 +99,8 @@ private:
     int keysInLevel = 0;
 
     bool nextLevelRequested = false;
+
+    int currentLevel = 1;
 
     std::vector<std::uint32_t> destroyRequests;
 };

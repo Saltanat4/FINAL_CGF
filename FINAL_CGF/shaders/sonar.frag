@@ -12,8 +12,6 @@ uniform int uWaveCount;
 uniform float uTime;
 uniform float uWaveSpeed;
 
-// A: xyz = источник, w = время старта
-// B: x = макс. радиус, y = яркость
 uniform vec4 uWaveA[MAX_WAVES];
 uniform vec4 uWaveB[MAX_WAVES];
 
@@ -32,7 +30,6 @@ void main()
 
     if (uEdgeMode == 0)
     {
-        // Куб: рёбра шириной в метрах
         vec3 d = (vec3(0.5) - abs(vLocalPos)) * uScale;
 
         vec3 nearEdge = 1.0 - smoothstep(
@@ -44,7 +41,6 @@ void main()
     }
     else
     {
-        // Модель: ребро там, где близка граница треугольника
         float m = min(vBary.x, min(vBary.y, vBary.z));
         float w = max(fwidth(m) * 1.5, 0.00001);
 
@@ -76,11 +72,9 @@ void main()
         float strength = B.y * (1.0 - dist / B.x);
         float radius = age * uWaveSpeed;
 
-        // Белое кольцо на поверхности
         float ring = 1.0 - smoothstep(0.0, RING_WIDTH, abs(dist - radius));
         ringLight = max(ringLight, ring * strength);
 
-        // Рёбра, которых волна уже коснулась
         if (dist <= radius)
         {
             float since = age - dist / uWaveSpeed;

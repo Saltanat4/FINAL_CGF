@@ -15,7 +15,7 @@ namespace
     }
 }
 
-Window::Window(int width, int height, const char* title)
+Window::Window(int width, int height, const char* title, bool startFullscreen)
 {
     if (!glfwInit())
     {
@@ -62,6 +62,12 @@ Window::Window(int width, int height, const char* title)
         &framebufferHeight);
 
     glViewport(0, 0, framebufferWidth, framebufferHeight);
+
+
+    if (startFullscreen)
+    {
+        SetFullscreen(true);
+    }
 }
 
 Window::~Window()
@@ -97,4 +103,56 @@ void Window::PollEvents() const
 void Window::SwapBuffers() const
 {
     glfwSwapBuffers(handle);
+}
+
+bool Window::IsFullscreen() const
+{
+    return fullscreen;
+}
+
+void Window::SetFullscreen(bool enabled)
+{
+    if (enabled == fullscreen)
+    {
+        return;
+    }
+
+    if (enabled)
+    {
+        glfwGetWindowPos(handle, &windowedX, &windowedY);
+        glfwGetWindowSize(handle, &windowedWidth, &windowedHeight);
+
+        GLFWmonitor* monitor = glfwGetPrimaryMonitor();
+        const GLFWvidmode* mode = glfwGetVideoMode(monitor);
+
+        glfwSetWindowMonitor(
+            handle,
+            monitor,
+            0, 0,
+            mode->width,
+            mode->height,
+            mode->refreshRate
+        );
+    }
+    else
+    {
+        glfwSetWindowMonitor(
+            handle,
+            nullptr,
+            windowedX,
+            windowedY,
+            windowedWidth,
+            windowedHeight,
+            0
+        );
+    }
+
+    fullscreen = enabled;
+
+    glfwSwapInterval(1);
+}
+
+void Window::ToggleFullscreen()
+{
+    SetFullscreen(!fullscreen);
 }

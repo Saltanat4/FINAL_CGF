@@ -10,7 +10,7 @@ struct Material
 
     static Material Default()
     {
-        return Material{ .5f, glm::vec3(0.85f, 0.9f, 1.0f) };
+        return Material{ 1.0f, glm::vec3(1, 1, 1) };
     }
 
     static Material Spikes()

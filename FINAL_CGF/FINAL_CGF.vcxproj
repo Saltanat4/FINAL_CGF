@@ -91,6 +91,11 @@
       <GenerateDebugInformation>true</GenerateDebugInformation>
       <AdditionalDependencies>glfw3.lib;opengl32.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
+    <PostBuildEvent>
+      <Command>xcopy /E /I /Y /Q "$(ProjectDir)models" "$(OutDir)models"
+xcopy /E /I /Y /Q "$(ProjectDir)levels" "$(OutDir)levels"
+xcopy /E /I /Y /Q "$(ProjectDir)shaders" "$(OutDir)shaders"</Command>
+    </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
     <ClCompile>
@@ -105,6 +110,11 @@
       <SubSystem>Console</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
     </Link>
+    <PostBuildEvent>
+      <Command>xcopy /E /I /Y /Q "$(ProjectDir)models" "$(OutDir)models"
+xcopy /E /I /Y /Q "$(ProjectDir)levels" "$(OutDir)levels"
+xcopy /E /I /Y /Q "$(ProjectDir)shaders" "$(OutDir)shaders"</Command>
+    </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
     <ClCompile>
@@ -119,6 +129,11 @@
       <GenerateDebugInformation>true</GenerateDebugInformation>
       <AdditionalDependencies>glfw3.lib;opengl32.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
+    <PostBuildEvent>
+      <Command>xcopy /E /I /Y /Q "$(ProjectDir)models" "$(OutDir)models"
+xcopy /E /I /Y /Q "$(ProjectDir)levels" "$(OutDir)levels"
+xcopy /E /I /Y /Q "$(ProjectDir)shaders" "$(OutDir)shaders"</Command>
+    </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
     <ClCompile>
@@ -133,6 +148,11 @@
       <SubSystem>Console</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
     </Link>
+    <PostBuildEvent>
+      <Command>xcopy /E /I /Y /Q "$(ProjectDir)models" "$(OutDir)models"
+xcopy /E /I /Y /Q "$(ProjectDir)levels" "$(OutDir)levels"
+xcopy /E /I /Y /Q "$(ProjectDir)shaders" "$(OutDir)shaders"</Command>
+    </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClInclude Include="Behavior.h" />
@@ -144,9 +164,11 @@
     <ClInclude Include="EchoSystem.h" />
     <ClInclude Include="GameContext.h" />
     <ClInclude Include="GameObject.h" />
+    <ClInclude Include="Hud.h" />
     <ClInclude Include="Interactable.h" />
     <ClInclude Include="InteractionSystem.h" />
     <ClInclude Include="Key.h" />
+    <ClInclude Include="LevelLoader.h" />
     <ClInclude Include="Material.h" />
     <ClInclude Include="Mesh.h" />
     <ClInclude Include="MeshFactory.h" />
@@ -155,6 +177,7 @@
     <ClInclude Include="ObjectFactory.h" />
     <ClInclude Include="PhysicsWorld.h" />
     <ClInclude Include="Renderer.h" />
+    <ClInclude Include="resource.h" />
     <ClInclude Include="Rotator.h" />
     <ClInclude Include="Scene.h" />
     <ClInclude Include="shaderClass.h" />
@@ -165,13 +188,21 @@
     <ClInclude Include="Window.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="..\libraries\include\imgui\imgui.cpp" />
+    <ClCompile Include="..\libraries\include\imgui\imgui_draw.cpp" />
+    <ClCompile Include="..\libraries\include\imgui\imgui_impl_glfw.cpp" />
+    <ClCompile Include="..\libraries\include\imgui\imgui_impl_opengl3.cpp" />
+    <ClCompile Include="..\libraries\include\imgui\imgui_tables.cpp" />
+    <ClCompile Include="..\libraries\include\imgui\imgui_widgets.cpp" />
     <ClCompile Include="Camera.cpp" />
     <ClCompile Include="CharacterController.cpp" />
     <ClCompile Include="Collision.cpp" />
     <ClCompile Include="EBO.cpp" />
     <ClCompile Include="EchoSystem.cpp" />
     <ClCompile Include="glad.c" />
+    <ClCompile Include="Hud.cpp" />
     <ClCompile Include="InteractionSystem.cpp" />
+    <ClCompile Include="LevelLoader.cpp" />
     <ClCompile Include="Main.cpp" />
     <ClCompile Include="Mesh.cpp" />
     <ClCompile Include="MeshFactory.cpp" />
@@ -186,11 +217,14 @@
     <ClCompile Include="Window.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="default.frag" />
-    <None Include="default.vert" />
-    <None Include="sonar.frag" />
-    <None Include="sonar.vert" />
     <None Include="packages.config" />
+    <None Include="shaders\default.frag" />
+    <None Include="shaders\default.vert" />
+    <None Include="shaders\sonar.frag" />
+    <None Include="shaders\sonar.vert" />
+  </ItemGroup>
+  <ItemGroup>
+    <ResourceCompile Include="FINAL_CGF.rc" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
@@ -202,4 +236,9 @@
     </PropertyGroup>
     <Error Condition="!Exists('..\packages\glm.1.0.3\build\native\glm.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\glm.1.0.3\build\native\glm.targets'))" />
   </Target>
+  <ProjectExtensions>
+    <VisualStudio>
+      <UserProperties />
+    </VisualStudio>
+  </ProjectExtensions>
 </Project>
