@@ -11,6 +11,107 @@
 
 #include <glm/glm.hpp>
 
+namespace
+{
+    void OrientTriangles(
+        const std::vector<glm::vec3>& positions,
+        std::vector<std::array<int, 3>>& triangles)
+    {
+        const std::size_t count = triangles.size();
+
+        std::map<std::pair<int, int>, std::vector<int>> edgeTriangles;
+
+        for (std::size_t t = 0; t < count; ++t)
+        {
+            for (int e = 0; e < 3; ++e)
+            {
+                int a = triangles[t][e];
+                int b = triangles[t][(e + 1) % 3];
+
+                if (a > b) std::swap(a, b);
+
+                edgeTriangles[{ a, b }].push_back(static_cast<int>(t));
+            }
+        }
+
+        auto hasDirectedEdge = [&](int t, int a, int b)
+            {
+                for (int e = 0; e < 3; ++e)
+                {
+                    if (triangles[t][e] == a && triangles[t][(e + 1) % 3] == b)
+                    {
+                        return true;
+                    }
+                }
+
+                return false;
+            };
+
+        std::vector<bool> visited(count, false);
+
+        for (std::size_t start = 0; start < count; ++start)
+        {
+            if (visited[start]) continue;
+
+            std::vector<int> members;
+            std::vector<int> stack{ static_cast<int>(start) };
+
+            visited[start] = true;
+
+            while (!stack.empty())
+            {
+                const int t = stack.back();
+                stack.pop_back();
+                members.push_back(t);
+
+                const std::array<int, 3> ids = triangles[t];
+
+                for (int e = 0; e < 3; ++e)
+                {
+                    const int a = ids[e];
+                    const int b = ids[(e + 1) % 3];
+
+                    const auto& list =
+                        edgeTriangles[{ std::min(a, b), std::max(a, b) }];
+
+                    if (list.size() != 2) continue;
+
+                    const int other = (list[0] == t) ? list[1] : list[0];
+
+                    if (visited[other]) continue;
+
+                    if (hasDirectedEdge(other, a, b))
+                    {
+                        std::swap(triangles[other][1], triangles[other][2]);
+                    }
+
+                    visited[other] = true;
+                    stack.push_back(other);
+                }
+            }
+
+            double volume = 0.0;
+
+            for (int t : members)
+            {
+                volume += glm::dot(
+                    positions[triangles[t][0]],
+                    glm::cross(
+                        positions[triangles[t][1]],
+                        positions[triangles[t][2]]));
+            }
+
+            if (volume < 0.0)
+            {
+                for (int t : members)
+                {
+                    std::swap(triangles[t][1], triangles[t][2]);
+                }
+            }
+        }
+    }
+}
+
 std::shared_ptr<Mesh> ModelLoader::Load(const std::string& path)
 {
     std::ifstream file(path);
@@ -73,7 +174,6 @@ std::shared_ptr<Mesh> ModelLoader::Load(const std::string& path)
         throw std::runtime_error("Model has no geometry: " + path);
     }
 
-    // Вписываем в куб [-0.5; 0.5] по каждой оси
     glm::vec3 minP = positions[0];
     glm::vec3 maxP = positions[0];
 
@@ -99,7 +199,8 @@ std::shared_ptr<Mesh> ModelLoader::Load(const std::string& path)
         p = (p - center) / extent;
     }
 
-    // Нормали треугольников и список треугольников для каждой стороны
+    OrientTriangles(positions, triangles);
+
     std::vector<glm::vec3> normals(triangles.size(), glm::vec3(0.0f));
     std::map<std::pair<int, int>, std::vector<int>> sideTriangles;
 
@@ -139,7 +240,6 @@ std::shared_ptr<Mesh> ModelLoader::Load(const std::string& path)
     {
         const auto& ids = triangles[t];
 
-        // hide[c] = 1: сторона напротив вершины c не рисуется
         float hide[3] = { 0.0f, 0.0f, 0.0f };
 
         for (int e = 0; e < 3; ++e)
@@ -154,7 +254,6 @@ std::shared_ptr<Mesh> ModelLoader::Load(const std::string& path)
 
             const std::vector<int>& shared = sideTriangles[{ a, b }];
 
-            // Соседи лежат в одной плоскости: это диагональ триангуляции
             if (shared.size() == 2 &&
                 std::abs(glm::dot(
                     normals[shared[0]],
