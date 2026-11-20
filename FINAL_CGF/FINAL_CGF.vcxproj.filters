@@ -49,6 +49,12 @@
     <Filter Include="Файлы заголовков\Game\Objects">
       <UniqueIdentifier>{77dfaf48-10f5-4847-ad83-784b31ab72e7}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Файлы заголовков\Audio">
+      <UniqueIdentifier>{36229da3-644a-4bfe-b01c-bb00ba037d37}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Исходные файлы\Audio">
+      <UniqueIdentifier>{0625e9fa-a3e3-4ae5-b49a-4fd54024deec}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Window.h">
@@ -144,6 +150,12 @@
     <ClInclude Include="Hud.h">
       <Filter>Файлы заголовков\Rendering</Filter>
     </ClInclude>
+    <ClInclude Include="Audio.h">
+      <Filter>Файлы заголовков\Audio</Filter>
+    </ClInclude>
+    <ClInclude Include="SoundId.h">
+      <Filter>Файлы заголовков\Audio</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Window.cpp">
@@ -226,6 +238,12 @@
     </ClCompile>
     <ClCompile Include="..\libraries\include\imgui\imgui_widgets.cpp">
       <Filter>Исходные файлы</Filter>
+    </ClCompile>
+    <ClCompile Include="..\libraries\include\miniaudio\miniaudio.c">
+      <Filter>Исходные файлы</Filter>
+    </ClCompile>
+    <ClCompile Include="Audio.cpp">
+      <Filter>Исходные файлы\Audio</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

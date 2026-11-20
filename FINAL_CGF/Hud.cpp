@@ -38,7 +38,6 @@ namespace
         { '/', { 0b00001, 0b00001, 0b00010, 0b00100, 0b01000, 0b10000, 0b10000 } },
     };
 
-    // X - основной цвет, H - блик, D - тень
     const char* const kKeySprite[12] =
     {
         "..XXXX..",
@@ -132,7 +131,6 @@ namespace
         }
     }
 
-    // Рамка со ступенчатыми углами, как у пиксельных окон
     void DrawPanel(
         ImDrawList* d, float x, float y, float w, float h, float p,
         ImU32 border, ImU32 fill)
@@ -174,7 +172,6 @@ void Hud::Draw(int keysCollected, int keysInLevel, int framebufferHeight)
     {
         ImDrawList* d = ImGui::GetForegroundDrawList();
 
-        // Целый размер "пикселя": 3 на 720p, 4 на 1080p
         const float p = static_cast<float>(
             std::max(2, framebufferHeight / 240));
 

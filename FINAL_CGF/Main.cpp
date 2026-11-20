@@ -22,6 +22,7 @@
 #include "LevelLoader.h"
 #include <filesystem>
 #include "HUD.h"
+#include "Audio.h"
 
 namespace
 {
@@ -32,6 +33,7 @@ namespace
 
     void SpawnEchoes(
         EchoSystem& echo,
+        AudioSystem& audio,
         const CharacterController& player,
         const CharacterStepResult& step,
         float time)
@@ -47,6 +49,7 @@ namespace
         if (step.jumped)
         {
             echo.Spawn(feet, time, 12.0f, 1.0f);
+            audio.Play(SoundId::Echo);
         }
 
         if (step.landed)
@@ -54,6 +57,7 @@ namespace
             float k = glm::clamp(step.landingSpeed / 12.0f, 0.3f, 1.0f);
 
             echo.Spawn(feet, time, 6.0f + 8.0f * k, 0.5f + 0.5f * k);
+            audio.Play(SoundId::Echo);
         }
 
         if (step.footstep)
@@ -186,6 +190,8 @@ int main()
         glEnable(GL_DEPTH_TEST);
 
         Hud hud(window.GetHandle());
+        AudioSystem audio;
+        int previousKeys = 0;
 
         PhysicsWorld physicsWorld;
         GameContext gameContext;
@@ -312,6 +318,7 @@ int main()
 
                 SpawnEchoes(
                     echo,
+                    audio,
                     player,
                     step,
                     static_cast<float>(currentTime)
@@ -363,6 +370,8 @@ int main()
             if (restart || nextLevel)
             {
                 restartLevel();
+
+                audio.Play(nextLevel ? SoundId::NextLevel : SoundId::Respawn);
             }
             else if (!gameContext.GetDestroyRequests().empty())
             {
@@ -381,6 +390,15 @@ int main()
                     << gameContext.GetKeysInLevel()
                     << '\n';
             }
+
+            int keys = gameContext.GetKeysCollected();
+
+            if (keys > previousKeys)
+            {
+                audio.Play(SoundId::Pickup);
+            }
+
+            previousKeys = keys;
 
             camera.SetPosition(player.GetEyePosition());
 

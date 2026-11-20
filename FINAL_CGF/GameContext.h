@@ -100,7 +100,7 @@ private:
 
     bool nextLevelRequested = false;
 
-    int currentLevel = 1;
+    int currentLevel = 4;
 
     std::vector<std::uint32_t> destroyRequests;
 };

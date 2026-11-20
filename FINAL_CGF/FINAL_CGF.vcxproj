@@ -94,7 +94,9 @@
     <PostBuildEvent>
       <Command>xcopy /E /I /Y /Q "$(ProjectDir)models" "$(OutDir)models"
 xcopy /E /I /Y /Q "$(ProjectDir)levels" "$(OutDir)levels"
-xcopy /E /I /Y /Q "$(ProjectDir)shaders" "$(OutDir)shaders"</Command>
+
+xcopy /E /I /Y /Q "$(ProjectDir)shaders" "$(OutDir)shaders"
+xcopy /E /I /Y /Q "$(ProjectDir)sounds" "$(OutDir)sounds"</Command>
     </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
@@ -113,7 +115,9 @@ xcopy /E /I /Y /Q "$(ProjectDir)shaders" "$(OutDir)shaders"</Command>
     <PostBuildEvent>
       <Command>xcopy /E /I /Y /Q "$(ProjectDir)models" "$(OutDir)models"
 xcopy /E /I /Y /Q "$(ProjectDir)levels" "$(OutDir)levels"
-xcopy /E /I /Y /Q "$(ProjectDir)shaders" "$(OutDir)shaders"</Command>
+
+xcopy /E /I /Y /Q "$(ProjectDir)shaders" "$(OutDir)shaders"
+xcopy /E /I /Y /Q "$(ProjectDir)sounds" "$(OutDir)sounds"</Command>
     </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
@@ -132,7 +136,9 @@ xcopy /E /I /Y /Q "$(ProjectDir)shaders" "$(OutDir)shaders"</Command>
     <PostBuildEvent>
       <Command>xcopy /E /I /Y /Q "$(ProjectDir)models" "$(OutDir)models"
 xcopy /E /I /Y /Q "$(ProjectDir)levels" "$(OutDir)levels"
-xcopy /E /I /Y /Q "$(ProjectDir)shaders" "$(OutDir)shaders"</Command>
+
+xcopy /E /I /Y /Q "$(ProjectDir)shaders" "$(OutDir)shaders"
+xcopy /E /I /Y /Q "$(ProjectDir)sounds" "$(OutDir)sounds"</Command>
     </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
@@ -151,10 +157,13 @@ xcopy /E /I /Y /Q "$(ProjectDir)shaders" "$(OutDir)shaders"</Command>
     <PostBuildEvent>
       <Command>xcopy /E /I /Y /Q "$(ProjectDir)models" "$(OutDir)models"
 xcopy /E /I /Y /Q "$(ProjectDir)levels" "$(OutDir)levels"
-xcopy /E /I /Y /Q "$(ProjectDir)shaders" "$(OutDir)shaders"</Command>
+
+xcopy /E /I /Y /Q "$(ProjectDir)shaders" "$(OutDir)shaders"
+xcopy /E /I /Y /Q "$(ProjectDir)sounds" "$(OutDir)sounds"</Command>
     </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClInclude Include="Audio.h" />
     <ClInclude Include="Behavior.h" />
     <ClInclude Include="Camera.h" />
     <ClInclude Include="CharacterController.h" />
@@ -181,6 +190,7 @@ xcopy /E /I /Y /Q "$(ProjectDir)shaders" "$(OutDir)shaders"</Command>
     <ClInclude Include="Rotator.h" />
     <ClInclude Include="Scene.h" />
     <ClInclude Include="shaderClass.h" />
+    <ClInclude Include="SoundId.h" />
     <ClInclude Include="Spike.h" />
     <ClInclude Include="Transform.h" />
     <ClInclude Include="VAO.h" />
@@ -194,6 +204,8 @@ xcopy /E /I /Y /Q "$(ProjectDir)shaders" "$(OutDir)shaders"</Command>
     <ClCompile Include="..\libraries\include\imgui\imgui_impl_opengl3.cpp" />
     <ClCompile Include="..\libraries\include\imgui\imgui_tables.cpp" />
     <ClCompile Include="..\libraries\include\imgui\imgui_widgets.cpp" />
+    <ClCompile Include="..\libraries\include\miniaudio\miniaudio.c" />
+    <ClCompile Include="Audio.cpp" />
     <ClCompile Include="Camera.cpp" />
     <ClCompile Include="CharacterController.cpp" />
     <ClCompile Include="Collision.cpp" />

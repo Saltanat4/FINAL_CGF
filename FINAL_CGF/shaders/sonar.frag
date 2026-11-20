@@ -17,7 +17,7 @@ uniform vec4 uWaveB[MAX_WAVES];
 
 uniform vec3 uScale;
 uniform float uFadeTime;
-uniform int uEdgeMode; // 0 = куб, 1 = модель
+uniform int uEdgeMode; 
 
 uniform vec3 uColor;
 

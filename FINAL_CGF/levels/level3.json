@@ -1,0 +1,5636 @@
+{
+  "playerSpawn": [
+    0,
+    2,
+    2
+  ],
+  "playerYaw": -90,
+  "name": "Level3",
+  "objects": [
+    {
+      "type": "block",
+      "name": "Start",
+      "position": [
+        0,
+        1.25,
+        2
+      ],
+      "size": [
+        5,
+        0.5,
+        4
+      ]
+    },
+    {
+      "type": "block",
+      "name": "Shuttle_01",
+      "position": [
+        0,
+        1.75,
+        -0.85
+      ],
+      "size": [
+        3,
+        0.3,
+        1.5
+      ],
+      "behaviors": [
+        {
+          "type": "Mover",
+          "offset": [
+            0,
+            0,
+            -4.3
+          ],
+          "speed": 1.8,
+          "wait": 1.5
+        }
+      ]
+    },
+    {
+      "type": "block",
+      "name": "FirstKeyIsland",
+      "position": [
+        0,
+        1.75,
+        -7.5
+      ],
+      "size": [
+        4,
+        0.5,
+        3
+      ]
+    },
+    {
+      "type": "key",
+      "name": "Key_01",
+      "position": [
+        0,
+        2.55,
+        -7.5
+      ]
+    },
+    {
+      "type": "block",
+      "name": "DiagonalLift",
+      "position": [
+        1,
+        1.85,
+        -9.9
+      ],
+      "size": [
+        2.6,
+        0.3,
+        1.7
+      ],
+      "behaviors": [
+        {
+          "type": "Mover",
+          "offset": [
+            4.2,
+            2.2,
+            -3.6
+          ],
+          "speed": 1.65,
+          "wait": 1.75
+        }
+      ]
+    },
+    {
+      "type": "block",
+      "name": "HighLanding",
+      "position": [
+        5.2,
+        3.95,
+        -16
+      ],
+      "size": [
+        3,
+        0.5,
+        3
+      ]
+    },
+    {
+      "type": "block",
+      "name": "Turntable",
+      "position": [
+        4.9,
+        4.05,
+        -18.8
+      ],
+      "size": [
+        2.5,
+        0.3,
+        2.5
+      ],
+      "behaviors": [
+        {
+          "type": "Rotator",
+          "speed": 24
+        }
+      ]
+    },
+    {
+      "type": "block",
+      "name": "UpperShuttle",
+      "position": [
+        4.9,
+        4.05,
+        -21.2
+      ],
+      "size": [
+        2.2,
+        0.3,
+        2.2
+      ],
+      "behaviors": [
+        {
+          "type": "Mover",
+          "offset": [
+            -5,
+            0.8,
+            -3.3
+          ],
+          "speed": 1.5,
+          "wait": 2
+        },
+        {
+          "type": "Rotator",
+          "speed": -16
+        }
+      ]
+    },
+    {
+      "type": "block",
+      "name": "SecondKeyIsland",
+      "position": [
+        -0.1,
+        4.75,
+        -27
+      ],
+      "size": [
+        3.2,
+        0.5,
+        3
+      ]
+    },
+    {
+      "type": "key",
+      "name": "Key_02",
+      "position": [
+        -0.1,
+        5.55,
+        -27
+      ]
+    },
+    {
+      "type": "block",
+      "name": "ExitLift",
+      "position": [
+        -0.1,
+        4.85,
+        -29.45
+      ],
+      "size": [
+        2.8,
+        0.3,
+        1.7
+      ],
+      "behaviors": [
+        {
+          "type": "Mover",
+          "offset": [
+            -2.9,
+            -2.95,
+            -3.6
+          ],
+          "speed": 1.8,
+          "wait": 1.75
+        }
+      ]
+    },
+    {
+      "type": "block",
+      "name": "ExitLanding",
+      "position": [
+        -3,
+        1.8,
+        -36
+      ],
+      "size": [
+        5,
+        0.5,
+        4
+      ]
+    },
+    {
+      "type": "door",
+      "name": "Door",
+      "position": [
+        -3,
+        3.3,
+        -36.9
+      ]
+    },
+    {
+      "type": "spikes",
+      "name": "Pit_01_01",
+      "position": [
+        -7.5,
+        0,
+        -0.5
+      ]
+    },
+    {
+      "type": "spikes",
+      "name": "Pit_01_02",
+      "position": [
+        -6.5,
+        0,
+        -0.5
+      ]
+    },
+    {
+      "type": "spikes",
+      "name": "Pit_01_03",
+      "position": [
+        -5.5,
+        0,
+        -0.5
+      ]
+    },
+    {
+      "type": "spikes",
+      "name": "Pit_01_04",
+      "position": [
+        -4.5,
+        0,
+        -0.5
+      ]
+    },
+    {
+      "type": "spikes",
+      "name": "Pit_01_05",
+      "position": [
+        -3.5,
+        0,
+        -0.5
+      ]
+    },
+    {
+      "type": "spikes",
+      "name": "Pit_01_06",
+      "position": [
+        -2.5,
+        0,
+        -0.5
+      ]
+    },
+    {
+      "type": "spikes",
+      "name": "Pit_01_07",
+      "position": [
+        -1.5,
+        0,
+        -0.5
+      ]
+    },
+    {
+      "type": "spikes",
+      "name": "Pit_01_08",
+      "position": [
+        -0.5,
+        0,
+        -0.5
+      ]
+    },
+    {
+      "type": "spikes",
+      "name": "Pit_01_09",
+      "position": [
+        0.5,
+        0,
+        -0.5
+      ]
+    },
+    {
+      "type": "spikes",
+      "name": "Pit_01_10",
+      "position": [
+        1.5,
+        0,
+        -0.5
+      ]
+    },
+    {
+      "type": "spikes",
+      "name": "Pit_01_11",
+      "position": [
+        2.5,
+        0,
+        -0.5
+      ]
+    },
+    {
+      "type": "spikes",
+      "name": "Pit_01_12",
+      "position": [
+        3.5,
+        0,
+        -0.5
+      ]
+    },
+    {
+      "type": "spikes",
+      "name": "Pit_01_13",
+      "position": [
+        4.5,
+        0,
+        -0.5
+      ]
+    },
+    {
+      "type": "spikes",
+      "name": "Pit_01_14",
+      "position": [
+        5.5,
+        0,
+        -0.5
+      ]
+    },
+    {
+      "type": "spikes",
+      "name": "Pit_01_15",
+      "position": [
+        6.5,
+        0,
+        -0.5
+      ]
+    },
+    {
+      "type": "spikes",
+      "name": "Pit_01_16",
+      "position": [
+        7.5,
+        0,
+        -0.5
+      ]
+    },
+    {
+      "type": "spikes",
+      "name": "Pit_02_01",
+      "position": [
+        -7.5,
+        0,
+        -1.5
+      ]
+    },
+    {
+      "type": "spikes",
+      "name": "Pit_02_02",
+      "position": [
+        -6.5,
+        0,
+        -1.5
+      ]
+    },
+    {
+      "type": "spikes",
+      "name": "Pit_02_03",
+      "position": [
+        -5.5,
+        0,
+        -1.5
+      ]
+    },
+    {
+      "type": "spikes",
+      "name": "Pit_02_04",
+      "position": [
+        -4.5,
+        0,
+        -1.5
+      ]
+    },
+    {
+      "type": "spikes",
+      "name": "Pit_02_05",
+      "position": [
+        -3.5,
+        0,
+        -1.5
+      ]
+    },
+    {
+      "type": "spikes",
+      "name": "Pit_02_06",
+      "position": [
+        -2.5,
+        0,
+        -1.5
+      ]
+    },
+    {
+      "type": "spikes",
+      "name": "Pit_02_07",
+      "position": [
+        -1.5,
+        0,
+        -1.5
+      ]
+    },
+    {
+      "type": "spikes",
+      "name": "Pit_02_08",
+      "position": [
+        -0.5,
+        0,
+        -1.5
+      ]
+    },
+    {
+      "type": "spikes",
+      "name": "Pit_02_09",
+      "position": [
+        0.5,
+        0,
+        -1.5
+      ]
+    },
+    {
+      "type": "spikes",
+      "name": "Pit_02_10",
+      "position": [
+        1.5,
+        0,
+        -1.5
+      ]
+    },
+    {
+      "type": "spikes",
+      "name": "Pit_02_11",
+      "position": [
+        2.5,
+        0,
+        -1.5
+      ]
+    },
+    {
+      "type": "spikes",
+      "name": "Pit_02_12",
+      "position": [
+        3.5,
+        0,
+        -1.5
+      ]
+    },
+    {
+      "type": "spikes",
+      "name": "Pit_02_13",
+      "position": [
+        4.5,
+        0,
+        -1.5
+      ]
+    },
+    {
+      "type": "spikes",
+      "name": "Pit_02_14",
+      "position": [
+        5.5,
+        0,
+        -1.5
+      ]
+    },
+    {
+      "type": "spikes",
+      "name": "Pit_02_15",
+      "position": [
+        6.5,
+        0,
+        -1.5
+      ]
+    },
+    {
+      "type": "spikes",
+      "name": "Pit_02_16",
+      "position": [
+        7.5,
+        0,
+        -1.5
+      ]
+    },
+    {
+      "type": "spikes",
+      "name": "Pit_03_01",
+      "position": [
+        -7.5,
+        0,
+        -2.5
+      ]
+    },
+    {
+      "type": "spikes",
+      "name": "Pit_03_02",
+      "position": [
+        -6.5,
+        0,
+        -2.5
+      ]
+    },
+    {
+      "type": "spikes",
+      "name": "Pit_03_03",
+      "position": [
+        -5.5,
+        0,
+        -2.5
+      ]
+    },
+    {
+      "type": "spikes",
+      "name": "Pit_03_04",
+      "position": [
+        -4.5,
+        0,
+        -2.5
+      ]
+    },
+    {
+      "type": "spikes",
+      "name": "Pit_03_05",
+      "position": [
+        -3.5,
+        0,
+        -2.5
+      ]
+    },
+    {
+      "type": "spikes",
+      "name": "Pit_03_06",
+      "position": [
+        -2.5,
+        0,
+        -2.5
+      ]
+    },
+    {
+      "type": "spikes",
+      "name": "Pit_03_07",
+      "position": [
+        -1.5,
+        0,
+        -2.5
+      ]
+    },
+    {
+      "type": "spikes",
+      "name": "Pit_03_08",
+      "position": [
+        -0.5,
+        0,
+        -2.5
+      ]
+    },
+    {
+      "type": "spikes",
+      "name": "Pit_03_09",
+      "position": [
+        0.5,
+        0,
+        -2.5
+      ]
+    },
+    {
+      "type": "spikes",
+      "name": "Pit_03_10",
+      "position": [
+        1.5,
+        0,
+        -2.5
+      ]
+    },
+    {
+      "type": "spikes",
+      "name": "Pit_03_11",
+      "position": [
+        2.5,
+        0,
+        -2.5
+      ]
+    },
+    {
+      "type": "spikes",
+      "name": "Pit_03_12",
+      "position": [
+        3.5,
+        0,
+        -2.5
+      ]
+    },
+    {
+      "type": "spikes",
+      "name": "Pit_03_13",
+      "position": [
+        4.5,
+        0,
+        -2.5
+      ]
+    },
+    {
+      "type": "spikes",
+      "name": "Pit_03_14",
+      "position": [
+        5.5,
+        0,
+        -2.5
+      ]
+    },
+    {
+      "type": "spikes",
+      "name": "Pit_03_15",
+      "position": [
+        6.5,
+        0,
+        -2.5
+      ]
+    },
+    {
+      "type": "spikes",
+      "name": "Pit_03_16",
+      "position": [
+        7.5,
+        0,
+        -2.5
+      ]
+    },
+    {
+      "type": "spikes",
+      "name": "Pit_04_01",
+      "position": [
+        -7.5,
+        0,
+        -3.5
+      ]
+    },
+    {
+      "type": "spikes",
+      "name": "Pit_04_02",
+      "position": [
+        -6.5,
+        0,
+        -3.5
+      ]
+    },
+    {
+      "type": "spikes",
+      "name": "Pit_04_03",
+      "position": [
+        -5.5,
+        0,
+        -3.5
+      ]
+    },
+    {
+      "type": "spikes",
+      "name": "Pit_04_04",
+      "position": [
+        -4.5,
+        0,
+        -3.5
+      ]
+    },
+    {
+      "type": "spikes",
+      "name": "Pit_04_05",
+      "position": [
+        -3.5,
+        0,
+        -3.5
+      ]
+    },
+    {
+      "type": "spikes",
+      "name": "Pit_04_06",
+      "position": [
+        -2.5,
+        0,
+        -3.5
+      ]
+    },
+    {
+      "type": "spikes",
+      "name": "Pit_04_07",
+      "position": [
+        -1.5,
+        0,
+        -3.5
+      ]
+    },
+    {
+      "type": "spikes",
+      "name": "Pit_04_08",
+      "position": [
+        -0.5,
+        0,
+        -3.5
+      ]
+    },
+    {
+      "type": "spikes",
+      "name": "Pit_04_09",
+      "position": [
+        0.5,
+        0,
+        -3.5
+      ]
+    },
+    {
+      "type": "spikes",
+      "name": "Pit_04_10",
+      "position": [
+        1.5,
+        0,
+        -3.5
+      ]
+    },
+    {
+      "type": "spikes",
+      "name": "Pit_04_11",
+      "position": [
+        2.5,
+        0,
+        -3.5
+      ]
+    },
+    {
+      "type": "spikes",
+      "name": "Pit_04_12",
+      "position": [
+        3.5,
+        0,
+        -3.5
+      ]
+    },
+    {
+      "type": "spikes",
+      "name": "Pit_04_13",
+      "position": [
+        4.5,
+        0,
+        -3.5
+      ]
+    },
+    {
+      "type": "spikes",
+      "name": "Pit_04_14",
+      "position": [
+        5.5,
+        0,
+        -3.5
+      ]
+    },
+    {
+      "type": "spikes",
+      "name": "Pit_04_15",
+      "position": [
+        6.5,
+        0,
+        -3.5
+      ]
+    },
+    {
+      "type": "spikes",
+      "name": "Pit_04_16",
+      "position": [
+        7.5,
+        0,
+        -3.5
+      ]
+    },
+    {
+      "type": "spikes",
+      "name": "Pit_05_01",
+      "position": [
+        -7.5,
+        0,
+        -4.5
+      ]
+    },
+    {
+      "type": "spikes",
+      "name": "Pit_05_02",
+      "position": [
+        -6.5,
+        0,
+        -4.5
+      ]
+    },
+    {
+      "type": "spikes",
+      "name": "Pit_05_03",
+      "position": [
+        -5.5,
+        0,
+        -4.5
+      ]
+    },
+    {
+      "type": "spikes",
+      "name": "Pit_05_04",
+      "position": [
+        -4.5,
+        0,
+        -4.5
+      ]
+    },
+    {
+      "type": "spikes",
+      "name": "Pit_05_05",
+      "position": [
+        -3.5,
+        0,
+        -4.5
+      ]
+    },
+    {
+      "type": "spikes",
+      "name": "Pit_05_06",
+      "position": [
+        -2.5,
+        0,
+        -4.5
+      ]
+    },
+    {
+      "type": "spikes",
+      "name": "Pit_05_07",
+      "position": [
+        -1.5,
+        0,
+        -4.5
+      ]
+    },
+    {
+      "type": "spikes",
+      "name": "Pit_05_08",
+      "position": [
+        -0.5,
+        0,
+        -4.5
+      ]
+    },
+    {
+      "type": "spikes",
+      "name": "Pit_05_09",
+      "position": [
+        0.5,
+        0,
+        -4.5
+      ]
+    },
+    {
+      "type": "spikes",
+      "name": "Pit_05_10",
+      "position": [
+        1.5,
+        0,
+        -4.5
+      ]
+    },
+    {
+      "type": "spikes",
+      "name": "Pit_05_11",
+      "position": [
+        2.5,
+        0,
+        -4.5
+      ]
+    },
+    {
+      "type": "spikes",
+      "name": "Pit_05_12",
+      "position": [
+        3.5,
+        0,
+        -4.5
+      ]
+    },
+    {
+      "type": "spikes",
+      "name": "Pit_05_13",
+      "position": [
+        4.5,
+        0,
+        -4.5
+      ]
+    },
+    {
+      "type": "spikes",
+      "name": "Pit_05_14",
+      "position": [
+        5.5,
+        0,
+        -4.5
+      ]
+    },
+    {
+      "type": "spikes",
+      "name": "Pit_05_15",
+      "position": [
+        6.5,
+        0,
+        -4.5
+      ]
+    },
+    {
+      "type": "spikes",
+      "name": "Pit_05_16",
+      "position": [
+        7.5,
+        0,
+        -4.5
+      ]
+    },
+    {
+      "type": "spikes",
+      "name": "Pit_06_01",
+      "position": [
+        -7.5,
+        0,
+        -5.5
+      ]
+    },
+    {
+      "type": "spikes",
+      "name": "Pit_06_02",
+      "position": [
+        -6.5,
+        0,
+        -5.5
+      ]
+    },
+    {
+      "type": "spikes",
+      "name": "Pit_06_03",
+      "position": [
+        -5.5,
+        0,
+        -5.5
+      ]
+    },
+    {
+      "type": "spikes",
+      "name": "Pit_06_04",
+      "position": [
+        -4.5,
+        0,
+        -5.5
+      ]
+    },
+    {
+      "type": "spikes",
+      "name": "Pit_06_05",
+      "position": [
+        -3.5,
+        0,
+        -5.5
+      ]
+    },
+    {
+      "type": "spikes",
+      "name": "Pit_06_06",
+      "position": [
+        -2.5,
+        0,
+        -5.5
+      ]
+    },
+    {
+      "type": "spikes",
+      "name": "Pit_06_07",
+      "position": [
+        -1.5,
+        0,
+        -5.5
+      ]
+    },
+    {
+      "type": "spikes",
+      "name": "Pit_06_08",
+      "position": [
+        -0.5,
+        0,
+        -5.5
+      ]
+    },
+    {
+      "type": "spikes",
+      "name": "Pit_06_09",
+      "position": [
+        0.5,
+        0,
+        -5.5
+      ]
+    },
+    {
+      "type": "spikes",
+      "name": "Pit_06_10",
+      "position": [
+        1.5,
+        0,
+        -5.5
+      ]
+    },
+    {
+      "type": "spikes",
+      "name": "Pit_06_11",
+      "position": [
+        2.5,
+        0,
+        -5.5
+      ]
+    },
+    {
+      "type": "spikes",
+      "name": "Pit_06_12",
+      "position": [
+        3.5,
+        0,
+        -5.5
+      ]
+    },
+    {
+      "type": "spikes",
+      "name": "Pit_06_13",
+      "position": [
+        4.5,
+        0,
+        -5.5
+      ]
+    },
+    {
+      "type": "spikes",
+      "name": "Pit_06_14",
+      "position": [
+        5.5,
+        0,
+        -5.5
+      ]
+    },
+    {
+      "type": "spikes",
+      "name": "Pit_06_15",
+      "position": [
+        6.5,
+        0,
+        -5.5
+      ]
+    },
+    {
+      "type": "spikes",
+      "name": "Pit_06_16",
+      "position": [
+        7.5,
+        0,
+        -5.5
+      ]
+    },
+    {
+      "type": "spikes",
+      "name": "Pit_07_01",
+      "position": [
+        -7.5,
+        0,
+        -6.5
+      ]
+    },
+    {
+      "type": "spikes",
+      "name": "Pit_07_02",
+      "position": [
+        -6.5,
+        0,
+        -6.5
+      ]
+    },
+    {
+      "type": "spikes",
+      "name": "Pit_07_03",
+      "position": [
+        -5.5,
+        0,
+        -6.5
+      ]
+    },
+    {
+      "type": "spikes",
+      "name": "Pit_07_04",
+      "position": [
+        -4.5,
+        0,
+        -6.5
+      ]
+    },
+    {
+      "type": "spikes",
+      "name": "Pit_07_05",
+      "position": [
+        -3.5,
+        0,
+        -6.5
+      ]
+    },
+    {
+      "type": "spikes",
+      "name": "Pit_07_06",
+      "position": [
+        -2.5,
+        0,
+        -6.5
+      ]
+    },
+    {
+      "type": "spikes",
+      "name": "Pit_07_07",
+      "position": [
+        -1.5,
+        0,
+        -6.5
+      ]
+    },
+    {
+      "type": "spikes",
+      "name": "Pit_07_08",
+      "position": [
+        -0.5,
+        0,
+        -6.5
+      ]
+    },
+    {
+      "type": "spikes",
+      "name": "Pit_07_09",
+      "position": [
+        0.5,
+        0,
+        -6.5
+      ]
+    },
+    {
+      "type": "spikes",
+      "name": "Pit_07_10",
+      "position": [
+        1.5,
+        0,
+        -6.5
+      ]
+    },
+    {
+      "type": "spikes",
+      "name": "Pit_07_11",
+      "position": [
+        2.5,
+        0,
+        -6.5
+      ]
+    },
+    {
+      "type": "spikes",
+      "name": "Pit_07_12",
+      "position": [
+        3.5,
+        0,
+        -6.5
+      ]
+    },
+    {
+      "type": "spikes",
+      "name": "Pit_07_13",
+      "position": [
+        4.5,
+        0,
+        -6.5
+      ]
+    },
+    {
+      "type": "spikes",
+      "name": "Pit_07_14",
+      "position": [
+        5.5,
+        0,
+        -6.5
+      ]
+    },
+    {
+      "type": "spikes",
+      "name": "Pit_07_15",
+      "position": [
+        6.5,
+        0,
+        -6.5
+      ]
+    },
+    {
+      "type": "spikes",
+      "name": "Pit_07_16",
+      "position": [
+        7.5,
+        0,
+        -6.5
+      ]
+    },
+    {
+      "type": "spikes",
+      "name": "Pit_08_01",
+      "position": [
+        -7.5,
+        0,
+        -7.5
+      ]
+    },
+    {
+      "type": "spikes",
+      "name": "Pit_08_02",
+      "position": [
+        -6.5,
+        0,
+        -7.5
+      ]
+    },
+    {
+      "type": "spikes",
+      "name": "Pit_08_03",
+      "position": [
+        -5.5,
+        0,
+        -7.5
+      ]
+    },
+    {
+      "type": "spikes",
+      "name": "Pit_08_04",
+      "position": [
+        -4.5,
+        0,
+        -7.5
+      ]
+    },
+    {
+      "type": "spikes",
+      "name": "Pit_08_05",
+      "position": [
+        -3.5,
+        0,
+        -7.5
+      ]
+    },
+    {
+      "type": "spikes",
+      "name": "Pit_08_06",
+      "position": [
+        -2.5,
+        0,
+        -7.5
+      ]
+    },
+    {
+      "type": "spikes",
+      "name": "Pit_08_07",
+      "position": [
+        -1.5,
+        0,
+        -7.5
+      ]
+    },
+    {
+      "type": "spikes",
+      "name": "Pit_08_08",
+      "position": [
+        -0.5,
+        0,
+        -7.5
+      ]
+    },
+    {
+      "type": "spikes",
+      "name": "Pit_08_09",
+      "position": [
+        0.5,
+        0,
+        -7.5
+      ]
+    },
+    {
+      "type": "spikes",
+      "name": "Pit_08_10",
+      "position": [
+        1.5,
+        0,
+        -7.5
+      ]
+    },
+    {
+      "type": "spikes",
+      "name": "Pit_08_11",
+      "position": [
+        2.5,
+        0,
+        -7.5
+      ]
+    },
+    {
+      "type": "spikes",
+      "name": "Pit_08_12",
+      "position": [
+        3.5,
+        0,
+        -7.5
+      ]
+    },
+    {
+      "type": "spikes",
+      "name": "Pit_08_13",
+      "position": [
+        4.5,
+        0,
+        -7.5
+      ]
+    },
+    {
+      "type": "spikes",
+      "name": "Pit_08_14",
+      "position": [
+        5.5,
+        0,
+        -7.5
+      ]
+    },
+    {
+      "type": "spikes",
+      "name": "Pit_08_15",
+      "position": [
+        6.5,
+        0,
+        -7.5
+      ]
+    },
+    {
+      "type": "spikes",
+      "name": "Pit_08_16",
+      "position": [
+        7.5,
+        0,
+        -7.5
+      ]
+    },
+    {
+      "type": "spikes",
+      "name": "Pit_09_01",
+      "position": [
+        -7.5,
+        0,
+        -8.5
+      ]
+    },
+    {
+      "type": "spikes",
+      "name": "Pit_09_02",
+      "position": [
+        -6.5,
+        0,
+        -8.5
+      ]
+    },
+    {
+      "type": "spikes",
+      "name": "Pit_09_03",
+      "position": [
+        -5.5,
+        0,
+        -8.5
+      ]
+    },
+    {
+      "type": "spikes",
+      "name": "Pit_09_04",
+      "position": [
+        -4.5,
+        0,
+        -8.5
+      ]
+    },
+    {
+      "type": "spikes",
+      "name": "Pit_09_05",
+      "position": [
+        -3.5,
+        0,
+        -8.5
+      ]
+    },
+    {
+      "type": "spikes",
+      "name": "Pit_09_06",
+      "position": [
+        -2.5,
+        0,
+        -8.5
+      ]
+    },
+    {
+      "type": "spikes",
+      "name": "Pit_09_07",
+      "position": [
+        -1.5,
+        0,
+        -8.5
+      ]
+    },
+    {
+      "type": "spikes",
+      "name": "Pit_09_08",
+      "position": [
+        -0.5,
+        0,
+        -8.5
+      ]
+    },
+    {
+      "type": "spikes",
+      "name": "Pit_09_09",
+      "position": [
+        0.5,
+        0,
+        -8.5
+      ]
+    },
+    {
+      "type": "spikes",
+      "name": "Pit_09_10",
+      "position": [
+        1.5,
+        0,
+        -8.5
+      ]
+    },
+    {
+      "type": "spikes",
+      "name": "Pit_09_11",
+      "position": [
+        2.5,
+        0,
+        -8.5
+      ]
+    },
+    {
+      "type": "spikes",
+      "name": "Pit_09_12",
+      "position": [
+        3.5,
+        0,
+        -8.5
+      ]
+    },
+    {
+      "type": "spikes",
+      "name": "Pit_09_13",
+      "position": [
+        4.5,
+        0,
+        -8.5
+      ]
+    },
+    {
+      "type": "spikes",
+      "name": "Pit_09_14",
+      "position": [
+        5.5,
+        0,
+        -8.5
+      ]
+    },
+    {
+      "type": "spikes",
+      "name": "Pit_09_15",
+      "position": [
+        6.5,
+        0,
+        -8.5
+      ]
+    },
+    {
+      "type": "spikes",
+      "name": "Pit_09_16",
+      "position": [
+        7.5,
+        0,
+        -8.5
+      ]
+    },
+    {
+      "type": "spikes",
+      "name": "Pit_10_01",
+      "position": [
+        -7.5,
+        0,
+        -9.5
+      ]
+    },
+    {
+      "type": "spikes",
+      "name": "Pit_10_02",
+      "position": [
+        -6.5,
+        0,
+        -9.5
+      ]
+    },
+    {
+      "type": "spikes",
+      "name": "Pit_10_03",
+      "position": [
+        -5.5,
+        0,
+        -9.5
+      ]
+    },
+    {
+      "type": "spikes",
+      "name": "Pit_10_04",
+      "position": [
+        -4.5,
+        0,
+        -9.5
+      ]
+    },
+    {
+      "type": "spikes",
+      "name": "Pit_10_05",
+      "position": [
+        -3.5,
+        0,
+        -9.5
+      ]
+    },
+    {
+      "type": "spikes",
+      "name": "Pit_10_06",
+      "position": [
+        -2.5,
+        0,
+        -9.5
+      ]
+    },
+    {
+      "type": "spikes",
+      "name": "Pit_10_07",
+      "position": [
+        -1.5,
+        0,
+        -9.5
+      ]
+    },
+    {
+      "type": "spikes",
+      "name": "Pit_10_08",
+      "position": [
+        -0.5,
+        0,
+        -9.5
+      ]
+    },
+    {
+      "type": "spikes",
+      "name": "Pit_10_09",
+      "position": [
+        0.5,
+        0,
+        -9.5
+      ]
+    },
+    {
+      "type": "spikes",
+      "name": "Pit_10_10",
+      "position": [
+        1.5,
+        0,
+        -9.5
+      ]
+    },
+    {
+      "type": "spikes",
+      "name": "Pit_10_11",
+      "position": [
+        2.5,
+        0,
+        -9.5
+      ]
+    },
+    {
+      "type": "spikes",
+      "name": "Pit_10_12",
+      "position": [
+        3.5,
+        0,
+        -9.5
+      ]
+    },
+    {
+      "type": "spikes",
+      "name": "Pit_10_13",
+      "position": [
+        4.5,
+        0,
+        -9.5
+      ]
+    },
+    {
+      "type": "spikes",
+      "name": "Pit_10_14",
+      "position": [
+        5.5,
+        0,
+        -9.5
+      ]
+    },
+    {
+      "type": "spikes",
+      "name": "Pit_10_15",
+      "position": [
+        6.5,
+        0,
+        -9.5
+      ]
+    },
+    {
+      "type": "spikes",
+      "name": "Pit_10_16",
+      "position": [
+        7.5,
+        0,
+        -9.5
+      ]
+    },
+    {
+      "type": "spikes",
+      "name": "Pit_11_01",
+      "position": [
+        -7.5,
+        0,
+        -10.5
+      ]
+    },
+    {
+      "type": "spikes",
+      "name": "Pit_11_02",
+      "position": [
+        -6.5,
+        0,
+        -10.5
+      ]
+    },
+    {
+      "type": "spikes",
+      "name": "Pit_11_03",
+      "position": [
+        -5.5,
+        0,
+        -10.5
+      ]
+    },
+    {
+      "type": "spikes",
+      "name": "Pit_11_04",
+      "position": [
+        -4.5,
+        0,
+        -10.5
+      ]
+    },
+    {
+      "type": "spikes",
+      "name": "Pit_11_05",
+      "position": [
+        -3.5,
+        0,
+        -10.5
+      ]
+    },
+    {
+      "type": "spikes",
+      "name": "Pit_11_06",
+      "position": [
+        -2.5,
+        0,
+        -10.5
+      ]
+    },
+    {
+      "type": "spikes",
+      "name": "Pit_11_07",
+      "position": [
+        -1.5,
+        0,
+        -10.5
+      ]
+    },
+    {
+      "type": "spikes",
+      "name": "Pit_11_08",
+      "position": [
+        -0.5,
+        0,
+        -10.5
+      ]
+    },
+    {
+      "type": "spikes",
+      "name": "Pit_11_09",
+      "position": [
+        0.5,
+        0,
+        -10.5
+      ]
+    },
+    {
+      "type": "spikes",
+      "name": "Pit_11_10",
+      "position": [
+        1.5,
+        0,
+        -10.5
+      ]
+    },
+    {
+      "type": "spikes",
+      "name": "Pit_11_11",
+      "position": [
+        2.5,
+        0,
+        -10.5
+      ]
+    },
+    {
+      "type": "spikes",
+      "name": "Pit_11_12",
+      "position": [
+        3.5,
+        0,
+        -10.5
+      ]
+    },
+    {
+      "type": "spikes",
+      "name": "Pit_11_13",
+      "position": [
+        4.5,
+        0,
+        -10.5
+      ]
+    },
+    {
+      "type": "spikes",
+      "name": "Pit_11_14",
+      "position": [
+        5.5,
+        0,
+        -10.5
+      ]
+    },
+    {
+      "type": "spikes",
+      "name": "Pit_11_15",
+      "position": [
+        6.5,
+        0,
+        -10.5
+      ]
+    },
+    {
+      "type": "spikes",
+      "name": "Pit_11_16",
+      "position": [
+        7.5,
+        0,
+        -10.5
+      ]
+    },
+    {
+      "type": "spikes",
+      "name": "Pit_12_01",
+      "position": [
+        -7.5,
+        0,
+        -11.5
+      ]
+    },
+    {
+      "type": "spikes",
+      "name": "Pit_12_02",
+      "position": [
+        -6.5,
+        0,
+        -11.5
+      ]
+    },
+    {
+      "type": "spikes",
+      "name": "Pit_12_03",
+      "position": [
+        -5.5,
+        0,
+        -11.5
+      ]
+    },
+    {
+      "type": "spikes",
+      "name": "Pit_12_04",
+      "position": [
+        -4.5,
+        0,
+        -11.5
+      ]
+    },
+    {
+      "type": "spikes",
+      "name": "Pit_12_05",
+      "position": [
+        -3.5,
+        0,
+        -11.5
+      ]
+    },
+    {
+      "type": "spikes",
+      "name": "Pit_12_06",
+      "position": [
+        -2.5,
+        0,
+        -11.5
+      ]
+    },
+    {
+      "type": "spikes",
+      "name": "Pit_12_07",
+      "position": [
+        -1.5,
+        0,
+        -11.5
+      ]
+    },
+    {
+      "type": "spikes",
+      "name": "Pit_12_08",
+      "position": [
+        -0.5,
+        0,
+        -11.5
+      ]
+    },
+    {
+      "type": "spikes",
+      "name": "Pit_12_09",
+      "position": [
+        0.5,
+        0,
+        -11.5
+      ]
+    },
+    {
+      "type": "spikes",
+      "name": "Pit_12_10",
+      "position": [
+        1.5,
+        0,
+        -11.5
+      ]
+    },
+    {
+      "type": "spikes",
+      "name": "Pit_12_11",
+      "position": [
+        2.5,
+        0,
+        -11.5
+      ]
+    },
+    {
+      "type": "spikes",
+      "name": "Pit_12_12",
+      "position": [
+        3.5,
+        0,
+        -11.5
+      ]
+    },
+    {
+      "type": "spikes",
+      "name": "Pit_12_13",
+      "position": [
+        4.5,
+        0,
+        -11.5
+      ]
+    },
+    {
+      "type": "spikes",
+      "name": "Pit_12_14",
+      "position": [
+        5.5,
+        0,
+        -11.5
+      ]
+    },
+    {
+      "type": "spikes",
+      "name": "Pit_12_15",
+      "position": [
+        6.5,
+        0,
+        -11.5
+      ]
+    },
+    {
+      "type": "spikes",
+      "name": "Pit_12_16",
+      "position": [
+        7.5,
+        0,
+        -11.5
+      ]
+    },
+    {
+      "type": "spikes",
+      "name": "Pit_13_01",
+      "position": [
+        -7.5,
+        0,
+        -12.5
+      ]
+    },
+    {
+      "type": "spikes",
+      "name": "Pit_13_02",
+      "position": [
+        -6.5,
+        0,
+        -12.5
+      ]
+    },
+    {
+      "type": "spikes",
+      "name": "Pit_13_03",
+      "position": [
+        -5.5,
+        0,
+        -12.5
+      ]
+    },
+    {
+      "type": "spikes",
+      "name": "Pit_13_04",
+      "position": [
+        -4.5,
+        0,
+        -12.5
+      ]
+    },
+    {
+      "type": "spikes",
+      "name": "Pit_13_05",
+      "position": [
+        -3.5,
+        0,
+        -12.5
+      ]
+    },
+    {
+      "type": "spikes",
+      "name": "Pit_13_06",
+      "position": [
+        -2.5,
+        0,
+        -12.5
+      ]
+    },
+    {
+      "type": "spikes",
+      "name": "Pit_13_07",
+      "position": [
+        -1.5,
+        0,
+        -12.5
+      ]
+    },
+    {
+      "type": "spikes",
+      "name": "Pit_13_08",
+      "position": [
+        -0.5,
+        0,
+        -12.5
+      ]
+    },
+    {
+      "type": "spikes",
+      "name": "Pit_13_09",
+      "position": [
+        0.5,
+        0,
+        -12.5
+      ]
+    },
+    {
+      "type": "spikes",
+      "name": "Pit_13_10",
+      "position": [
+        1.5,
+        0,
+        -12.5
+      ]
+    },
+    {
+      "type": "spikes",
+      "name": "Pit_13_11",
+      "position": [
+        2.5,
+        0,
+        -12.5
+      ]
+    },
+    {
+      "type": "spikes",
+      "name": "Pit_13_12",
+      "position": [
+        3.5,
+        0,
+        -12.5
+      ]
+    },
+    {
+      "type": "spikes",
+      "name": "Pit_13_13",
+      "position": [
+        4.5,
+        0,
+        -12.5
+      ]
+    },
+    {
+      "type": "spikes",
+      "name": "Pit_13_14",
+      "position": [
+        5.5,
+        0,
+        -12.5
+      ]
+    },
+    {
+      "type": "spikes",
+      "name": "Pit_13_15",
+      "position": [
+        6.5,
+        0,
+        -12.5
+      ]
+    },
+    {
+      "type": "spikes",
+      "name": "Pit_13_16",
+      "position": [
+        7.5,
+        0,
+        -12.5
+      ]
+    },
+    {
+      "type": "spikes",
+      "name": "Pit_14_01",
+      "position": [
+        -7.5,
+        0,
+        -13.5
+      ]
+    },
+    {
+      "type": "spikes",
+      "name": "Pit_14_02",
+      "position": [
+        -6.5,
+        0,
+        -13.5
+      ]
+    },
+    {
+      "type": "spikes",
+      "name": "Pit_14_03",
+      "position": [
+        -5.5,
+        0,
+        -13.5
+      ]
+    },
+    {
+      "type": "spikes",
+      "name": "Pit_14_04",
+      "position": [
+        -4.5,
+        0,
+        -13.5
+      ]
+    },
+    {
+      "type": "spikes",
+      "name": "Pit_14_05",
+      "position": [
+        -3.5,
+        0,
+        -13.5
+      ]
+    },
+    {
+      "type": "spikes",
+      "name": "Pit_14_06",
+      "position": [
+        -2.5,
+        0,
+        -13.5
+      ]
+    },
+    {
+      "type": "spikes",
+      "name": "Pit_14_07",
+      "position": [
+        -1.5,
+        0,
+        -13.5
+      ]
+    },
+    {
+      "type": "spikes",
+      "name": "Pit_14_08",
+      "position": [
+        -0.5,
+        0,
+        -13.5
+      ]
+    },
+    {
+      "type": "spikes",
+      "name": "Pit_14_09",
+      "position": [
+        0.5,
+        0,
+        -13.5
+      ]
+    },
+    {
+      "type": "spikes",
+      "name": "Pit_14_10",
+      "position": [
+        1.5,
+        0,
+        -13.5
+      ]
+    },
+    {
+      "type": "spikes",
+      "name": "Pit_14_11",
+      "position": [
+        2.5,
+        0,
+        -13.5
+      ]
+    },
+    {
+      "type": "spikes",
+      "name": "Pit_14_12",
+      "position": [
+        3.5,
+        0,
+        -13.5
+      ]
+    },
+    {
+      "type": "spikes",
+      "name": "Pit_14_13",
+      "position": [
+        4.5,
+        0,
+        -13.5
+      ]
+    },
+    {
+      "type": "spikes",
+      "name": "Pit_14_14",
+      "position": [
+        5.5,
+        0,
+        -13.5
+      ]
+    },
+    {
+      "type": "spikes",
+      "name": "Pit_14_15",
+      "position": [
+        6.5,
+        0,
+        -13.5
+      ]
+    },
+    {
+      "type": "spikes",
+      "name": "Pit_14_16",
+      "position": [
+        7.5,
+        0,
+        -13.5
+      ]
+    },
+    {
+      "type": "spikes",
+      "name": "Pit_15_01",
+      "position": [
+        -7.5,
+        0,
+        -14.5
+      ]
+    },
+    {
+      "type": "spikes",
+      "name": "Pit_15_02",
+      "position": [
+        -6.5,
+        0,
+        -14.5
+      ]
+    },
+    {
+      "type": "spikes",
+      "name": "Pit_15_03",
+      "position": [
+        -5.5,
+        0,
+        -14.5
+      ]
+    },
+    {
+      "type": "spikes",
+      "name": "Pit_15_04",
+      "position": [
+        -4.5,
+        0,
+        -14.5
+      ]
+    },
+    {
+      "type": "spikes",
+      "name": "Pit_15_05",
+      "position": [
+        -3.5,
+        0,
+        -14.5
+      ]
+    },
+    {
+      "type": "spikes",
+      "name": "Pit_15_06",
+      "position": [
+        -2.5,
+        0,
+        -14.5
+      ]
+    },
+    {
+      "type": "spikes",
+      "name": "Pit_15_07",
+      "position": [
+        -1.5,
+        0,
+        -14.5
+      ]
+    },
+    {
+      "type": "spikes",
+      "name": "Pit_15_08",
+      "position": [
+        -0.5,
+        0,
+        -14.5
+      ]
+    },
+    {
+      "type": "spikes",
+      "name": "Pit_15_09",
+      "position": [
+        0.5,
+        0,
+        -14.5
+      ]
+    },
+    {
+      "type": "spikes",
+      "name": "Pit_15_10",
+      "position": [
+        1.5,
+        0,
+        -14.5
+      ]
+    },
+    {
+      "type": "spikes",
+      "name": "Pit_15_11",
+      "position": [
+        2.5,
+        0,
+        -14.5
+      ]
+    },
+    {
+      "type": "spikes",
+      "name": "Pit_15_12",
+      "position": [
+        3.5,
+        0,
+        -14.5
+      ]
+    },
+    {
+      "type": "spikes",
+      "name": "Pit_15_13",
+      "position": [
+        4.5,
+        0,
+        -14.5
+      ]
+    },
+    {
+      "type": "spikes",
+      "name": "Pit_15_14",
+      "position": [
+        5.5,
+        0,
+        -14.5
+      ]
+    },
+    {
+      "type": "spikes",
+      "name": "Pit_15_15",
+      "position": [
+        6.5,
+        0,
+        -14.5
+      ]
+    },
+    {
+      "type": "spikes",
+      "name": "Pit_15_16",
+      "position": [
+        7.5,
+        0,
+        -14.5
+      ]
+    },
+    {
+      "type": "spikes",
+      "name": "Pit_16_01",
+      "position": [
+        -7.5,
+        0,
+        -15.5
+      ]
+    },
+    {
+      "type": "spikes",
+      "name": "Pit_16_02",
+      "position": [
+        -6.5,
+        0,
+        -15.5
+      ]
+    },
+    {
+      "type": "spikes",
+      "name": "Pit_16_03",
+      "position": [
+        -5.5,
+        0,
+        -15.5
+      ]
+    },
+    {
+      "type": "spikes",
+      "name": "Pit_16_04",
+      "position": [
+        -4.5,
+        0,
+        -15.5
+      ]
+    },
+    {
+      "type": "spikes",
+      "name": "Pit_16_05",
+      "position": [
+        -3.5,
+        0,
+        -15.5
+      ]
+    },
+    {
+      "type": "spikes",
+      "name": "Pit_16_06",
+      "position": [
+        -2.5,
+        0,
+        -15.5
+      ]
+    },
+    {
+      "type": "spikes",
+      "name": "Pit_16_07",
+      "position": [
+        -1.5,
+        0,
+        -15.5
+      ]
+    },
+    {
+      "type": "spikes",
+      "name": "Pit_16_08",
+      "position": [
+        -0.5,
+        0,
+        -15.5
+      ]
+    },
+    {
+      "type": "spikes",
+      "name": "Pit_16_09",
+      "position": [
+        0.5,
+        0,
+        -15.5
+      ]
+    },
+    {
+      "type": "spikes",
+      "name": "Pit_16_10",
+      "position": [
+        1.5,
+        0,
+        -15.5
+      ]
+    },
+    {
+      "type": "spikes",
+      "name": "Pit_16_11",
+      "position": [
+        2.5,
+        0,
+        -15.5
+      ]
+    },
+    {
+      "type": "spikes",
+      "name": "Pit_16_12",
+      "position": [
+        3.5,
+        0,
+        -15.5
+      ]
+    },
+    {
+      "type": "spikes",
+      "name": "Pit_16_13",
+      "position": [
+        4.5,
+        0,
+        -15.5
+      ]
+    },
+    {
+      "type": "spikes",
+      "name": "Pit_16_14",
+      "position": [
+        5.5,
+        0,
+        -15.5
+      ]
+    },
+    {
+      "type": "spikes",
+      "name": "Pit_16_15",
+      "position": [
+        6.5,
+        0,
+        -15.5
+      ]
+    },
+    {
+      "type": "spikes",
+      "name": "Pit_16_16",
+      "position": [
+        7.5,
+        0,
+        -15.5
+      ]
+    },
+    {
+      "type": "spikes",
+      "name": "Pit_17_01",
+      "position": [
+        -7.5,
+        0,
+        -16.5
+      ]
+    },
+    {
+      "type": "spikes",
+      "name": "Pit_17_02",
+      "position": [
+        -6.5,
+        0,
+        -16.5
+      ]
+    },
+    {
+      "type": "spikes",
+      "name": "Pit_17_03",
+      "position": [
+        -5.5,
+        0,
+        -16.5
+      ]
+    },
+    {
+      "type": "spikes",
+      "name": "Pit_17_04",
+      "position": [
+        -4.5,
+        0,
+        -16.5
+      ]
+    },
+    {
+      "type": "spikes",
+      "name": "Pit_17_05",
+      "position": [
+        -3.5,
+        0,
+        -16.5
+      ]
+    },
+    {
+      "type": "spikes",
+      "name": "Pit_17_06",
+      "position": [
+        -2.5,
+        0,
+        -16.5
+      ]
+    },
+    {
+      "type": "spikes",
+      "name": "Pit_17_07",
+      "position": [
+        -1.5,
+        0,
+        -16.5
+      ]
+    },
+    {
+      "type": "spikes",
+      "name": "Pit_17_08",
+      "position": [
+        -0.5,
+        0,
+        -16.5
+      ]
+    },
+    {
+      "type": "spikes",
+      "name": "Pit_17_09",
+      "position": [
+        0.5,
+        0,
+        -16.5
+      ]
+    },
+    {
+      "type": "spikes",
+      "name": "Pit_17_10",
+      "position": [
+        1.5,
+        0,
+        -16.5
+      ]
+    },
+    {
+      "type": "spikes",
+      "name": "Pit_17_11",
+      "position": [
+        2.5,
+        0,
+        -16.5
+      ]
+    },
+    {
+      "type": "spikes",
+      "name": "Pit_17_12",
+      "position": [
+        3.5,
+        0,
+        -16.5
+      ]
+    },
+    {
+      "type": "spikes",
+      "name": "Pit_17_13",
+      "position": [
+        4.5,
+        0,
+        -16.5
+      ]
+    },
+    {
+      "type": "spikes",
+      "name": "Pit_17_14",
+      "position": [
+        5.5,
+        0,
+        -16.5
+      ]
+    },
+    {
+      "type": "spikes",
+      "name": "Pit_17_15",
+      "position": [
+        6.5,
+        0,
+        -16.5
+      ]
+    },
+    {
+      "type": "spikes",
+      "name": "Pit_17_16",
+      "position": [
+        7.5,
+        0,
+        -16.5
+      ]
+    },
+    {
+      "type": "spikes",
+      "name": "Pit_18_01",
+      "position": [
+        -7.5,
+        0,
+        -17.5
+      ]
+    },
+    {
+      "type": "spikes",
+      "name": "Pit_18_02",
+      "position": [
+        -6.5,
+        0,
+        -17.5
+      ]
+    },
+    {
+      "type": "spikes",
+      "name": "Pit_18_03",
+      "position": [
+        -5.5,
+        0,
+        -17.5
+      ]
+    },
+    {
+      "type": "spikes",
+      "name": "Pit_18_04",
+      "position": [
+        -4.5,
+        0,
+        -17.5
+      ]
+    },
+    {
+      "type": "spikes",
+      "name": "Pit_18_05",
+      "position": [
+        -3.5,
+        0,
+        -17.5
+      ]
+    },
+    {
+      "type": "spikes",
+      "name": "Pit_18_06",
+      "position": [
+        -2.5,
+        0,
+        -17.5
+      ]
+    },
+    {
+      "type": "spikes",
+      "name": "Pit_18_07",
+      "position": [
+        -1.5,
+        0,
+        -17.5
+      ]
+    },
+    {
+      "type": "spikes",
+      "name": "Pit_18_08",
+      "position": [
+        -0.5,
+        0,
+        -17.5
+      ]
+    },
+    {
+      "type": "spikes",
+      "name": "Pit_18_09",
+      "position": [
+        0.5,
+        0,
+        -17.5
+      ]
+    },
+    {
+      "type": "spikes",
+      "name": "Pit_18_10",
+      "position": [
+        1.5,
+        0,
+        -17.5
+      ]
+    },
+    {
+      "type": "spikes",
+      "name": "Pit_18_11",
+      "position": [
+        2.5,
+        0,
+        -17.5
+      ]
+    },
+    {
+      "type": "spikes",
+      "name": "Pit_18_12",
+      "position": [
+        3.5,
+        0,
+        -17.5
+      ]
+    },
+    {
+      "type": "spikes",
+      "name": "Pit_18_13",
+      "position": [
+        4.5,
+        0,
+        -17.5
+      ]
+    },
+    {
+      "type": "spikes",
+      "name": "Pit_18_14",
+      "position": [
+        5.5,
+        0,
+        -17.5
+      ]
+    },
+    {
+      "type": "spikes",
+      "name": "Pit_18_15",
+      "position": [
+        6.5,
+        0,
+        -17.5
+      ]
+    },
+    {
+      "type": "spikes",
+      "name": "Pit_18_16",
+      "position": [
+        7.5,
+        0,
+        -17.5
+      ]
+    },
+    {
+      "type": "spikes",
+      "name": "Pit_19_01",
+      "position": [
+        -7.5,
+        0,
+        -18.5
+      ]
+    },
+    {
+      "type": "spikes",
+      "name": "Pit_19_02",
+      "position": [
+        -6.5,
+        0,
+        -18.5
+      ]
+    },
+    {
+      "type": "spikes",
+      "name": "Pit_19_03",
+      "position": [
+        -5.5,
+        0,
+        -18.5
+      ]
+    },
+    {
+      "type": "spikes",
+      "name": "Pit_19_04",
+      "position": [
+        -4.5,
+        0,
+        -18.5
+      ]
+    },
+    {
+      "type": "spikes",
+      "name": "Pit_19_05",
+      "position": [
+        -3.5,
+        0,
+        -18.5
+      ]
+    },
+    {
+      "type": "spikes",
+      "name": "Pit_19_06",
+      "position": [
+        -2.5,
+        0,
+        -18.5
+      ]
+    },
+    {
+      "type": "spikes",
+      "name": "Pit_19_07",
+      "position": [
+        -1.5,
+        0,
+        -18.5
+      ]
+    },
+    {
+      "type": "spikes",
+      "name": "Pit_19_08",
+      "position": [
+        -0.5,
+        0,
+        -18.5
+      ]
+    },
+    {
+      "type": "spikes",
+      "name": "Pit_19_09",
+      "position": [
+        0.5,
+        0,
+        -18.5
+      ]
+    },
+    {
+      "type": "spikes",
+      "name": "Pit_19_10",
+      "position": [
+        1.5,
+        0,
+        -18.5
+      ]
+    },
+    {
+      "type": "spikes",
+      "name": "Pit_19_11",
+      "position": [
+        2.5,
+        0,
+        -18.5
+      ]
+    },
+    {
+      "type": "spikes",
+      "name": "Pit_19_12",
+      "position": [
+        3.5,
+        0,
+        -18.5
+      ]
+    },
+    {
+      "type": "spikes",
+      "name": "Pit_19_13",
+      "position": [
+        4.5,
+        0,
+        -18.5
+      ]
+    },
+    {
+      "type": "spikes",
+      "name": "Pit_19_14",
+      "position": [
+        5.5,
+        0,
+        -18.5
+      ]
+    },
+    {
+      "type": "spikes",
+      "name": "Pit_19_15",
+      "position": [
+        6.5,
+        0,
+        -18.5
+      ]
+    },
+    {
+      "type": "spikes",
+      "name": "Pit_19_16",
+      "position": [
+        7.5,
+        0,
+        -18.5
+      ]
+    },
+    {
+      "type": "spikes",
+      "name": "Pit_20_01",
+      "position": [
+        -7.5,
+        0,
+        -19.5
+      ]
+    },
+    {
+      "type": "spikes",
+      "name": "Pit_20_02",
+      "position": [
+        -6.5,
+        0,
+        -19.5
+      ]
+    },
+    {
+      "type": "spikes",
+      "name": "Pit_20_03",
+      "position": [
+        -5.5,
+        0,
+        -19.5
+      ]
+    },
+    {
+      "type": "spikes",
+      "name": "Pit_20_04",
+      "position": [
+        -4.5,
+        0,
+        -19.5
+      ]
+    },
+    {
+      "type": "spikes",
+      "name": "Pit_20_05",
+      "position": [
+        -3.5,
+        0,
+        -19.5
+      ]
+    },
+    {
+      "type": "spikes",
+      "name": "Pit_20_06",
+      "position": [
+        -2.5,
+        0,
+        -19.5
+      ]
+    },
+    {
+      "type": "spikes",
+      "name": "Pit_20_07",
+      "position": [
+        -1.5,
+        0,
+        -19.5
+      ]
+    },
+    {
+      "type": "spikes",
+      "name": "Pit_20_08",
+      "position": [
+        -0.5,
+        0,
+        -19.5
+      ]
+    },
+    {
+      "type": "spikes",
+      "name": "Pit_20_09",
+      "position": [
+        0.5,
+        0,
+        -19.5
+      ]
+    },
+    {
+      "type": "spikes",
+      "name": "Pit_20_10",
+      "position": [
+        1.5,
+        0,
+        -19.5
+      ]
+    },
+    {
+      "type": "spikes",
+      "name": "Pit_20_11",
+      "position": [
+        2.5,
+        0,
+        -19.5
+      ]
+    },
+    {
+      "type": "spikes",
+      "name": "Pit_20_12",
+      "position": [
+        3.5,
+        0,
+        -19.5
+      ]
+    },
+    {
+      "type": "spikes",
+      "name": "Pit_20_13",
+      "position": [
+        4.5,
+        0,
+        -19.5
+      ]
+    },
+    {
+      "type": "spikes",
+      "name": "Pit_20_14",
+      "position": [
+        5.5,
+        0,
+        -19.5
+      ]
+    },
+    {
+      "type": "spikes",
+      "name": "Pit_20_15",
+      "position": [
+        6.5,
+        0,
+        -19.5
+      ]
+    },
+    {
+      "type": "spikes",
+      "name": "Pit_20_16",
+      "position": [
+        7.5,
+        0,
+        -19.5
+      ]
+    },
+    {
+      "type": "spikes",
+      "name": "Pit_21_01",
+      "position": [
+        -7.5,
+        0,
+        -20.5
+      ]
+    },
+    {
+      "type": "spikes",
+      "name": "Pit_21_02",
+      "position": [
+        -6.5,
+        0,
+        -20.5
+      ]
+    },
+    {
+      "type": "spikes",
+      "name": "Pit_21_03",
+      "position": [
+        -5.5,
+        0,
+        -20.5
+      ]
+    },
+    {
+      "type": "spikes",
+      "name": "Pit_21_04",
+      "position": [
+        -4.5,
+        0,
+        -20.5
+      ]
+    },
+    {
+      "type": "spikes",
+      "name": "Pit_21_05",
+      "position": [
+        -3.5,
+        0,
+        -20.5
+      ]
+    },
+    {
+      "type": "spikes",
+      "name": "Pit_21_06",
+      "position": [
+        -2.5,
+        0,
+        -20.5
+      ]
+    },
+    {
+      "type": "spikes",
+      "name": "Pit_21_07",
+      "position": [
+        -1.5,
+        0,
+        -20.5
+      ]
+    },
+    {
+      "type": "spikes",
+      "name": "Pit_21_08",
+      "position": [
+        -0.5,
+        0,
+        -20.5
+      ]
+    },
+    {
+      "type": "spikes",
+      "name": "Pit_21_09",
+      "position": [
+        0.5,
+        0,
+        -20.5
+      ]
+    },
+    {
+      "type": "spikes",
+      "name": "Pit_21_10",
+      "position": [
+        1.5,
+        0,
+        -20.5
+      ]
+    },
+    {
+      "type": "spikes",
+      "name": "Pit_21_11",
+      "position": [
+        2.5,
+        0,
+        -20.5
+      ]
+    },
+    {
+      "type": "spikes",
+      "name": "Pit_21_12",
+      "position": [
+        3.5,
+        0,
+        -20.5
+      ]
+    },
+    {
+      "type": "spikes",
+      "name": "Pit_21_13",
+      "position": [
+        4.5,
+        0,
+        -20.5
+      ]
+    },
+    {
+      "type": "spikes",
+      "name": "Pit_21_14",
+      "position": [
+        5.5,
+        0,
+        -20.5
+      ]
+    },
+    {
+      "type": "spikes",
+      "name": "Pit_21_15",
+      "position": [
+        6.5,
+        0,
+        -20.5
+      ]
+    },
+    {
+      "type": "spikes",
+      "name": "Pit_21_16",
+      "position": [
+        7.5,
+        0,
+        -20.5
+      ]
+    },
+    {
+      "type": "spikes",
+      "name": "Pit_22_01",
+      "position": [
+        -7.5,
+        0,
+        -21.5
+      ]
+    },
+    {
+      "type": "spikes",
+      "name": "Pit_22_02",
+      "position": [
+        -6.5,
+        0,
+        -21.5
+      ]
+    },
+    {
+      "type": "spikes",
+      "name": "Pit_22_03",
+      "position": [
+        -5.5,
+        0,
+        -21.5
+      ]
+    },
+    {
+      "type": "spikes",
+      "name": "Pit_22_04",
+      "position": [
+        -4.5,
+        0,
+        -21.5
+      ]
+    },
+    {
+      "type": "spikes",
+      "name": "Pit_22_05",
+      "position": [
+        -3.5,
+        0,
+        -21.5
+      ]
+    },
+    {
+      "type": "spikes",
+      "name": "Pit_22_06",
+      "position": [
+        -2.5,
+        0,
+        -21.5
+      ]
+    },
+    {
+      "type": "spikes",
+      "name": "Pit_22_07",
+      "position": [
+        -1.5,
+        0,
+        -21.5
+      ]
+    },
+    {
+      "type": "spikes",
+      "name": "Pit_22_08",
+      "position": [
+        -0.5,
+        0,
+        -21.5
+      ]
+    },
+    {
+      "type": "spikes",
+      "name": "Pit_22_09",
+      "position": [
+        0.5,
+        0,
+        -21.5
+      ]
+    },
+    {
+      "type": "spikes",
+      "name": "Pit_22_10",
+      "position": [
+        1.5,
+        0,
+        -21.5
+      ]
+    },
+    {
+      "type": "spikes",
+      "name": "Pit_22_11",
+      "position": [
+        2.5,
+        0,
+        -21.5
+      ]
+    },
+    {
+      "type": "spikes",
+      "name": "Pit_22_12",
+      "position": [
+        3.5,
+        0,
+        -21.5
+      ]
+    },
+    {
+      "type": "spikes",
+      "name": "Pit_22_13",
+      "position": [
+        4.5,
+        0,
+        -21.5
+      ]
+    },
+    {
+      "type": "spikes",
+      "name": "Pit_22_14",
+      "position": [
+        5.5,
+        0,
+        -21.5
+      ]
+    },
+    {
+      "type": "spikes",
+      "name": "Pit_22_15",
+      "position": [
+        6.5,
+        0,
+        -21.5
+      ]
+    },
+    {
+      "type": "spikes",
+      "name": "Pit_22_16",
+      "position": [
+        7.5,
+        0,
+        -21.5
+      ]
+    },
+    {
+      "type": "spikes",
+      "name": "Pit_23_01",
+      "position": [
+        -7.5,
+        0,
+        -22.5
+      ]
+    },
+    {
+      "type": "spikes",
+      "name": "Pit_23_02",
+      "position": [
+        -6.5,
+        0,
+        -22.5
+      ]
+    },
+    {
+      "type": "spikes",
+      "name": "Pit_23_03",
+      "position": [
+        -5.5,
+        0,
+        -22.5
+      ]
+    },
+    {
+      "type": "spikes",
+      "name": "Pit_23_04",
+      "position": [
+        -4.5,
+        0,
+        -22.5
+      ]
+    },
+    {
+      "type": "spikes",
+      "name": "Pit_23_05",
+      "position": [
+        -3.5,
+        0,
+        -22.5
+      ]
+    },
+    {
+      "type": "spikes",
+      "name": "Pit_23_06",
+      "position": [
+        -2.5,
+        0,
+        -22.5
+      ]
+    },
+    {
+      "type": "spikes",
+      "name": "Pit_23_07",
+      "position": [
+        -1.5,
+        0,
+        -22.5
+      ]
+    },
+    {
+      "type": "spikes",
+      "name": "Pit_23_08",
+      "position": [
+        -0.5,
+        0,
+        -22.5
+      ]
+    },
+    {
+      "type": "spikes",
+      "name": "Pit_23_09",
+      "position": [
+        0.5,
+        0,
+        -22.5
+      ]
+    },
+    {
+      "type": "spikes",
+      "name": "Pit_23_10",
+      "position": [
+        1.5,
+        0,
+        -22.5
+      ]
+    },
+    {
+      "type": "spikes",
+      "name": "Pit_23_11",
+      "position": [
+        2.5,
+        0,
+        -22.5
+      ]
+    },
+    {
+      "type": "spikes",
+      "name": "Pit_23_12",
+      "position": [
+        3.5,
+        0,
+        -22.5
+      ]
+    },
+    {
+      "type": "spikes",
+      "name": "Pit_23_13",
+      "position": [
+        4.5,
+        0,
+        -22.5
+      ]
+    },
+    {
+      "type": "spikes",
+      "name": "Pit_23_14",
+      "position": [
+        5.5,
+        0,
+        -22.5
+      ]
+    },
+    {
+      "type": "spikes",
+      "name": "Pit_23_15",
+      "position": [
+        6.5,
+        0,
+        -22.5
+      ]
+    },
+    {
+      "type": "spikes",
+      "name": "Pit_23_16",
+      "position": [
+        7.5,
+        0,
+        -22.5
+      ]
+    },
+    {
+      "type": "spikes",
+      "name": "Pit_24_01",
+      "position": [
+        -7.5,
+        0,
+        -23.5
+      ]
+    },
+    {
+      "type": "spikes",
+      "name": "Pit_24_02",
+      "position": [
+        -6.5,
+        0,
+        -23.5
+      ]
+    },
+    {
+      "type": "spikes",
+      "name": "Pit_24_03",
+      "position": [
+        -5.5,
+        0,
+        -23.5
+      ]
+    },
+    {
+      "type": "spikes",
+      "name": "Pit_24_04",
+      "position": [
+        -4.5,
+        0,
+        -23.5
+      ]
+    },
+    {
+      "type": "spikes",
+      "name": "Pit_24_05",
+      "position": [
+        -3.5,
+        0,
+        -23.5
+      ]
+    },
+    {
+      "type": "spikes",
+      "name": "Pit_24_06",
+      "position": [
+        -2.5,
+        0,
+        -23.5
+      ]
+    },
+    {
+      "type": "spikes",
+      "name": "Pit_24_07",
+      "position": [
+        -1.5,
+        0,
+        -23.5
+      ]
+    },
+    {
+      "type": "spikes",
+      "name": "Pit_24_08",
+      "position": [
+        -0.5,
+        0,
+        -23.5
+      ]
+    },
+    {
+      "type": "spikes",
+      "name": "Pit_24_09",
+      "position": [
+        0.5,
+        0,
+        -23.5
+      ]
+    },
+    {
+      "type": "spikes",
+      "name": "Pit_24_10",
+      "position": [
+        1.5,
+        0,
+        -23.5
+      ]
+    },
+    {
+      "type": "spikes",
+      "name": "Pit_24_11",
+      "position": [
+        2.5,
+        0,
+        -23.5
+      ]
+    },
+    {
+      "type": "spikes",
+      "name": "Pit_24_12",
+      "position": [
+        3.5,
+        0,
+        -23.5
+      ]
+    },
+    {
+      "type": "spikes",
+      "name": "Pit_24_13",
+      "position": [
+        4.5,
+        0,
+        -23.5
+      ]
+    },
+    {
+      "type": "spikes",
+      "name": "Pit_24_14",
+      "position": [
+        5.5,
+        0,
+        -23.5
+      ]
+    },
+    {
+      "type": "spikes",
+      "name": "Pit_24_15",
+      "position": [
+        6.5,
+        0,
+        -23.5
+      ]
+    },
+    {
+      "type": "spikes",
+      "name": "Pit_24_16",
+      "position": [
+        7.5,
+        0,
+        -23.5
+      ]
+    },
+    {
+      "type": "spikes",
+      "name": "Pit_25_01",
+      "position": [
+        -7.5,
+        0,
+        -24.5
+      ]
+    },
+    {
+      "type": "spikes",
+      "name": "Pit_25_02",
+      "position": [
+        -6.5,
+        0,
+        -24.5
+      ]
+    },
+    {
+      "type": "spikes",
+      "name": "Pit_25_03",
+      "position": [
+        -5.5,
+        0,
+        -24.5
+      ]
+    },
+    {
+      "type": "spikes",
+      "name": "Pit_25_04",
+      "position": [
+        -4.5,
+        0,
+        -24.5
+      ]
+    },
+    {
+      "type": "spikes",
+      "name": "Pit_25_05",
+      "position": [
+        -3.5,
+        0,
+        -24.5
+      ]
+    },
+    {
+      "type": "spikes",
+      "name": "Pit_25_06",
+      "position": [
+        -2.5,
+        0,
+        -24.5
+      ]
+    },
+    {
+      "type": "spikes",
+      "name": "Pit_25_07",
+      "position": [
+        -1.5,
+        0,
+        -24.5
+      ]
+    },
+    {
+      "type": "spikes",
+      "name": "Pit_25_08",
+      "position": [
+        -0.5,
+        0,
+        -24.5
+      ]
+    },
+    {
+      "type": "spikes",
+      "name": "Pit_25_09",
+      "position": [
+        0.5,
+        0,
+        -24.5
+      ]
+    },
+    {
+      "type": "spikes",
+      "name": "Pit_25_10",
+      "position": [
+        1.5,
+        0,
+        -24.5
+      ]
+    },
+    {
+      "type": "spikes",
+      "name": "Pit_25_11",
+      "position": [
+        2.5,
+        0,
+        -24.5
+      ]
+    },
+    {
+      "type": "spikes",
+      "name": "Pit_25_12",
+      "position": [
+        3.5,
+        0,
+        -24.5
+      ]
+    },
+    {
+      "type": "spikes",
+      "name": "Pit_25_13",
+      "position": [
+        4.5,
+        0,
+        -24.5
+      ]
+    },
+    {
+      "type": "spikes",
+      "name": "Pit_25_14",
+      "position": [
+        5.5,
+        0,
+        -24.5
+      ]
+    },
+    {
+      "type": "spikes",
+      "name": "Pit_25_15",
+      "position": [
+        6.5,
+        0,
+        -24.5
+      ]
+    },
+    {
+      "type": "spikes",
+      "name": "Pit_25_16",
+      "position": [
+        7.5,
+        0,
+        -24.5
+      ]
+    },
+    {
+      "type": "spikes",
+      "name": "Pit_26_01",
+      "position": [
+        -7.5,
+        0,
+        -25.5
+      ]
+    },
+    {
+      "type": "spikes",
+      "name": "Pit_26_02",
+      "position": [
+        -6.5,
+        0,
+        -25.5
+      ]
+    },
+    {
+      "type": "spikes",
+      "name": "Pit_26_03",
+      "position": [
+        -5.5,
+        0,
+        -25.5
+      ]
+    },
+    {
+      "type": "spikes",
+      "name": "Pit_26_04",
+      "position": [
+        -4.5,
+        0,
+        -25.5
+      ]
+    },
+    {
+      "type": "spikes",
+      "name": "Pit_26_05",
+      "position": [
+        -3.5,
+        0,
+        -25.5
+      ]
+    },
+    {
+      "type": "spikes",
+      "name": "Pit_26_06",
+      "position": [
+        -2.5,
+        0,
+        -25.5
+      ]
+    },
+    {
+      "type": "spikes",
+      "name": "Pit_26_07",
+      "position": [
+        -1.5,
+        0,
+        -25.5
+      ]
+    },
+    {
+      "type": "spikes",
+      "name": "Pit_26_08",
+      "position": [
+        -0.5,
+        0,
+        -25.5
+      ]
+    },
+    {
+      "type": "spikes",
+      "name": "Pit_26_09",
+      "position": [
+        0.5,
+        0,
+        -25.5
+      ]
+    },
+    {
+      "type": "spikes",
+      "name": "Pit_26_10",
+      "position": [
+        1.5,
+        0,
+        -25.5
+      ]
+    },
+    {
+      "type": "spikes",
+      "name": "Pit_26_11",
+      "position": [
+        2.5,
+        0,
+        -25.5
+      ]
+    },
+    {
+      "type": "spikes",
+      "name": "Pit_26_12",
+      "position": [
+        3.5,
+        0,
+        -25.5
+      ]
+    },
+    {
+      "type": "spikes",
+      "name": "Pit_26_13",
+      "position": [
+        4.5,
+        0,
+        -25.5
+      ]
+    },
+    {
+      "type": "spikes",
+      "name": "Pit_26_14",
+      "position": [
+        5.5,
+        0,
+        -25.5
+      ]
+    },
+    {
+      "type": "spikes",
+      "name": "Pit_26_15",
+      "position": [
+        6.5,
+        0,
+        -25.5
+      ]
+    },
+    {
+      "type": "spikes",
+      "name": "Pit_26_16",
+      "position": [
+        7.5,
+        0,
+        -25.5
+      ]
+    },
+    {
+      "type": "spikes",
+      "name": "Pit_27_01",
+      "position": [
+        -7.5,
+        0,
+        -26.5
+      ]
+    },
+    {
+      "type": "spikes",
+      "name": "Pit_27_02",
+      "position": [
+        -6.5,
+        0,
+        -26.5
+      ]
+    },
+    {
+      "type": "spikes",
+      "name": "Pit_27_03",
+      "position": [
+        -5.5,
+        0,
+        -26.5
+      ]
+    },
+    {
+      "type": "spikes",
+      "name": "Pit_27_04",
+      "position": [
+        -4.5,
+        0,
+        -26.5
+      ]
+    },
+    {
+      "type": "spikes",
+      "name": "Pit_27_05",
+      "position": [
+        -3.5,
+        0,
+        -26.5
+      ]
+    },
+    {
+      "type": "spikes",
+      "name": "Pit_27_06",
+      "position": [
+        -2.5,
+        0,
+        -26.5
+      ]
+    },
+    {
+      "type": "spikes",
+      "name": "Pit_27_07",
+      "position": [
+        -1.5,
+        0,
+        -26.5
+      ]
+    },
+    {
+      "type": "spikes",
+      "name": "Pit_27_08",
+      "position": [
+        -0.5,
+        0,
+        -26.5
+      ]
+    },
+    {
+      "type": "spikes",
+      "name": "Pit_27_09",
+      "position": [
+        0.5,
+        0,
+        -26.5
+      ]
+    },
+    {
+      "type": "spikes",
+      "name": "Pit_27_10",
+      "position": [
+        1.5,
+        0,
+        -26.5
+      ]
+    },
+    {
+      "type": "spikes",
+      "name": "Pit_27_11",
+      "position": [
+        2.5,
+        0,
+        -26.5
+      ]
+    },
+    {
+      "type": "spikes",
+      "name": "Pit_27_12",
+      "position": [
+        3.5,
+        0,
+        -26.5
+      ]
+    },
+    {
+      "type": "spikes",
+      "name": "Pit_27_13",
+      "position": [
+        4.5,
+        0,
+        -26.5
+      ]
+    },
+    {
+      "type": "spikes",
+      "name": "Pit_27_14",
+      "position": [
+        5.5,
+        0,
+        -26.5
+      ]
+    },
+    {
+      "type": "spikes",
+      "name": "Pit_27_15",
+      "position": [
+        6.5,
+        0,
+        -26.5
+      ]
+    },
+    {
+      "type": "spikes",
+      "name": "Pit_27_16",
+      "position": [
+        7.5,
+        0,
+        -26.5
+      ]
+    },
+    {
+      "type": "spikes",
+      "name": "Pit_28_01",
+      "position": [
+        -7.5,
+        0,
+        -27.5
+      ]
+    },
+    {
+      "type": "spikes",
+      "name": "Pit_28_02",
+      "position": [
+        -6.5,
+        0,
+        -27.5
+      ]
+    },
+    {
+      "type": "spikes",
+      "name": "Pit_28_03",
+      "position": [
+        -5.5,
+        0,
+        -27.5
+      ]
+    },
+    {
+      "type": "spikes",
+      "name": "Pit_28_04",
+      "position": [
+        -4.5,
+        0,
+        -27.5
+      ]
+    },
+    {
+      "type": "spikes",
+      "name": "Pit_28_05",
+      "position": [
+        -3.5,
+        0,
+        -27.5
+      ]
+    },
+    {
+      "type": "spikes",
+      "name": "Pit_28_06",
+      "position": [
+        -2.5,
+        0,
+        -27.5
+      ]
+    },
+    {
+      "type": "spikes",
+      "name": "Pit_28_07",
+      "position": [
+        -1.5,
+        0,
+        -27.5
+      ]
+    },
+    {
+      "type": "spikes",
+      "name": "Pit_28_08",
+      "position": [
+        -0.5,
+        0,
+        -27.5
+      ]
+    },
+    {
+      "type": "spikes",
+      "name": "Pit_28_09",
+      "position": [
+        0.5,
+        0,
+        -27.5
+      ]
+    },
+    {
+      "type": "spikes",
+      "name": "Pit_28_10",
+      "position": [
+        1.5,
+        0,
+        -27.5
+      ]
+    },
+    {
+      "type": "spikes",
+      "name": "Pit_28_11",
+      "position": [
+        2.5,
+        0,
+        -27.5
+      ]
+    },
+    {
+      "type": "spikes",
+      "name": "Pit_28_12",
+      "position": [
+        3.5,
+        0,
+        -27.5
+      ]
+    },
+    {
+      "type": "spikes",
+      "name": "Pit_28_13",
+      "position": [
+        4.5,
+        0,
+        -27.5
+      ]
+    },
+    {
+      "type": "spikes",
+      "name": "Pit_28_14",
+      "position": [
+        5.5,
+        0,
+        -27.5
+      ]
+    },
+    {
+      "type": "spikes",
+      "name": "Pit_28_15",
+      "position": [
+        6.5,
+        0,
+        -27.5
+      ]
+    },
+    {
+      "type": "spikes",
+      "name": "Pit_28_16",
+      "position": [
+        7.5,
+        0,
+        -27.5
+      ]
+    },
+    {
+      "type": "spikes",
+      "name": "Pit_29_01",
+      "position": [
+        -7.5,
+        0,
+        -28.5
+      ]
+    },
+    {
+      "type": "spikes",
+      "name": "Pit_29_02",
+      "position": [
+        -6.5,
+        0,
+        -28.5
+      ]
+    },
+    {
+      "type": "spikes",
+      "name": "Pit_29_03",
+      "position": [
+        -5.5,
+        0,
+        -28.5
+      ]
+    },
+    {
+      "type": "spikes",
+      "name": "Pit_29_04",
+      "position": [
+        -4.5,
+        0,
+        -28.5
+      ]
+    },
+    {
+      "type": "spikes",
+      "name": "Pit_29_05",
+      "position": [
+        -3.5,
+        0,
+        -28.5
+      ]
+    },
+    {
+      "type": "spikes",
+      "name": "Pit_29_06",
+      "position": [
+        -2.5,
+        0,
+        -28.5
+      ]
+    },
+    {
+      "type": "spikes",
+      "name": "Pit_29_07",
+      "position": [
+        -1.5,
+        0,
+        -28.5
+      ]
+    },
+    {
+      "type": "spikes",
+      "name": "Pit_29_08",
+      "position": [
+        -0.5,
+        0,
+        -28.5
+      ]
+    },
+    {
+      "type": "spikes",
+      "name": "Pit_29_09",
+      "position": [
+        0.5,
+        0,
+        -28.5
+      ]
+    },
+    {
+      "type": "spikes",
+      "name": "Pit_29_10",
+      "position": [
+        1.5,
+        0,
+        -28.5
+      ]
+    },
+    {
+      "type": "spikes",
+      "name": "Pit_29_11",
+      "position": [
+        2.5,
+        0,
+        -28.5
+      ]
+    },
+    {
+      "type": "spikes",
+      "name": "Pit_29_12",
+      "position": [
+        3.5,
+        0,
+        -28.5
+      ]
+    },
+    {
+      "type": "spikes",
+      "name": "Pit_29_13",
+      "position": [
+        4.5,
+        0,
+        -28.5
+      ]
+    },
+    {
+      "type": "spikes",
+      "name": "Pit_29_14",
+      "position": [
+        5.5,
+        0,
+        -28.5
+      ]
+    },
+    {
+      "type": "spikes",
+      "name": "Pit_29_15",
+      "position": [
+        6.5,
+        0,
+        -28.5
+      ]
+    },
+    {
+      "type": "spikes",
+      "name": "Pit_29_16",
+      "position": [
+        7.5,
+        0,
+        -28.5
+      ]
+    },
+    {
+      "type": "spikes",
+      "name": "Pit_30_01",
+      "position": [
+        -7.5,
+        0,
+        -29.5
+      ]
+    },
+    {
+      "type": "spikes",
+      "name": "Pit_30_02",
+      "position": [
+        -6.5,
+        0,
+        -29.5
+      ]
+    },
+    {
+      "type": "spikes",
+      "name": "Pit_30_03",
+      "position": [
+        -5.5,
+        0,
+        -29.5
+      ]
+    },
+    {
+      "type": "spikes",
+      "name": "Pit_30_04",
+      "position": [
+        -4.5,
+        0,
+        -29.5
+      ]
+    },
+    {
+      "type": "spikes",
+      "name": "Pit_30_05",
+      "position": [
+        -3.5,
+        0,
+        -29.5
+      ]
+    },
+    {
+      "type": "spikes",
+      "name": "Pit_30_06",
+      "position": [
+        -2.5,
+        0,
+        -29.5
+      ]
+    },
+    {
+      "type": "spikes",
+      "name": "Pit_30_07",
+      "position": [
+        -1.5,
+        0,
+        -29.5
+      ]
+    },
+    {
+      "type": "spikes",
+      "name": "Pit_30_08",
+      "position": [
+        -0.5,
+        0,
+        -29.5
+      ]
+    },
+    {
+      "type": "spikes",
+      "name": "Pit_30_09",
+      "position": [
+        0.5,
+        0,
+        -29.5
+      ]
+    },
+    {
+      "type": "spikes",
+      "name": "Pit_30_10",
+      "position": [
+        1.5,
+        0,
+        -29.5
+      ]
+    },
+    {
+      "type": "spikes",
+      "name": "Pit_30_11",
+      "position": [
+        2.5,
+        0,
+        -29.5
+      ]
+    },
+    {
+      "type": "spikes",
+      "name": "Pit_30_12",
+      "position": [
+        3.5,
+        0,
+        -29.5
+      ]
+    },
+    {
+      "type": "spikes",
+      "name": "Pit_30_13",
+      "position": [
+        4.5,
+        0,
+        -29.5
+      ]
+    },
+    {
+      "type": "spikes",
+      "name": "Pit_30_14",
+      "position": [
+        5.5,
+        0,
+        -29.5
+      ]
+    },
+    {
+      "type": "spikes",
+      "name": "Pit_30_15",
+      "position": [
+        6.5,
+        0,
+        -29.5
+      ]
+    },
+    {
+      "type": "spikes",
+      "name": "Pit_30_16",
+      "position": [
+        7.5,
+        0,
+        -29.5
+      ]
+    },
+    {
+      "type": "spikes",
+      "name": "Pit_31_01",
+      "position": [
+        -7.5,
+        0,
+        -30.5
+      ]
+    },
+    {
+      "type": "spikes",
+      "name": "Pit_31_02",
+      "position": [
+        -6.5,
+        0,
+        -30.5
+      ]
+    },
+    {
+      "type": "spikes",
+      "name": "Pit_31_03",
+      "position": [
+        -5.5,
+        0,
+        -30.5
+      ]
+    },
+    {
+      "type": "spikes",
+      "name": "Pit_31_04",
+      "position": [
+        -4.5,
+        0,
+        -30.5
+      ]
+    },
+    {
+      "type": "spikes",
+      "name": "Pit_31_05",
+      "position": [
+        -3.5,
+        0,
+        -30.5
+      ]
+    },
+    {
+      "type": "spikes",
+      "name": "Pit_31_06",
+      "position": [
+        -2.5,
+        0,
+        -30.5
+      ]
+    },
+    {
+      "type": "spikes",
+      "name": "Pit_31_07",
+      "position": [
+        -1.5,
+        0,
+        -30.5
+      ]
+    },
+    {
+      "type": "spikes",
+      "name": "Pit_31_08",
+      "position": [
+        -0.5,
+        0,
+        -30.5
+      ]
+    },
+    {
+      "type": "spikes",
+      "name": "Pit_31_09",
+      "position": [
+        0.5,
+        0,
+        -30.5
+      ]
+    },
+    {
+      "type": "spikes",
+      "name": "Pit_31_10",
+      "position": [
+        1.5,
+        0,
+        -30.5
+      ]
+    },
+    {
+      "type": "spikes",
+      "name": "Pit_31_11",
+      "position": [
+        2.5,
+        0,
+        -30.5
+      ]
+    },
+    {
+      "type": "spikes",
+      "name": "Pit_31_12",
+      "position": [
+        3.5,
+        0,
+        -30.5
+      ]
+    },
+    {
+      "type": "spikes",
+      "name": "Pit_31_13",
+      "position": [
+        4.5,
+        0,
+        -30.5
+      ]
+    },
+    {
+      "type": "spikes",
+      "name": "Pit_31_14",
+      "position": [
+        5.5,
+        0,
+        -30.5
+      ]
+    },
+    {
+      "type": "spikes",
+      "name": "Pit_31_15",
+      "position": [
+        6.5,
+        0,
+        -30.5
+      ]
+    },
+    {
+      "type": "spikes",
+      "name": "Pit_31_16",
+      "position": [
+        7.5,
+        0,
+        -30.5
+      ]
+    },
+    {
+      "type": "spikes",
+      "name": "Pit_32_01",
+      "position": [
+        -7.5,
+        0,
+        -31.5
+      ]
+    },
+    {
+      "type": "spikes",
+      "name": "Pit_32_02",
+      "position": [
+        -6.5,
+        0,
+        -31.5
+      ]
+    },
+    {
+      "type": "spikes",
+      "name": "Pit_32_03",
+      "position": [
+        -5.5,
+        0,
+        -31.5
+      ]
+    },
+    {
+      "type": "spikes",
+      "name": "Pit_32_04",
+      "position": [
+        -4.5,
+        0,
+        -31.5
+      ]
+    },
+    {
+      "type": "spikes",
+      "name": "Pit_32_05",
+      "position": [
+        -3.5,
+        0,
+        -31.5
+      ]
+    },
+    {
+      "type": "spikes",
+      "name": "Pit_32_06",
+      "position": [
+        -2.5,
+        0,
+        -31.5
+      ]
+    },
+    {
+      "type": "spikes",
+      "name": "Pit_32_07",
+      "position": [
+        -1.5,
+        0,
+        -31.5
+      ]
+    },
+    {
+      "type": "spikes",
+      "name": "Pit_32_08",
+      "position": [
+        -0.5,
+        0,
+        -31.5
+      ]
+    },
+    {
+      "type": "spikes",
+      "name": "Pit_32_09",
+      "position": [
+        0.5,
+        0,
+        -31.5
+      ]
+    },
+    {
+      "type": "spikes",
+      "name": "Pit_32_10",
+      "position": [
+        1.5,
+        0,
+        -31.5
+      ]
+    },
+    {
+      "type": "spikes",
+      "name": "Pit_32_11",
+      "position": [
+        2.5,
+        0,
+        -31.5
+      ]
+    },
+    {
+      "type": "spikes",
+      "name": "Pit_32_12",
+      "position": [
+        3.5,
+        0,
+        -31.5
+      ]
+    },
+    {
+      "type": "spikes",
+      "name": "Pit_32_13",
+      "position": [
+        4.5,
+        0,
+        -31.5
+      ]
+    },
+    {
+      "type": "spikes",
+      "name": "Pit_32_14",
+      "position": [
+        5.5,
+        0,
+        -31.5
+      ]
+    },
+    {
+      "type": "spikes",
+      "name": "Pit_32_15",
+      "position": [
+        6.5,
+        0,
+        -31.5
+      ]
+    },
+    {
+      "type": "spikes",
+      "name": "Pit_32_16",
+      "position": [
+        7.5,
+        0,
+        -31.5
+      ]
+    },
+    {
+      "type": "spikes",
+      "name": "Pit_33_01",
+      "position": [
+        -7.5,
+        0,
+        -32.5
+      ]
+    },
+    {
+      "type": "spikes",
+      "name": "Pit_33_02",
+      "position": [
+        -6.5,
+        0,
+        -32.5
+      ]
+    },
+    {
+      "type": "spikes",
+      "name": "Pit_33_03",
+      "position": [
+        -5.5,
+        0,
+        -32.5
+      ]
+    },
+    {
+      "type": "spikes",
+      "name": "Pit_33_04",
+      "position": [
+        -4.5,
+        0,
+        -32.5
+      ]
+    },
+    {
+      "type": "spikes",
+      "name": "Pit_33_05",
+      "position": [
+        -3.5,
+        0,
+        -32.5
+      ]
+    },
+    {
+      "type": "spikes",
+      "name": "Pit_33_06",
+      "position": [
+        -2.5,
+        0,
+        -32.5
+      ]
+    },
+    {
+      "type": "spikes",
+      "name": "Pit_33_07",
+      "position": [
+        -1.5,
+        0,
+        -32.5
+      ]
+    },
+    {
+      "type": "spikes",
+      "name": "Pit_33_08",
+      "position": [
+        -0.5,
+        0,
+        -32.5
+      ]
+    },
+    {
+      "type": "spikes",
+      "name": "Pit_33_09",
+      "position": [
+        0.5,
+        0,
+        -32.5
+      ]
+    },
+    {
+      "type": "spikes",
+      "name": "Pit_33_10",
+      "position": [
+        1.5,
+        0,
+        -32.5
+      ]
+    },
+    {
+      "type": "spikes",
+      "name": "Pit_33_11",
+      "position": [
+        2.5,
+        0,
+        -32.5
+      ]
+    },
+    {
+      "type": "spikes",
+      "name": "Pit_33_12",
+      "position": [
+        3.5,
+        0,
+        -32.5
+      ]
+    },
+    {
+      "type": "spikes",
+      "name": "Pit_33_13",
+      "position": [
+        4.5,
+        0,
+        -32.5
+      ]
+    },
+    {
+      "type": "spikes",
+      "name": "Pit_33_14",
+      "position": [
+        5.5,
+        0,
+        -32.5
+      ]
+    },
+    {
+      "type": "spikes",
+      "name": "Pit_33_15",
+      "position": [
+        6.5,
+        0,
+        -32.5
+      ]
+    },
+    {
+      "type": "spikes",
+      "name": "Pit_33_16",
+      "position": [
+        7.5,
+        0,
+        -32.5
+      ]
+    },
+    {
+      "type": "spikes",
+      "name": "Pit_34_01",
+      "position": [
+        -7.5,
+        0,
+        -33.5
+      ]
+    },
+    {
+      "type": "spikes",
+      "name": "Pit_34_02",
+      "position": [
+        -6.5,
+        0,
+        -33.5
+      ]
+    },
+    {
+      "type": "spikes",
+      "name": "Pit_34_03",
+      "position": [
+        -5.5,
+        0,
+        -33.5
+      ]
+    },
+    {
+      "type": "spikes",
+      "name": "Pit_34_04",
+      "position": [
+        -4.5,
+        0,
+        -33.5
+      ]
+    },
+    {
+      "type": "spikes",
+      "name": "Pit_34_05",
+      "position": [
+        -3.5,
+        0,
+        -33.5
+      ]
+    },
+    {
+      "type": "spikes",
+      "name": "Pit_34_06",
+      "position": [
+        -2.5,
+        0,
+        -33.5
+      ]
+    },
+    {
+      "type": "spikes",
+      "name": "Pit_34_07",
+      "position": [
+        -1.5,
+        0,
+        -33.5
+      ]
+    },
+    {
+      "type": "spikes",
+      "name": "Pit_34_08",
+      "position": [
+        -0.5,
+        0,
+        -33.5
+      ]
+    },
+    {
+      "type": "spikes",
+      "name": "Pit_34_09",
+      "position": [
+        0.5,
+        0,
+        -33.5
+      ]
+    },
+    {
+      "type": "spikes",
+      "name": "Pit_34_10",
+      "position": [
+        1.5,
+        0,
+        -33.5
+      ]
+    },
+    {
+      "type": "spikes",
+      "name": "Pit_34_11",
+      "position": [
+        2.5,
+        0,
+        -33.5
+      ]
+    },
+    {
+      "type": "spikes",
+      "name": "Pit_34_12",
+      "position": [
+        3.5,
+        0,
+        -33.5
+      ]
+    },
+    {
+      "type": "spikes",
+      "name": "Pit_34_13",
+      "position": [
+        4.5,
+        0,
+        -33.5
+      ]
+    },
+    {
+      "type": "spikes",
+      "name": "Pit_34_14",
+      "position": [
+        5.5,
+        0,
+        -33.5
+      ]
+    },
+    {
+      "type": "spikes",
+      "name": "Pit_34_15",
+      "position": [
+        6.5,
+        0,
+        -33.5
+      ]
+    },
+    {
+      "type": "spikes",
+      "name": "Pit_34_16",
+      "position": [
+        7.5,
+        0,
+        -33.5
+      ]
+    },
+    {
+      "type": "spikes",
+      "name": "Pit_35_01",
+      "position": [
+        -7.5,
+        0,
+        -34.5
+      ]
+    },
+    {
+      "type": "spikes",
+      "name": "Pit_35_02",
+      "position": [
+        -6.5,
+        0,
+        -34.5
+      ]
+    },
+    {
+      "type": "spikes",
+      "name": "Pit_35_03",
+      "position": [
+        -5.5,
+        0,
+        -34.5
+      ]
+    },
+    {
+      "type": "spikes",
+      "name": "Pit_35_04",
+      "position": [
+        -4.5,
+        0,
+        -34.5
+      ]
+    },
+    {
+      "type": "spikes",
+      "name": "Pit_35_05",
+      "position": [
+        -3.5,
+        0,
+        -34.5
+      ]
+    },
+    {
+      "type": "spikes",
+      "name": "Pit_35_06",
+      "position": [
+        -2.5,
+        0,
+        -34.5
+      ]
+    },
+    {
+      "type": "spikes",
+      "name": "Pit_35_07",
+      "position": [
+        -1.5,
+        0,
+        -34.5
+      ]
+    },
+    {
+      "type": "spikes",
+      "name": "Pit_35_08",
+      "position": [
+        -0.5,
+        0,
+        -34.5
+      ]
+    },
+    {
+      "type": "spikes",
+      "name": "Pit_35_09",
+      "position": [
+        0.5,
+        0,
+        -34.5
+      ]
+    },
+    {
+      "type": "spikes",
+      "name": "Pit_35_10",
+      "position": [
+        1.5,
+        0,
+        -34.5
+      ]
+    },
+    {
+      "type": "spikes",
+      "name": "Pit_35_11",
+      "position": [
+        2.5,
+        0,
+        -34.5
+      ]
+    },
+    {
+      "type": "spikes",
+      "name": "Pit_35_12",
+      "position": [
+        3.5,
+        0,
+        -34.5
+      ]
+    },
+    {
+      "type": "spikes",
+      "name": "Pit_35_13",
+      "position": [
+        4.5,
+        0,
+        -34.5
+      ]
+    },
+    {
+      "type": "spikes",
+      "name": "Pit_35_14",
+      "position": [
+        5.5,
+        0,
+        -34.5
+      ]
+    },
+    {
+      "type": "spikes",
+      "name": "Pit_35_15",
+      "position": [
+        6.5,
+        0,
+        -34.5
+      ]
+    },
+    {
+      "type": "spikes",
+      "name": "Pit_35_16",
+      "position": [
+        7.5,
+        0,
+        -34.5
+      ]
+    },
+    {
+      "type": "spikes",
+      "name": "Pit_36_01",
+      "position": [
+        -7.5,
+        0,
+        -35.5
+      ]
+    },
+    {
+      "type": "spikes",
+      "name": "Pit_36_02",
+      "position": [
+        -6.5,
+        0,
+        -35.5
+      ]
+    },
+    {
+      "type": "spikes",
+      "name": "Pit_36_03",
+      "position": [
+        -5.5,
+        0,
+        -35.5
+      ]
+    },
+    {
+      "type": "spikes",
+      "name": "Pit_36_04",
+      "position": [
+        -4.5,
+        0,
+        -35.5
+      ]
+    },
+    {
+      "type": "spikes",
+      "name": "Pit_36_05",
+      "position": [
+        -3.5,
+        0,
+        -35.5
+      ]
+    },
+    {
+      "type": "spikes",
+      "name": "Pit_36_06",
+      "position": [
+        -2.5,
+        0,
+        -35.5
+      ]
+    },
+    {
+      "type": "spikes",
+      "name": "Pit_36_07",
+      "position": [
+        -1.5,
+        0,
+        -35.5
+      ]
+    },
+    {
+      "type": "spikes",
+      "name": "Pit_36_08",
+      "position": [
+        -0.5,
+        0,
+        -35.5
+      ]
+    },
+    {
+      "type": "spikes",
+      "name": "Pit_36_09",
+      "position": [
+        0.5,
+        0,
+        -35.5
+      ]
+    },
+    {
+      "type": "spikes",
+      "name": "Pit_36_10",
+      "position": [
+        1.5,
+        0,
+        -35.5
+      ]
+    },
+    {
+      "type": "spikes",
+      "name": "Pit_36_11",
+      "position": [
+        2.5,
+        0,
+        -35.5
+      ]
+    },
+    {
+      "type": "spikes",
+      "name": "Pit_36_12",
+      "position": [
+        3.5,
+        0,
+        -35.5
+      ]
+    },
+    {
+      "type": "spikes",
+      "name": "Pit_36_13",
+      "position": [
+        4.5,
+        0,
+        -35.5
+      ]
+    },
+    {
+      "type": "spikes",
+      "name": "Pit_36_14",
+      "position": [
+        5.5,
+        0,
+        -35.5
+      ]
+    },
+    {
+      "type": "spikes",
+      "name": "Pit_36_15",
+      "position": [
+        6.5,
+        0,
+        -35.5
+      ]
+    },
+    {
+      "type": "spikes",
+      "name": "Pit_36_16",
+      "position": [
+        7.5,
+        0,
+        -35.5
+      ]
+    },
+    {
+      "type": "spikes",
+      "name": "FirstIsland_Left_01",
+      "position": [
+        -1.5,
+        2.5,
+        -8.5
+      ]
+    },
+    {
+      "type": "spikes",
+      "name": "FirstIsland_Left_02",
+      "position": [
+        -1.5,
+        2.5,
+        -7.5
+      ]
+    },
+    {
+      "type": "spikes",
+      "name": "FirstIsland_Left_03",
+      "position": [
+        -1.5,
+        2.5,
+        -6.5
+      ]
+    },
+    {
+      "type": "spikes",
+      "name": "FirstIsland_Right_01",
+      "position": [
+        1.5,
+        2.5,
+        -7.5
+      ]
+    },
+    {
+      "type": "spikes",
+      "name": "HighLanding_Left_01",
+      "position": [
+        4.2,
+        4.7,
+        -17.0
+      ]
+    },
+    {
+      "type": "spikes",
+      "name": "HighLanding_Left_02",
+      "position": [
+        4.2,
+        4.7,
+        -16.0
+      ]
+    },
+    {
+      "type": "spikes",
+      "name": "HighLanding_Left_03",
+      "position": [
+        4.2,
+        4.7,
+        -15.0
+      ]
+    },
+    {
+      "type": "spikes",
+      "name": "HighLanding_Right_01",
+      "position": [
+        6.2,
+        4.7,
+        -17.0
+      ]
+    },
+    {
+      "type": "spikes",
+      "name": "HighLanding_Right_02",
+      "position": [
+        6.2,
+        4.7,
+        -16.0
+      ]
+    },
+    {
+      "type": "spikes",
+      "name": "HighLanding_Right_03",
+      "position": [
+        6.2,
+        4.7,
+        -15.0
+      ]
+    },
+    {
+      "type": "spikes",
+      "name": "SecondIsland_Left_01",
+      "position": [
+        -1.2,
+        5.5,
+        -28.0
+      ]
+    },
+    {
+      "type": "spikes",
+      "name": "SecondIsland_Left_02",
+      "position": [
+        -1.2,
+        5.5,
+        -27.0
+      ]
+    },
+    {
+      "type": "spikes",
+      "name": "SecondIsland_Left_03",
+      "position": [
+        -1.2,
+        5.5,
+        -26.0
+      ]
+    },
+    {
+      "type": "spikes",
+      "name": "SecondIsland_Right_01",
+      "position": [
+        1,
+        5.5,
+        -28.0
+      ]
+    },
+    {
+      "type": "spikes",
+      "name": "SecondIsland_Right_02",
+      "position": [
+        1,
+        5.5,
+        -27.0
+      ]
+    },
+    {
+      "type": "spikes",
+      "name": "SecondIsland_Right_03",
+      "position": [
+        1,
+        5.5,
+        -26.0
+      ]
+    },
+    {
+      "type": "spikes",
+      "name": "Exit_Left_01",
+      "position": [
+        -5,
+        2.55,
+        -37.5
+      ]
+    },
+    {
+      "type": "spikes",
+      "name": "Exit_Left_02",
+      "position": [
+        -5,
+        2.55,
+        -36.5
+      ]
+    },
+    {
+      "type": "spikes",
+      "name": "Exit_Left_03",
+      "position": [
+        -5,
+        2.55,
+        -35.5
+      ]
+    },
+    {
+      "type": "spikes",
+      "name": "Exit_Left_04",
+      "position": [
+        -5,
+        2.55,
+        -34.5
+      ]
+    },
+    {
+      "type": "spikes",
+      "name": "Exit_Right_01",
+      "position": [
+        -1,
+        2.55,
+        -37.5
+      ]
+    },
+    {
+      "type": "spikes",
+      "name": "Exit_Right_02",
+      "position": [
+        -1,
+        2.55,
+        -36.5
+      ]
+    },
+    {
+      "type": "spikes",
+      "name": "Exit_Right_03",
+      "position": [
+        -1,
+        2.55,
+        -35.5
+      ]
+    },
+    {
+      "type": "spikes",
+      "name": "Exit_Right_04",
+      "position": [
+        -1,
+        2.55,
+        -34.5
+      ]
+    }
+  ]
+}

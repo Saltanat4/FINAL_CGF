@@ -1,0 +1,1067 @@
+{
+  "playerSpawn": [
+    0,
+    0.1,
+    0
+  ],
+  "playerYaw": -90,
+  "name": "Level4",
+  "objects": [
+    {
+      "type": "block",
+      "name": "Floor",
+      "position": [
+        0.0,
+        -0.25,
+        -15.0
+      ],
+      "size": [
+        37.5,
+        0.5,
+        37.5
+      ]
+    },
+    {
+      "type": "block",
+      "name": "Wall_00_00",
+      "position": [
+        0.0,
+        1.6,
+        -32.5
+      ],
+      "size": [
+        37.5,
+        3.2,
+        2.5
+      ]
+    },
+    {
+      "type": "block",
+      "name": "Wall_01_00",
+      "position": [
+        -17.5,
+        1.6,
+        -30.0
+      ],
+      "size": [
+        2.5,
+        3.2,
+        2.5
+      ]
+    },
+    {
+      "type": "block",
+      "name": "Wall_01_12",
+      "position": [
+        12.5,
+        1.6,
+        -30.0
+      ],
+      "size": [
+        2.5,
+        3.2,
+        2.5
+      ]
+    },
+    {
+      "type": "block",
+      "name": "Wall_01_14",
+      "position": [
+        17.5,
+        1.6,
+        -30.0
+      ],
+      "size": [
+        2.5,
+        3.2,
+        2.5
+      ]
+    },
+    {
+      "type": "block",
+      "name": "Wall_02_00",
+      "position": [
+        -17.5,
+        1.6,
+        -27.5
+      ],
+      "size": [
+        2.5,
+        3.2,
+        2.5
+      ]
+    },
+    {
+      "type": "block",
+      "name": "Wall_02_02",
+      "position": [
+        -10.0,
+        1.6,
+        -27.5
+      ],
+      "size": [
+        7.5,
+        3.2,
+        2.5
+      ]
+    },
+    {
+      "type": "block",
+      "name": "Wall_02_08",
+      "position": [
+        5.0,
+        1.6,
+        -27.5
+      ],
+      "size": [
+        7.5,
+        3.2,
+        2.5
+      ]
+    },
+    {
+      "type": "block",
+      "name": "Wall_02_12",
+      "position": [
+        12.5,
+        1.6,
+        -27.5
+      ],
+      "size": [
+        2.5,
+        3.2,
+        2.5
+      ]
+    },
+    {
+      "type": "block",
+      "name": "Wall_02_14",
+      "position": [
+        17.5,
+        1.6,
+        -27.5
+      ],
+      "size": [
+        2.5,
+        3.2,
+        2.5
+      ]
+    },
+    {
+      "type": "block",
+      "name": "Wall_03_00",
+      "position": [
+        -17.5,
+        1.6,
+        -25.0
+      ],
+      "size": [
+        2.5,
+        3.2,
+        2.5
+      ]
+    },
+    {
+      "type": "block",
+      "name": "Wall_03_02",
+      "position": [
+        -12.5,
+        1.6,
+        -25.0
+      ],
+      "size": [
+        2.5,
+        3.2,
+        2.5
+      ]
+    },
+    {
+      "type": "block",
+      "name": "Wall_03_04",
+      "position": [
+        -7.5,
+        1.6,
+        -25.0
+      ],
+      "size": [
+        2.5,
+        3.2,
+        2.5
+      ]
+    },
+    {
+      "type": "block",
+      "name": "Wall_03_10",
+      "position": [
+        7.5,
+        1.6,
+        -25.0
+      ],
+      "size": [
+        2.5,
+        3.2,
+        2.5
+      ]
+    },
+    {
+      "type": "block",
+      "name": "Wall_03_14",
+      "position": [
+        17.5,
+        1.6,
+        -25.0
+      ],
+      "size": [
+        2.5,
+        3.2,
+        2.5
+      ]
+    },
+    {
+      "type": "block",
+      "name": "Wall_04_00",
+      "position": [
+        -17.5,
+        1.6,
+        -22.5
+      ],
+      "size": [
+        2.5,
+        3.2,
+        2.5
+      ]
+    },
+    {
+      "type": "block",
+      "name": "Wall_04_02",
+      "position": [
+        -12.5,
+        1.6,
+        -22.5
+      ],
+      "size": [
+        2.5,
+        3.2,
+        2.5
+      ]
+    },
+    {
+      "type": "block",
+      "name": "Wall_04_04",
+      "position": [
+        -2.5,
+        1.6,
+        -22.5
+      ],
+      "size": [
+        12.5,
+        3.2,
+        2.5
+      ]
+    },
+    {
+      "type": "block",
+      "name": "Wall_04_12",
+      "position": [
+        15.0,
+        1.6,
+        -22.5
+      ],
+      "size": [
+        7.5,
+        3.2,
+        2.5
+      ]
+    },
+    {
+      "type": "block",
+      "name": "Wall_05_00",
+      "position": [
+        -17.5,
+        1.6,
+        -20.0
+      ],
+      "size": [
+        2.5,
+        3.2,
+        2.5
+      ]
+    },
+    {
+      "type": "block",
+      "name": "Wall_05_04",
+      "position": [
+        -7.5,
+        1.6,
+        -20.0
+      ],
+      "size": [
+        2.5,
+        3.2,
+        2.5
+      ]
+    },
+    {
+      "type": "block",
+      "name": "Wall_05_08",
+      "position": [
+        2.5,
+        1.6,
+        -20.0
+      ],
+      "size": [
+        2.5,
+        3.2,
+        2.5
+      ]
+    },
+    {
+      "type": "block",
+      "name": "Wall_05_14",
+      "position": [
+        17.5,
+        1.6,
+        -20.0
+      ],
+      "size": [
+        2.5,
+        3.2,
+        2.5
+      ]
+    },
+    {
+      "type": "block",
+      "name": "Wall_06_00",
+      "position": [
+        -17.5,
+        1.6,
+        -17.5
+      ],
+      "size": [
+        2.5,
+        3.2,
+        2.5
+      ]
+    },
+    {
+      "type": "block",
+      "name": "Wall_06_04",
+      "position": [
+        -5.0,
+        1.6,
+        -17.5
+      ],
+      "size": [
+        7.5,
+        3.2,
+        2.5
+      ]
+    },
+    {
+      "type": "block",
+      "name": "Wall_06_08",
+      "position": [
+        7.5,
+        1.6,
+        -17.5
+      ],
+      "size": [
+        12.5,
+        3.2,
+        2.5
+      ]
+    },
+    {
+      "type": "block",
+      "name": "Wall_06_14",
+      "position": [
+        17.5,
+        1.6,
+        -17.5
+      ],
+      "size": [
+        2.5,
+        3.2,
+        2.5
+      ]
+    },
+    {
+      "type": "block",
+      "name": "Wall_07_00",
+      "position": [
+        -17.5,
+        1.6,
+        -15.0
+      ],
+      "size": [
+        2.5,
+        3.2,
+        2.5
+      ]
+    },
+    {
+      "type": "block",
+      "name": "Wall_07_08",
+      "position": [
+        2.5,
+        1.6,
+        -15.0
+      ],
+      "size": [
+        2.5,
+        3.2,
+        2.5
+      ]
+    },
+    {
+      "type": "block",
+      "name": "Wall_07_14",
+      "position": [
+        17.5,
+        1.6,
+        -15.0
+      ],
+      "size": [
+        2.5,
+        3.2,
+        2.5
+      ]
+    },
+    {
+      "type": "block",
+      "name": "Wall_08_00",
+      "position": [
+        -17.5,
+        1.6,
+        -12.5
+      ],
+      "size": [
+        2.5,
+        3.2,
+        2.5
+      ]
+    },
+    {
+      "type": "block",
+      "name": "Wall_08_02",
+      "position": [
+        -5.0,
+        1.6,
+        -12.5
+      ],
+      "size": [
+        17.5,
+        3.2,
+        2.5
+      ]
+    },
+    {
+      "type": "block",
+      "name": "Wall_08_10",
+      "position": [
+        10.0,
+        1.6,
+        -12.5
+      ],
+      "size": [
+        7.5,
+        3.2,
+        2.5
+      ]
+    },
+    {
+      "type": "block",
+      "name": "Wall_08_14",
+      "position": [
+        17.5,
+        1.6,
+        -12.5
+      ],
+      "size": [
+        2.5,
+        3.2,
+        2.5
+      ]
+    },
+    {
+      "type": "block",
+      "name": "Wall_09_00",
+      "position": [
+        -17.5,
+        1.6,
+        -10.0
+      ],
+      "size": [
+        2.5,
+        3.2,
+        2.5
+      ]
+    },
+    {
+      "type": "block",
+      "name": "Wall_09_02",
+      "position": [
+        -12.5,
+        1.6,
+        -10.0
+      ],
+      "size": [
+        2.5,
+        3.2,
+        2.5
+      ]
+    },
+    {
+      "type": "block",
+      "name": "Wall_09_10",
+      "position": [
+        7.5,
+        1.6,
+        -10.0
+      ],
+      "size": [
+        2.5,
+        3.2,
+        2.5
+      ]
+    },
+    {
+      "type": "block",
+      "name": "Wall_09_12",
+      "position": [
+        12.5,
+        1.6,
+        -10.0
+      ],
+      "size": [
+        2.5,
+        3.2,
+        2.5
+      ]
+    },
+    {
+      "type": "block",
+      "name": "Wall_09_14",
+      "position": [
+        17.5,
+        1.6,
+        -10.0
+      ],
+      "size": [
+        2.5,
+        3.2,
+        2.5
+      ]
+    },
+    {
+      "type": "block",
+      "name": "Wall_10_00",
+      "position": [
+        -15.0,
+        1.6,
+        -7.5
+      ],
+      "size": [
+        7.5,
+        3.2,
+        2.5
+      ]
+    },
+    {
+      "type": "block",
+      "name": "Wall_10_04",
+      "position": [
+        0.0,
+        1.6,
+        -7.5
+      ],
+      "size": [
+        17.5,
+        3.2,
+        2.5
+      ]
+    },
+    {
+      "type": "block",
+      "name": "Wall_10_12",
+      "position": [
+        12.5,
+        1.6,
+        -7.5
+      ],
+      "size": [
+        2.5,
+        3.2,
+        2.5
+      ]
+    },
+    {
+      "type": "block",
+      "name": "Wall_10_14",
+      "position": [
+        17.5,
+        1.6,
+        -7.5
+      ],
+      "size": [
+        2.5,
+        3.2,
+        2.5
+      ]
+    },
+    {
+      "type": "block",
+      "name": "Wall_11_00",
+      "position": [
+        -17.5,
+        1.6,
+        -5.0
+      ],
+      "size": [
+        2.5,
+        3.2,
+        2.5
+      ]
+    },
+    {
+      "type": "block",
+      "name": "Wall_11_04",
+      "position": [
+        -7.5,
+        1.6,
+        -5.0
+      ],
+      "size": [
+        2.5,
+        3.2,
+        2.5
+      ]
+    },
+    {
+      "type": "block",
+      "name": "Wall_11_12",
+      "position": [
+        12.5,
+        1.6,
+        -5.0
+      ],
+      "size": [
+        2.5,
+        3.2,
+        2.5
+      ]
+    },
+    {
+      "type": "block",
+      "name": "Wall_11_14",
+      "position": [
+        17.5,
+        1.6,
+        -5.0
+      ],
+      "size": [
+        2.5,
+        3.2,
+        2.5
+      ]
+    },
+    {
+      "type": "block",
+      "name": "Wall_12_00",
+      "position": [
+        -17.5,
+        1.6,
+        -2.5
+      ],
+      "size": [
+        2.5,
+        3.2,
+        2.5
+      ]
+    },
+    {
+      "type": "block",
+      "name": "Wall_12_02",
+      "position": [
+        -5.0,
+        1.6,
+        -2.5
+      ],
+      "size": [
+        17.5,
+        3.2,
+        2.5
+      ]
+    },
+    {
+      "type": "block",
+      "name": "Wall_12_10",
+      "position": [
+        7.5,
+        1.6,
+        -2.5
+      ],
+      "size": [
+        2.5,
+        3.2,
+        2.5
+      ]
+    },
+    {
+      "type": "block",
+      "name": "Wall_12_12",
+      "position": [
+        12.5,
+        1.6,
+        -2.5
+      ],
+      "size": [
+        2.5,
+        3.2,
+        2.5
+      ]
+    },
+    {
+      "type": "block",
+      "name": "Wall_12_14",
+      "position": [
+        17.5,
+        1.6,
+        -2.5
+      ],
+      "size": [
+        2.5,
+        3.2,
+        2.5
+      ]
+    },
+    {
+      "type": "block",
+      "name": "Wall_13_00",
+      "position": [
+        -17.5,
+        1.6,
+        0.0
+      ],
+      "size": [
+        2.5,
+        3.2,
+        2.5
+      ]
+    },
+    {
+      "type": "block",
+      "name": "Wall_13_08",
+      "position": [
+        2.5,
+        1.6,
+        0.0
+      ],
+      "size": [
+        2.5,
+        3.2,
+        2.5
+      ]
+    },
+    {
+      "type": "block",
+      "name": "Wall_13_10",
+      "position": [
+        7.5,
+        1.6,
+        0.0
+      ],
+      "size": [
+        2.5,
+        3.2,
+        2.5
+      ]
+    },
+    {
+      "type": "block",
+      "name": "Wall_13_14",
+      "position": [
+        17.5,
+        1.6,
+        0.0
+      ],
+      "size": [
+        2.5,
+        3.2,
+        2.5
+      ]
+    },
+    {
+      "type": "block",
+      "name": "Wall_14_00",
+      "position": [
+        0.0,
+        1.6,
+        2.5
+      ],
+      "size": [
+        37.5,
+        3.2,
+        2.5
+      ]
+    },
+    {
+      "type": "block",
+      "name": "SlidingWall_1",
+      "position": [
+        0.0,
+        1.6,
+        -27.5
+      ],
+      "size": [
+        2.5,
+        3.2,
+        0.55
+      ],
+      "behaviors": [
+        {
+          "type": "Mover",
+          "offset": [
+            -5,
+            0,
+            0
+          ],
+          "speed": 1.6,
+          "wait": 2
+        }
+      ]
+    },
+    {
+      "type": "block",
+      "name": "SlidingWall_2",
+      "position": [
+        10.0,
+        1.6,
+        -22.5
+      ],
+      "size": [
+        2.5,
+        3.2,
+        0.55
+      ],
+      "behaviors": [
+        {
+          "type": "Mover",
+          "offset": [
+            -5,
+            0,
+            0
+          ],
+          "speed": 2,
+          "wait": 1.6
+        }
+      ]
+    },
+    {
+      "type": "block",
+      "name": "SlidingWall_3",
+      "position": [
+        -10.0,
+        1.6,
+        -17.5
+      ],
+      "size": [
+        2.5,
+        3.2,
+        0.55
+      ],
+      "behaviors": [
+        {
+          "type": "Mover",
+          "offset": [
+            -5,
+            0,
+            0
+          ],
+          "speed": 2.3,
+          "wait": 1.3
+        }
+      ]
+    },
+    {
+      "type": "key",
+      "name": "Key_01",
+      "position": [
+        -5.0,
+        0.75,
+        -20.0
+      ]
+    },
+    {
+      "type": "key",
+      "name": "Key_02",
+      "position": [
+        -15.0,
+        0.75,
+        -10.0
+      ]
+    },
+    {
+      "type": "key",
+      "name": "Key_03",
+      "position": [
+        15.0,
+        0.75,
+        -30.0
+      ]
+    },
+    {
+      "type": "spikes",
+      "name": "DeadEnd_01_1",
+      "position": [
+        -10.5,
+        0.5,
+        -25.5
+      ]
+    },
+    {
+      "type": "spikes",
+      "name": "DeadEnd_01_2",
+      "position": [
+        -9.5,
+        0.5,
+        -25.5
+      ]
+    },
+    {
+      "type": "spikes",
+      "name": "DeadEnd_01_3",
+      "position": [
+        -10.5,
+        0.5,
+        -24.5
+      ]
+    },
+    {
+      "type": "spikes",
+      "name": "DeadEnd_01_4",
+      "position": [
+        -9.5,
+        0.5,
+        -24.5
+      ]
+    },
+    {
+      "type": "spikes",
+      "name": "DeadEnd_02_1",
+      "position": [
+        -5.5,
+        0.5,
+        -5.5
+      ]
+    },
+    {
+      "type": "spikes",
+      "name": "DeadEnd_02_2",
+      "position": [
+        -4.5,
+        0.5,
+        -5.5
+      ]
+    },
+    {
+      "type": "spikes",
+      "name": "DeadEnd_02_3",
+      "position": [
+        -5.5,
+        0.5,
+        -4.5
+      ]
+    },
+    {
+      "type": "spikes",
+      "name": "DeadEnd_02_4",
+      "position": [
+        -4.5,
+        0.5,
+        -4.5
+      ]
+    },
+    {
+      "type": "spikes",
+      "name": "DeadEnd_03_1",
+      "position": [
+        4.5,
+        0.5,
+        -0.5
+      ]
+    },
+    {
+      "type": "spikes",
+      "name": "DeadEnd_03_2",
+      "position": [
+        5.5,
+        0.5,
+        -0.5
+      ]
+    },
+    {
+      "type": "spikes",
+      "name": "DeadEnd_03_3",
+      "position": [
+        4.5,
+        0.5,
+        0.5
+      ]
+    },
+    {
+      "type": "spikes",
+      "name": "DeadEnd_03_4",
+      "position": [
+        5.5,
+        0.5,
+        0.5
+      ]
+    },
+    {
+      "type": "spikes",
+      "name": "DeadEnd_04_1",
+      "position": [
+        9.5,
+        0.5,
+        -10.5
+      ]
+    },
+    {
+      "type": "spikes",
+      "name": "DeadEnd_04_2",
+      "position": [
+        10.5,
+        0.5,
+        -10.5
+      ]
+    },
+    {
+      "type": "spikes",
+      "name": "DeadEnd_04_3",
+      "position": [
+        9.5,
+        0.5,
+        -9.5
+      ]
+    },
+    {
+      "type": "spikes",
+      "name": "DeadEnd_04_4",
+      "position": [
+        10.5,
+        0.5,
+        -9.5
+      ]
+    },
+    {
+      "type": "door",
+      "name": "Door",
+      "position": [
+        0,
+        1.25,
+        0.95
+      ]
+    }
+  ]
+}

@@ -30,10 +30,30 @@ CharacterStepResult CharacterController::FixedUpdate(
     velocity.x = direction.x * movementSpeed;
     velocity.z = direction.z * movementSpeed;
 
-    if (jumpRequested && grounded)
+    if (grounded && velocity.y <= 0.0f)
+    {
+        coyoteTimer = coyoteTime;
+    }
+    else
+    {
+        coyoteTimer = glm::max(coyoteTimer - deltaTime, 0.0f);
+    }
+
+    if (jumpRequested)
+    {
+        jumpBufferTimer = jumpBufferTime;
+    }
+    else
+    {
+        jumpBufferTimer = glm::max(jumpBufferTimer - deltaTime, 0.0f);
+    }
+
+    if (jumpBufferTimer > 0.0f && (grounded || coyoteTimer > 0.0f))
     {
         velocity.y = jumpSpeed;
         grounded = false;
+        coyoteTimer = 0.0f;
+        jumpBufferTimer = 0.0f;
         result.jumped = true;
     }
 
@@ -97,6 +117,8 @@ void CharacterController::Teleport(const glm::vec3& newCenter)
     capsule.center = newCenter;
     velocity = glm::vec3(0.0f);
     grounded = false;
+    coyoteTimer = 0.0f;
+    jumpBufferTimer = 0.0f;
 }
 
 const CapsuleCollider& CharacterController::GetCapsule() const

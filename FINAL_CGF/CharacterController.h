@@ -47,4 +47,10 @@ private:
     float landingMinSpeed = 3.0f;
 
     bool grounded = false;
+
+    float coyoteTime = 0.2f;
+    float coyoteTimer = 0.0f;
+
+    float jumpBufferTime = 0.1f;
+    float jumpBufferTimer = 0.0f;
 };
