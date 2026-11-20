@@ -10,21 +10,21 @@ struct Material
 
     static Material Default()
     {
-        return Material{ 99.0f, glm::vec3(1, 1, 1) };
+        return Material{ 1.0f, glm::vec3(1, 1, 1) };
     }
 
     static Material Spikes()
     {
-        return Material{ 99.0f, glm::vec3(1.0f, 0.25f, 0.25f) };
+        return Material{ 0.3f, glm::vec3(1.0f, 0.25f, 0.25f) };
     }
 
     static Material Key()
     {
-        return Material{ 99.0f, glm::vec3(1.0f, 0.9f, 0.2f) };
+        return Material{ 10.0f, glm::vec3(1.0f, 0.9f, 0.2f) };
     }
 
     static Material Door()
     {
-        return Material{ 99.0f, glm::vec3(0.3f, 1.0f, 0.45f) };
+        return Material{ 30.0f, glm::vec3(0.3f, 1.0f, 0.45f) };
     }
 };
