@@ -17,13 +17,17 @@ void Renderer::Draw(
     const Camera& camera,
     float aspectRatio,
     const EchoSystem& echo,
-    float time)
+    float time,
+    const RenderSettings& settings)
 {
     glm::mat4 viewProjection =
         camera.GetProjectionMatrix(aspectRatio) *
         camera.GetViewMatrix();
 
     shader.Activate();
+
+    shader.SetInt("uSonarEnabled", settings.sonarEnabled ? 1 : 0);
+    shader.SetVec3("uLightDir", glm::normalize(settings.lightDirection));
 
     glm::vec4 waveA[EchoSystem::kMaxWaves] = {};
     glm::vec4 waveB[EchoSystem::kMaxWaves] = {};

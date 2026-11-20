@@ -155,6 +155,17 @@ namespace
     }
 }
 
+glm::vec3 LightDirection(float yawDegrees, float pitchDegrees)
+{
+    const float y = glm::radians(yawDegrees);
+    const float p = glm::radians(pitchDegrees);
+
+    return glm::normalize(glm::vec3(
+        std::cos(p) * std::cos(y),
+        std::sin(p),
+        std::cos(p) * std::sin(y)));
+}
+
 int main()
 {
     try
@@ -188,6 +199,9 @@ int main()
             GLFW_CURSOR_DISABLED);
 
         glEnable(GL_DEPTH_TEST);
+        glEnable(GL_CULL_FACE);
+        glCullFace(GL_BACK);
+        glFrontFace(GL_CCW);
 
         Hud hud(window.GetHandle());
         AudioSystem audio;
@@ -216,6 +230,31 @@ int main()
         bool jumpPending = false;
 
         bool f11WasDown = false;
+
+        bool sonarEnabled = true;
+        bool tWasDown = false;
+
+        float lightYaw = 30.0f;
+        float lightPitch = -55.0f;
+
+        double fpsTimer = 0.0;
+        int fpsFrames = 0;
+        int fpsValue = 0;
+        float frameMs = 0.0f;
+
+        bool paused = false;
+        bool pWasDown = false;
+
+        bool helpVisible = false;
+        bool f1WasDown = false;
+
+        float gameTime = 0.0f;
+
+        Camera freeCamera;
+        glm::vec3 freePosition(0.0f);
+
+        bool freeCameraActive = false;
+        bool f2WasDown = false;
 
         auto restartLevel = [&]()
             {
@@ -250,6 +289,8 @@ int main()
             float deltaTime = static_cast<float>(
                 currentTime - previousTime);
 
+            const float rawDelta = deltaTime;
+
             previousTime = currentTime;
 
             if (deltaTime > 0.05f)
@@ -279,6 +320,11 @@ int main()
                 camera
             );
 
+            if (freeCameraActive)
+            {
+                moveDirection = glm::vec3(0.0f);
+            }
+
             bool focused =
                 glfwGetWindowAttrib(handle, GLFW_FOCUSED) != 0;
 
@@ -293,15 +339,139 @@ int main()
 
             jumpWasDown = jumpDown;
 
-            if (!focused)
+            if (!focused || paused || freeCameraActive)
             {
                 jumpPending = false;
             }
 
-            physicsAccumulator += deltaTime;
+
+            bool tDown = glfwGetKey(handle, GLFW_KEY_T) == GLFW_PRESS;
+
+            if (tDown && !tWasDown)
+            {
+                sonarEnabled = !sonarEnabled;
+            }
+
+            tWasDown = tDown;
+
+            if (focused)
+            {
+                if (glfwGetKey(handle, GLFW_KEY_LEFT) == GLFW_PRESS)
+                    lightYaw -= 90.0f * deltaTime;
+
+                if (glfwGetKey(handle, GLFW_KEY_RIGHT) == GLFW_PRESS)
+                    lightYaw += 90.0f * deltaTime;
+
+                if (glfwGetKey(handle, GLFW_KEY_UP) == GLFW_PRESS)
+                    lightPitch = glm::min(lightPitch + 60.0f * deltaTime, -10.0f);
+
+                if (glfwGetKey(handle, GLFW_KEY_DOWN) == GLFW_PRESS)
+                    lightPitch = glm::max(lightPitch - 60.0f * deltaTime, -85.0f);
+            }
+
+            fpsFrames++;
+            fpsTimer += rawDelta;
+
+            if (fpsTimer >= 0.5)
+            {
+                fpsValue = static_cast<int>(std::round(fpsFrames / fpsTimer));
+                frameMs = static_cast<float>(1000.0 * fpsTimer / fpsFrames);
+
+                fpsFrames = 0;
+                fpsTimer = 0.0;
+            }
+
+            bool pDown = glfwGetKey(handle, GLFW_KEY_P) == GLFW_PRESS;
+
+            if (pDown && !pWasDown)
+            {
+                paused = !paused;
+            }
+
+            pWasDown = pDown;
+
+            bool f1Down = glfwGetKey(handle, GLFW_KEY_F1) == GLFW_PRESS;
+
+            if (f1Down && !f1WasDown)
+            {
+                helpVisible = !helpVisible;
+            }
+
+            f1WasDown = f1Down;
+
+            if (!paused)
+            {
+                gameTime += deltaTime;
+            }
+
+            if (!focused || paused)
+            {
+                jumpPending = false;
+            }
 
 
-            while (physicsAccumulator >= fixedDeltaTime)
+            if (!paused)
+            {
+                physicsAccumulator += deltaTime;
+            }
+
+            bool f2Down = glfwGetKey(handle, GLFW_KEY_F2) == GLFW_PRESS;
+
+            if (f2Down && !f2WasDown)
+            {
+                freeCameraActive = !freeCameraActive;
+
+                if (freeCameraActive)
+                {
+                    const glm::vec3 f = camera.GetForward();
+
+                    freeCamera.SetRotation(
+                        glm::degrees(std::atan2(f.z, f.x)),
+                        glm::degrees(std::asin(glm::clamp(f.y, -1.0f, 1.0f))));
+
+                    freePosition = player.GetEyePosition();
+                    freeCamera.SetPosition(freePosition);
+                }
+
+                mouse.camera = freeCameraActive ? &freeCamera : &camera;
+                mouse.firstEvent = true;
+            }
+
+            f2WasDown = f2Down;
+
+            if (freeCameraActive && focused)
+            {
+                const glm::vec3 forward = freeCamera.GetForward();
+                const glm::vec3 right = glm::normalize(
+                    glm::cross(forward, glm::vec3(0.0f, 1.0f, 0.0f)));
+
+                glm::vec3 direction(0.0f);
+
+                if (glfwGetKey(handle, GLFW_KEY_W) == GLFW_PRESS) direction += forward;
+                if (glfwGetKey(handle, GLFW_KEY_S) == GLFW_PRESS) direction -= forward;
+                if (glfwGetKey(handle, GLFW_KEY_D) == GLFW_PRESS) direction += right;
+                if (glfwGetKey(handle, GLFW_KEY_A) == GLFW_PRESS) direction -= right;
+
+                if (glfwGetKey(handle, GLFW_KEY_SPACE) == GLFW_PRESS)
+                    direction += glm::vec3(0.0f, 1.0f, 0.0f);
+
+                if (glfwGetKey(handle, GLFW_KEY_LEFT_CONTROL) == GLFW_PRESS)
+                    direction -= glm::vec3(0.0f, 1.0f, 0.0f);
+
+                if (glm::dot(direction, direction) > 0.0f)
+                {
+                    const bool fast =
+                        glfwGetKey(handle, GLFW_KEY_LEFT_SHIFT) == GLFW_PRESS;
+
+                    freePosition +=
+                        glm::normalize(direction) * (fast ? 14.0f : 6.0f) * rawDelta;
+                }
+
+                freeCamera.SetPosition(freePosition);
+            }
+
+
+            while (!paused && physicsAccumulator >= fixedDeltaTime)
             {
                 scene.UpdateBehaviors(
                 gameContext,
@@ -321,7 +491,7 @@ int main()
                     audio,
                     player,
                     step,
-                    static_cast<float>(currentTime)
+                    gameTime
                 );
 
                 DispatchTriggerEvents(
@@ -426,15 +596,46 @@ int main()
                 static_cast<float>(width) /
                 static_cast<float>(height);
 
-            echo.Update(static_cast<float>(currentTime));
+            echo.Update(gameTime);
+
+            RenderSettings settings;
+            settings.sonarEnabled = sonarEnabled;
+            settings.lightDirection = LightDirection(lightYaw, lightPitch);
+
+            const Camera& activeCamera = freeCameraActive ? freeCamera : camera;
 
             renderer.Draw(
                 scene,
-                camera,
+                activeCamera,
                 aspectRatio,
                 echo,
-                static_cast<float>(currentTime)
+                gameTime,
+                settings
             );
+
+
+
+            char fpsText[48];
+            std::snprintf(fpsText, sizeof(fpsText), "FPS: %d  %.1f MS", fpsValue, frameMs);
+
+            std::vector<std::string> status;
+            status.push_back(fpsText);
+            status.push_back(std::string("SONAR: ") + (sonarEnabled ? "ON" : "OFF"));
+
+            if (paused)
+            {
+                status.push_back("PAUSED");
+            }
+
+            if (freeCameraActive)
+            {
+                status.push_back("FREE CAMERA");
+            }
+
+            status.push_back("F1 - HELP");
+
+            hud.SetStatus(std::move(status));
+            hud.SetHelpVisible(helpVisible);
 
             hud.Draw(
                 gameContext.GetKeysCollected(),

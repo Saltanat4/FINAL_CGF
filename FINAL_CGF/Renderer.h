@@ -5,6 +5,12 @@
 #include "shaderClass.h"
 #include "EchoSystem.h"
 
+struct RenderSettings
+{
+    bool sonarEnabled = true;
+    glm::vec3 lightDirection = glm::vec3(-0.4f, -1.0f, -0.3f);
+};
+
 class Renderer
 {
 public:
@@ -19,7 +25,8 @@ public:
         const Camera& camera,
         float aspectRatio,
         const EchoSystem& echo,
-        float time);
+        float time,
+        const RenderSettings& settings);
 
 private:
     Shader shader;

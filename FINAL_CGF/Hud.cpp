@@ -10,6 +10,8 @@
 #include <cstdint>
 #include <cstring>
 #include <string>
+#include <vector>
+#include <cmath>
 
 namespace
 {
@@ -21,10 +23,32 @@ namespace
 
     const Glyph kGlyphs[] =
     {
-        { 'K', { 0b10001, 0b10010, 0b10100, 0b11000, 0b10100, 0b10010, 0b10001 } },
+        { 'A', { 0b01110, 0b10001, 0b10001, 0b11111, 0b10001, 0b10001, 0b10001 } },
+        { 'B', { 0b11110, 0b10001, 0b10001, 0b11110, 0b10001, 0b10001, 0b11110 } },
+        { 'C', { 0b01110, 0b10001, 0b10000, 0b10000, 0b10000, 0b10001, 0b01110 } },
+        { 'D', { 0b11110, 0b10001, 0b10001, 0b10001, 0b10001, 0b10001, 0b11110 } },
         { 'E', { 0b11111, 0b10000, 0b10000, 0b11110, 0b10000, 0b10000, 0b11111 } },
-        { 'Y', { 0b10001, 0b10001, 0b01010, 0b00100, 0b00100, 0b00100, 0b00100 } },
+        { 'F', { 0b11111, 0b10000, 0b10000, 0b11110, 0b10000, 0b10000, 0b10000 } },
+        { 'G', { 0b01110, 0b10001, 0b10000, 0b10111, 0b10001, 0b10001, 0b01111 } },
+        { 'H', { 0b10001, 0b10001, 0b10001, 0b11111, 0b10001, 0b10001, 0b10001 } },
+        { 'I', { 0b01110, 0b00100, 0b00100, 0b00100, 0b00100, 0b00100, 0b01110 } },
+        { 'J', { 0b00111, 0b00010, 0b00010, 0b00010, 0b00010, 0b10010, 0b01100 } },
+        { 'K', { 0b10001, 0b10010, 0b10100, 0b11000, 0b10100, 0b10010, 0b10001 } },
+        { 'L', { 0b10000, 0b10000, 0b10000, 0b10000, 0b10000, 0b10000, 0b11111 } },
+        { 'M', { 0b10001, 0b11011, 0b10101, 0b10101, 0b10001, 0b10001, 0b10001 } },
+        { 'N', { 0b10001, 0b11001, 0b10101, 0b10011, 0b10001, 0b10001, 0b10001 } },
+        { 'O', { 0b01110, 0b10001, 0b10001, 0b10001, 0b10001, 0b10001, 0b01110 } },
+        { 'P', { 0b11110, 0b10001, 0b10001, 0b11110, 0b10000, 0b10000, 0b10000 } },
+        { 'Q', { 0b01110, 0b10001, 0b10001, 0b10001, 0b10101, 0b10010, 0b01101 } },
+        { 'R', { 0b11110, 0b10001, 0b10001, 0b11110, 0b10100, 0b10010, 0b10001 } },
         { 'S', { 0b01111, 0b10000, 0b10000, 0b01110, 0b00001, 0b00001, 0b11110 } },
+        { 'T', { 0b11111, 0b00100, 0b00100, 0b00100, 0b00100, 0b00100, 0b00100 } },
+        { 'U', { 0b10001, 0b10001, 0b10001, 0b10001, 0b10001, 0b10001, 0b01110 } },
+        { 'V', { 0b10001, 0b10001, 0b10001, 0b10001, 0b10001, 0b01010, 0b00100 } },
+        { 'W', { 0b10001, 0b10001, 0b10001, 0b10101, 0b10101, 0b11011, 0b10001 } },
+        { 'X', { 0b10001, 0b10001, 0b01010, 0b00100, 0b01010, 0b10001, 0b10001 } },
+        { 'Y', { 0b10001, 0b10001, 0b01010, 0b00100, 0b00100, 0b00100, 0b00100 } },
+        { 'Z', { 0b11111, 0b00001, 0b00010, 0b00100, 0b01000, 0b10000, 0b11111 } },
         { '0', { 0b01110, 0b10001, 0b10011, 0b10101, 0b11001, 0b10001, 0b01110 } },
         { '1', { 0b00100, 0b01100, 0b00100, 0b00100, 0b00100, 0b00100, 0b01110 } },
         { '2', { 0b01110, 0b10001, 0b00001, 0b00010, 0b00100, 0b01000, 0b11111 } },
@@ -36,6 +60,9 @@ namespace
         { '8', { 0b01110, 0b10001, 0b10001, 0b01110, 0b10001, 0b10001, 0b01110 } },
         { '9', { 0b01110, 0b10001, 0b10001, 0b01111, 0b00001, 0b00010, 0b01100 } },
         { '/', { 0b00001, 0b00001, 0b00010, 0b00100, 0b01000, 0b10000, 0b10000 } },
+        { ':', { 0b00000, 0b00100, 0b00000, 0b00000, 0b00000, 0b00100, 0b00000 } },
+        { '-', { 0b00000, 0b00000, 0b00000, 0b11111, 0b00000, 0b00000, 0b00000 } },
+        { '.', { 0b00000, 0b00000, 0b00000, 0b00000, 0b00000, 0b01100, 0b01100 } },
     };
 
     const char* const kKeySprite[12] =
@@ -223,8 +250,103 @@ void Hud::Draw(int keysCollected, int keysInLevel, int framebufferHeight)
 
             DrawKey(d, ix, iy, p, i < keysCollected);
         }
-    }
 
+        {
+            ImDrawList* d = ImGui::GetForegroundDrawList();
+
+            const float u = static_cast<float>(
+                std::max(2, framebufferHeight / 240));
+
+            const float right = ImGui::GetIO().DisplaySize.x - 6.0f * u;
+            float y = 6.0f * u;
+
+            for (const std::string& line : statusLines)
+            {
+                std::string text = line;
+
+                for (char& ch : text)
+                {
+                    ch = static_cast<char>(
+                        std::toupper(static_cast<unsigned char>(ch)));
+                }
+
+                const float w = TextWidth(text.c_str(), u);
+
+                DrawShadowedText(
+                    d, right - w, y, u, text.c_str(),
+                    IM_COL32(235, 235, 245, 255));
+
+                y += 10.0f * u;
+            }
+        }
+    }
+    if (helpVisible)
+    {
+        static const char* const kHelp[] =
+        {
+            "CONTROLS",
+            "WASD - MOVE",
+            "MOUSE - LOOK",
+            "SPACE - JUMP",
+            "T - SONAR ON/OFF",
+            "ARROWS - ROTATE LIGHT",
+            "P - PAUSE",
+            "F2 - FREE CAMERA",
+            "FREE CAM: SPACE UP",
+            "FREE CAM: CTRL DOWN",
+            "FREE CAM: SHIFT FAST",
+            "F11 - FULLSCREEN",
+            "F1 - HIDE HELP",
+            "ESC - EXIT",
+        };
+
+        constexpr int kLines = sizeof(kHelp) / sizeof(kHelp[0]);
+
+        ImDrawList* d = ImGui::GetForegroundDrawList();
+
+        const float u = static_cast<float>(
+            std::max(2, framebufferHeight / 240));
+
+        float maxWidth = 0.0f;
+
+        for (const char* line : kHelp)
+        {
+            maxWidth = std::max(maxWidth, TextWidth(line, u));
+        }
+
+        const float pad = 4.0f * u;
+        const float w = maxWidth + 2.0f * pad;
+        const float h = 2.0f * pad + kLines * 10.0f * u - 3.0f * u;
+
+        const ImVec2 screen = ImGui::GetIO().DisplaySize;
+        const float x = std::floor((screen.x - w) * 0.5f);
+        const float y = std::floor((screen.y - h) * 0.5f);
+
+        DrawPanel(
+            d, x, y, w, h, u,
+            IM_COL32(120, 200, 255, 255), IM_COL32(10, 10, 20, 240));
+
+        for (int i = 0; i < kLines; ++i)
+        {
+            const ImU32 color = (i == 0)
+                ? IM_COL32(255, 200, 40, 255)
+                : IM_COL32(235, 235, 245, 255);
+
+            DrawShadowedText(
+                d, x + pad, y + pad + i * 10.0f * u, u, kHelp[i], color);
+        }
+    }
     ImGui::Render();
     ImGui_ImplOpenGL3_RenderDrawData(ImGui::GetDrawData());
+}
+
+
+void Hud::SetStatus(std::vector<std::string> lines)
+{
+    statusLines = std::move(lines);
+}
+
+void Hud::SetHelpVisible(bool visible)
+{
+    helpVisible = visible;
 }
